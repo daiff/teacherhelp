@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+    <ImageView
+        android:layout_marginTop="23dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1.5"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/xinxigc"/>
+
+    <ImageView
+        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:src="@drawable/jiaoshi"
+        android:id="@+id/imageView"
+        android:adjustViewBounds="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.9"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/main_footer">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:id="@+id/home_jxrl"
+                style="@style/home_icon_Linerlayout">
+
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/jxrl" />
+
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="教学日历"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_jxdg"
+                style="@style/home_icon_Linerlayout">
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_zhyao"/>
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="教学大纲"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_jxjd"
+                style="@style/home_icon_Linerlayout">
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_jdu"/>
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="教学进度"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_gzzj"
+                style="@style/home_icon_Linerlayout">
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_zjie"/>
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="工作总结"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:id="@+id/home_pscj"
+                style="@style/home_icon_Linerlayout">
+
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_pshicji" />
+
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="平时成绩"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_zcj"
+                style="@style/home_icon_Linerlayout">
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_zchji"/>
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="总成绩"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_sjfx"
+                style="@style/home_icon_Linerlayout">
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_chuangxin"/>
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="试卷分析"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_dg"
+                style="@style/home_icon_Linerlayout">
+                <ImageView
+                    style="@style/home_icon_iamgeview"
+                    android:background="@drawable/icon_shjuan"/>
+                <TextView
+                    style="@style/home_icon_textview"
+                    android:text="大创"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@drawable/item_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/item_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/background"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.example.administrator.teacherhelper.widght.SwipeRefreshLayout
+                android:id="@+id/swipe_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                </android.support.v7.widget.RecyclerView>
+            </com.example.administrator.teacherhelper.widght.SwipeRefreshLayout>
+
+            <LinearLayout
+                android:id="@+id/have_not_data_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/have_not_data_txt"
+                    android:textSize="@dimen/abc_action_bar_content_inset_material" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/have_not_data_id1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/have_not_data_txt1"
+                    android:textSize="@dimen/abc_action_bar_content_inset_material" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">教师助手</string>
+    <string name="logined_member_usernid">logined_member_userid</string>
+    <string name="logined_member_username">logined_member_username</string>
+    <string name="logined_member_password">logined_member_password</string>
+    <string name="logined_member_ischeck">logined_member_ischeck</string>
+    <string name="ip_address">ip_address</string>
+    <string name="login_insertOrg">login_insertOrg</string>
+    <string name="login_insertSite">login_insertSite</string>
+    <string name="login_personId">login_personId</string>
+    <string name="login_userName">login_userName</string>
+    <string name="login_displayName">login_displayName</string>
+    <string name="login_UserName">loginUserName</string>
+    <string name="login_department">login_department</string>
+    <string name="have_not_data_txt">暂无相关数据</string>
+    <string name="have_not_data_txt1">查询有误</string>
+    <string name="get_data_info_fail">获取信息失败</string>
+    <string name="load_more_text">正在加载...</string>
+    <string name="settings">设置</string>
+    <string name="help">帮助</string>
+    <string name="string_help_text">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。\n\n最后点击两次后退按钮，即可返回。</string>
+    <string name="quit">退出</string>
+    <string name="error_title">错误</string>
+
+    <string name="login">登    录</string>
+    <string name="login_error_empty_user">用户名不能为空</string>
+    <string name="login_error_empty_passwd">密码不能为空</string>
+</resources>
