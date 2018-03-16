@@ -42,5 +42,70 @@ public class AccountUtils {
     }
 
 
+    /**
+     * 记录用户中文名
+     */
+
+    public static void setUsername(Context cxt, String userName) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.logined_member_username), userName).commit();
+    }
+    public static String getUsername(Context cxt) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.logined_member_username), "");
+    }
+
+    /**
+     * 记录用户邮箱
+     */
+
+    public static void setEmail(Context cxt, String userName) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.logined_member_email), userName).commit();
+    }
+    public static String getEmail(Context cxt) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.logined_member_email), "");
+    }
+
+    /**
+     * 记录用户邮箱
+     */
+
+    public static void setPhone(Context cxt, String userName) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.logined_member_phone), userName).commit();
+    }
+    public static String getPhone(Context cxt) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.logined_member_phone), "");
+    }
+
+    /**
+     * 记录教师的头衔
+     */
+
+    public static void setTitle(Context cxt, String userName) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.logined_member_title), userName).commit();
+    }
+    public static String getTitle(Context cxt) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.logined_member_title), "");
+    }
+    /**
+     * 记录教师的头衔
+     */
+
+    public static void setid(Context cxt, String userName) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.logined_member_id), userName).commit();
+    }
+    public static String getid(Context cxt) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.logined_member_id), "");
+    }
+
+
 
 }

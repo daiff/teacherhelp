@@ -2,6 +2,9 @@ package com.example.administrator.teacherhelper.view.Activity;
 
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
@@ -87,6 +90,9 @@ public abstract class BaseActivity extends ActionBarActivity {
 	 * 初始化控件
 	 */
 	protected abstract void initView();
+
+
+
 
 }
 

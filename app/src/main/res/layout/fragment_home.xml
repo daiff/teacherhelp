@@ -4,24 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home_background">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
     <ImageView
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
-        android:layout_weight="1.5"
-        android:layout_height="0dp"
+        android:layout_height="30dp"
         android:adjustViewBounds="true"
         android:src="@drawable/xinxigc"/>
 
     <ImageView
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="23dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="40dp"
         android:src="@drawable/jiaoshi"
         android:id="@+id/imageView"
         android:adjustViewBounds="true"/>
@@ -32,8 +30,7 @@
         android:paddingBottom="12dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.9"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/main_footer">
@@ -41,8 +38,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:id="@+id/home_jxrl"
                 style="@style/home_icon_Linerlayout">
@@ -89,8 +85,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:id="@+id/home_pscj"
                 style="@style/home_icon_Linerlayout">
@@ -141,11 +136,11 @@
     <LinearLayout
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_height="match_parent"
         android:background="@drawable/item_bg">
 
         <LinearLayout

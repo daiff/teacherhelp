@@ -10,7 +10,6 @@
         android:background="@color/background"/>
 
     <LinearLayout
-        android:padding="3dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -24,14 +23,12 @@
             android:gravity="center">
             <TextView
                 android:layout_width="25dp"
-                android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_height="25dp"
                 android:background="@drawable/icon_inbox_selecter"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="13dp"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="@drawable/bar_footer_text_color"
                 android:text="课程表"/>
         </LinearLayout>
@@ -43,16 +40,15 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
-            <TextView
+            <ImageView
                 android:layout_width="25dp"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:background="@drawable/icon_manage_selecter"/>
+                android:layout_height="25dp"
+                android:padding="2dp"
+                android:src="@drawable/icon_manage_selecter"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="13dp"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="@drawable/bar_footer_text_color"
                 android:text="管理"/>
         </LinearLayout>
@@ -64,16 +60,15 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
-            <TextView
+            <ImageView
                 android:layout_width="25dp"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:background="@drawable/icon_my_selecter"/>
+                android:layout_height="25dp"
+                android:padding="1dp"
+                android:src="@drawable/icon_my_selecter"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="13dp"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:textColor="@drawable/bar_footer_text_color"
                 android:text="我的"/>
         </LinearLayout>

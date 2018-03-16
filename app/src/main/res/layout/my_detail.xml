@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <LinearLayout
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/my_detial_textview_lft"
+                android:text="账号"/>
+            <TextView
+                android:id="@+id/userid"
+                style="@style/my_detial_textview_right"
+                android:text=""/>
+        </LinearLayout>
+        <View
+            style="@style/View_hen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/my_detial_textview_lft"
+                android:text="用户名"/>
+            <TextView
+                android:id="@+id/username"
+                style="@style/my_detial_textview_right"
+                android:text=""/>
+        </LinearLayout>
+        <View
+            style="@style/View_hen"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/my_detial_textview_lft"
+                android:text="职称"/>
+            <TextView
+                android:id="@+id/title_my"
+                style="@style/my_detial_textview_right"
+                android:text=""/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/View_hen"
+        android:layout_height="12dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/my_detial_textview_lft"
+                android:text="Email"/>
+            <EditText
+                android:background="@null"
+                android:id="@+id/email"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="textEmailAddress"/>
+        </LinearLayout>
+        <View
+            style="@style/View_hen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/my_detial_textview_lft"
+                android:text="电话号码"/>
+            <EditText
+                android:background="@null"
+                android:id="@+id/phone"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="phone"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

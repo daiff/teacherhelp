@@ -3,9 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="@color/main_color"
-    android:paddingRight="12dp"
-    android:paddingLeft="12dp"
-    android:layout_marginBottom="10dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="12dp">
     <RelativeLayout
         android:gravity="center_vertical"
         android:id="@+id/back1"
@@ -16,9 +15,7 @@
             android:id="@+id/back"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:background="@drawable/icon_back"
-            android:layout_gravity="center"
-            />
+            android:background="@drawable/icon_back"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -49,7 +46,6 @@
         <ImageButton
             android:visibility="gone"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
             android:id="@+id/save"
             android:layout_width="22dp"
             android:layout_height="22dp"
