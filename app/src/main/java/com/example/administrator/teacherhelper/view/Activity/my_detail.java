@@ -2,8 +2,6 @@ package com.example.administrator.teacherhelper.view.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -11,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean._User;
+import com.example.administrator.teacherhelper.Bean.person;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 
@@ -20,7 +18,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
-import cn.bmob.v3.socketio.callback.StringCallback;
 
 /**
  * Created by Administrator on 2018/3/13 0013.
@@ -79,7 +76,7 @@ public class my_detail extends Activity {
                         em.equals(AccountUtils.getEmail(my_detail.this))){
                     Toast.makeText(my_detail.this,"没有更改的内容",Toast.LENGTH_SHORT).show();
                 }else {
-                    _User user = new _User();
+                    person user = new person();
                     user.setMobilePhoneNumber(p);
                     user.setEmail(em);
                     user.update(AccountUtils.getid(my_detail.this), new UpdateListener() {

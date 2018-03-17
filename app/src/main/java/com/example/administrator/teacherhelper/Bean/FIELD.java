@@ -3,7 +3,7 @@ package com.example.administrator.teacherhelper.Bean;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by Administrator on 2018/3/14 0014.
+ * Created by Administrator on 2018/3/16 0016.
  */
 
 public class FIELD extends BmobObject {
@@ -44,7 +44,5 @@ public class FIELD extends BmobObject {
     }
 
     private String value;
-
-
 
 }

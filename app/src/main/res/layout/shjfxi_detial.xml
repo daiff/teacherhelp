@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <include layout="@layout/bar_tou"/>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="90-100分:"/>
+            <TextView
+                android:id="@+id/fsh_9"
+                style="@style/list_failure_tab_right"
+                android:text="2人"/>
+            <TextView
+                android:id="@+id/bl_9"
+                style="@style/shjfxi_right_Textview"
+                android:text="4.7%"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/background"/>
+
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="80-89.9分:"/>
+            <TextView
+                android:id="@+id/fsh_8"
+                style="@style/list_failure_tab_right"
+                android:text="副教授"/>
+            <TextView
+                android:id="@+id/bl_8"
+                style="@style/shjfxi_right_Textview"
+                android:text="4.7%"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="70-79.9分:"/>
+            <TextView
+                android:id="@+id/fsh_7"
+                style="@style/list_failure_tab_right"
+                android:text="刘艳青"/>
+            <TextView
+                android:id="@+id/bl_7"
+                style="@style/shjfxi_right_Textview"
+                android:text="4.7%"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/background"/>
+
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="60-69.9分:"/>
+            <TextView
+                android:id="@+id/fsh_6"
+                style="@style/list_failure_tab_right"
+                android:text="副教授"/>
+            <TextView
+                android:id="@+id/bl_6"
+                style="@style/shjfxi_right_Textview"
+                android:text="4.7%"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="0-59.9分:"/>
+            <TextView
+                android:id="@+id/fsh_0"
+                style="@style/list_failure_tab_right"
+                android:text="刘艳青"/>
+            <TextView
+                android:id="@+id/bl_0"
+                style="@style/shjfxi_right_Textview"
+                android:text="4.7%"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/background"/>
+
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="实考人数:"/>
+            <TextView
+                android:id="@+id/total_people"
+                style="@style/list_failure_tab_right"
+                android:text="副教授"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            style="@style/list_failure_tab">
+
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="最高分:"
+                android:id="@+id/textView" />
+
+            <TextView
+                android:id="@+id/high_fen"
+                style="@style/list_failure_tab_right"
+                android:text="刘艳青"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/background"/>
+
+        <LinearLayout
+            style="@style/list_failure_tab">
+            <TextView
+                style="@style/list_failure_tab_left"
+                android:text="最低分:"/>
+            <TextView
+                android:id="@+id/low_fen"
+                style="@style/list_failure_tab_right"
+                android:text="副教授"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:background="@color/white"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/item_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="命题分析"/>
+        </LinearLayout>
+
+    <TextView
+        android:padding="12dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="任何安装了你应用的设备都会在此表中产生一条数据标示该设备。结合Bmob提供的推送功能，可以实现将自定义的消息推送给不同的设备终端。
+_User：主要是针对应用中的用户功能而提供的，对表中的字段进行操作，可以很方便的在应用中实现用户的注册、登录、邮箱验证等功能。
+_Role：主要是针对ACL和角色相关功能而提供的，通过操作该表，可以轻松控制不同角色对不同数据的访问权限。"
+        android:id="@+id/prop_analysis" />
+
+    <LinearLayout
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/item_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学生考试结果"/>
+        </LinearLayout>
+    <TextView
+        android:id="@+id/Test_results"
+        android:padding="12dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="任何安装了你应用的设备都会在此表中产生一条数据标示该设备。结合Bmob提供的推送功能，可以实现将自定义的消息推送给不同的设备终端。
+_User：主要是针对应用中的用户功能而提供的，对表中的字段进行操作，可以很方便的在应用中实现用户的注册、登录、邮箱验证等功能。
+_Role：主要是针对ACL和角色相关功能而提供的，通过操作该表，可以轻松控制不同角色对不同数据的访问权限。"/>
+
+
+
+ <LinearLayout
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/item_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="措施与方法"/>
+        </LinearLayout>
+    <TextView
+        android:id="@+id/Measures"
+        android:padding="12dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="任何安装了你应用的设备都会在此表中产生一条数据标示该设备。结合Bmob提供的推送功能，可以实现将自定义的消息推送给不同的设备终端。
+_User：主要是针对应用中的用户功能而提供的，对表中的字段进行操作，可以很方便的在应"/>
+
+
+
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -17,6 +17,7 @@ import com.example.administrator.teacherhelper.view.Activity.jxdg_Activity;
 import com.example.administrator.teacherhelper.view.Activity.jxjd_Activity;
 import com.example.administrator.teacherhelper.view.Activity.jxrl_Activity;
 import com.example.administrator.teacherhelper.view.Activity.pscj_Activity;
+import com.example.administrator.teacherhelper.view.Activity.shjfx_list;
 import com.example.administrator.teacherhelper.view.Activity.sjfx_Activity;
 import com.example.administrator.teacherhelper.view.Activity.zcj_Activity;
 import com.example.administrator.teacherhelper.widght.SwipeRefreshLayout;
@@ -98,7 +99,7 @@ public class ManageFragment extends Fragment {
                 startActivity(intent5);
                 break;
             case R.id.home_sjfx:
-                Intent intent6 = new Intent(getActivity(),sjfx_Activity.class);
+                Intent intent6 = new Intent(getActivity(),shjfx_list.class);
                 startActivity(intent6);
                 break;
             case R.id.home_dg:

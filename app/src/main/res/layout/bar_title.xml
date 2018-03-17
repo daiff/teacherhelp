@@ -50,6 +50,13 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:background="@drawable/icon_save"/>
+        <ImageButton
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tishi"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/tish"/>
 
     </RelativeLayout>
 

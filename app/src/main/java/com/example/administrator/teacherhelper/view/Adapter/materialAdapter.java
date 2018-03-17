@@ -61,7 +61,6 @@ public class materialAdapter extends BaseAdapter {
         File file = new File("/sdcard/Teacher/"+student.getMaterial().getFilename());
         if (file.exists()){
             down.setVisibility(View.VISIBLE);
-
         }else{
         }
         return view;

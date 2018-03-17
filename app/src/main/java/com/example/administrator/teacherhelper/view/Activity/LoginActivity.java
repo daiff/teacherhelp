@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 
 import com.example.administrator.teacherhelper.AppManager;
-import com.example.administrator.teacherhelper.Bean._User;
+import com.example.administrator.teacherhelper.Bean.person;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
@@ -108,11 +108,11 @@ public class LoginActivity extends BaseActivity {
             public void done(BmobUser bmobUser, BmobException e) {
                 getLoadingDialog().setMessage("正在登录...").dismiss();
                 if(e==null){
-                    BmobQuery<_User> query = new BmobQuery<>();
+                    BmobQuery<person> query = new BmobQuery<>();
                     query.addWhereEqualTo("username", user_num);
-                    query.findObjects(new FindListener<_User>() {
+                    query.findObjects(new FindListener<person>() {
                         @Override
-                        public void done(List<_User> list, BmobException e) {
+                        public void done(List<person> list, BmobException e) {
                             if (e == null) {
                                 AccountUtils.setEmail(LoginActivity.this,list.get(0).getEmail());
                                 AccountUtils.setPhone(LoginActivity.this,list.get(0).getMobilePhoneNumber());
