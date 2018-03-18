@@ -8,6 +8,7 @@
     <string name="logined_member_phone">logined_member_phone</string>
     <string name="logined_member_title">logined_member_title</string>
     <string name="logined_member_id">logined_member_id</string>
+    <string name="logined_member_year">logined_member_year</string>
     <string name="ip_address">ip_address</string>
     <string name="login_insertOrg">login_insertOrg</string>
     <string name="login_insertSite">login_insertSite</string>

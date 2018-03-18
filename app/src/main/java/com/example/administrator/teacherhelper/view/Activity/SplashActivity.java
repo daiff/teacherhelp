@@ -1,6 +1,7 @@
 package com.example.administrator.teacherhelper.view.Activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,7 +15,7 @@ import com.example.administrator.teacherhelper.until.PermissionsChecker;
  * for:权限
  */
 
-public class SplashActivity  extends BaseActivity {
+public class SplashActivity  extends Activity {
 
     private static final int REQUEST_CODE = 0; // 请求码
 
@@ -35,15 +36,7 @@ public class SplashActivity  extends BaseActivity {
         mPermissionsChecker = new PermissionsChecker(this);
     }
 
-    @Override
-    protected void findViewById() {
 
-    }
-
-    @Override
-    protected void initView() {
-
-    }
 
     @Override
     protected void onResume() {

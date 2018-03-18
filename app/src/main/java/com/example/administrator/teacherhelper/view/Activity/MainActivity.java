@@ -1,5 +1,6 @@
 package com.example.administrator.teacherhelper.view.Activity;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import com.example.administrator.teacherhelper.view.Activity.Fragment.ManageFrag
 import com.example.administrator.teacherhelper.view.Activity.Fragment.MyFragment;
 
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener{
     private LinearLayout inbox,manage,my;
     private InboxFragment inboxFragment;
     private MyFragment myFragment;
@@ -30,11 +31,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         fManager = getFragmentManager();
         findViewById();
-        initView();
+
         inbox.performClick(); //模拟一次点击，既进去后选择第一项
     }
 
-    @Override
+
     protected void findViewById() {
         inbox = (LinearLayout)findViewById(R.id.inbox);
         manage = (LinearLayout)findViewById(R.id.manage);
@@ -46,10 +47,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         my.setOnClickListener(this);
     }
 
-    @Override
-    protected void initView() {
 
-    }
+
 
 
     @Override

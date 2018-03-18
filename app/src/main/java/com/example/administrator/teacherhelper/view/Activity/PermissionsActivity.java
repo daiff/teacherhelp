@@ -21,7 +21,7 @@ import com.example.administrator.teacherhelper.until.PermissionsChecker;
  * <p/>
  * Created by wangchenlong on 16/1/26.
  */
-public class PermissionsActivity extends BaseActivity {
+public class PermissionsActivity extends Activity {
 
     public static final int PERMISSIONS_GRANTED = 0; // 权限授权
     public static final int PERMISSIONS_DENIED = 1; // 权限拒绝
@@ -51,16 +51,6 @@ public class PermissionsActivity extends BaseActivity {
 
         mChecker = new PermissionsChecker(this);
         isRequireCheck = true;
-    }
-
-    @Override
-    protected void findViewById() {
-
-    }
-
-    @Override
-    protected void initView() {
-
     }
 
     @Override

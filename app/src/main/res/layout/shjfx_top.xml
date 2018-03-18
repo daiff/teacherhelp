@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color"
+    >
+    <include layout="@layout/bar_title"/>
+    <TextView
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:id="@+id/course"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text=" "
+        android:textColor="@color/white"/>
+    <TextView
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:id="@+id/year_semester"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text=" "
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:id="@+id/kaikeyuan"
+        android:layout_marginBottom="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textColor="@color/white"
+      />
+    <TextView
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/shjfx_classs"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textColor="@color/white"/>
+
+</LinearLayout>

@@ -106,6 +106,19 @@ public class AccountUtils {
         return sharedPreferences.getString(cxt.getString(R.string.logined_member_id), "");
     }
 
+    /**
+     * 记录当前学期
+     */
+
+    public static void setyear(Context cxt, String userName) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.logined_member_year), userName).commit();
+    }
+    public static String getyear(Context cxt) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.logined_member_year), "");
+    }
+
 
 
 }

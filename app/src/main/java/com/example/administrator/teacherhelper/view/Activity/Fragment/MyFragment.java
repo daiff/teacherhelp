@@ -42,8 +42,6 @@ public class MyFragment extends Fragment {
     TextView title;
     @Bind(R.id.add)
     ImageButton add;
-    @Bind(R.id.save)
-    ImageButton save;
     @Bind(R.id.mydetail)
     LinearLayout mydetail;
     @Bind(R.id.downoaddata)

@@ -2,15 +2,24 @@ package com.example.administrator.teacherhelper.view.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.teacherhelper.Bean.FIELD;
+import com.example.administrator.teacherhelper.Bean.TCH_analysis;
 import com.example.administrator.teacherhelper.Bean.jiaoxue;
+import com.example.administrator.teacherhelper.Bean.person;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.Adapter.my_courseAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -19,8 +28,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.QueryListener;
 
 /**
  * Created by Administrator on 2018/3/14 0014.
@@ -41,6 +52,8 @@ public class my_course extends Activity {
     @Bind(R.id.listt)
     ListView listt;
     my_courseAdapter adapter;
+    person person1;
+
 
 
     @Override
@@ -63,7 +76,10 @@ public class my_course extends Activity {
 
     private void getData() {
         BmobQuery<jiaoxue> b = new BmobQuery<>();
-        b.include("teacher,ke,college,system,schoolyear,semester,major,grade,classs,nature");
+        BmobUser user = BmobUser.getCurrentUser();
+        b.addWhereEqualTo("teacher",user);
+        b.addWhereEqualTo("schoolyear", AccountUtils.getyear(my_course.this));
+        b.include("classs,grade,ke,major,nature,college");
         b.findObjects(new FindListener<jiaoxue>() {
             @Override
             public void done(List<jiaoxue> list, BmobException e) {

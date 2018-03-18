@@ -18,7 +18,6 @@ import com.example.administrator.teacherhelper.view.Activity.jxjd_Activity;
 import com.example.administrator.teacherhelper.view.Activity.jxrl_Activity;
 import com.example.administrator.teacherhelper.view.Activity.pscj_Activity;
 import com.example.administrator.teacherhelper.view.Activity.shjfx_list;
-import com.example.administrator.teacherhelper.view.Activity.sjfx_Activity;
 import com.example.administrator.teacherhelper.view.Activity.zcj_Activity;
 import com.example.administrator.teacherhelper.widght.SwipeRefreshLayout;
 

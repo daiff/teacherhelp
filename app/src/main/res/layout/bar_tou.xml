@@ -8,21 +8,21 @@
     android:paddingRight="12dp">
     <include layout="@layout/bar_title"/>
     <TextView
+        android:id="@+id/course"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:text="数据结构（专业必修课）"
-        android:textColor="@color/white"
-        android:textSize="19dp"/>
+        android:textColor="@color/white"/>
     <TextView
-        android:layout_marginTop="5dp"
+        android:id="@+id/year_semester"
+        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:text="2017―2081学年度第一学期"
-        android:textColor="@color/white"
-        android:textSize="19dp"/>
+        android:textColor="@color/white"/>
 
     <LinearLayout
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="1dp"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +33,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/xibie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="系别"
@@ -46,7 +47,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="网络工程"
-                    android:textSize="15dp"
                     android:textColor="@color/white"/>
 
             </LinearLayout>
@@ -57,17 +57,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/zhuanye"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="专业"
                 android:textColor="@color/white"
                 android:textSize="12dp"/>
             <TextView
-                android:id="@+id/failure_time"
+                android:id="@+id/major"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="网络工程"
-                android:textSize="15dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
@@ -77,16 +77,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/banji"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="班级"
                 android:textColor="@color/white"
                 android:textSize="12dp"/>
             <TextView
+                android:id="@+id/grade_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2014级1班"
-                android:textSize="15dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>

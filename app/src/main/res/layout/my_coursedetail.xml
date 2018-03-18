@@ -27,20 +27,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
-                android:text="2018444"/>
+                android:text=" "/>
             <TextView
                 android:id="@+id/schedule"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
-                android:text="schedule"/>
+                android:text=" "/>
             <TextView
                 android:id="@+id/nature"
                 android:textSize="13dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="专业必修课"
+                android:text=" "
                 android:gravity="end|top"/>
         </LinearLayout>
 
@@ -54,14 +54,14 @@
                 android:id="@+id/ban"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="14级网络工程1班"/>
+                android:text=" "/>
             <TextView
                 android:textSize="14dp"
                 android:id="@+id/college"
                 android:gravity="right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="信息工程学院"/>
+                android:text=" "/>
         </LinearLayout>
 
     </LinearLayout>

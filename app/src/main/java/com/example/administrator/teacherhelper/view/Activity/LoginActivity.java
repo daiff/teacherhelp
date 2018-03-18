@@ -1,5 +1,6 @@
 package com.example.administrator.teacherhelper.view.Activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 
 import com.example.administrator.teacherhelper.AppManager;
+import com.example.administrator.teacherhelper.Bean.currentyear;
 import com.example.administrator.teacherhelper.Bean.person;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
@@ -36,7 +38,7 @@ import static com.example.administrator.teacherhelper.R.id.user;
  * Created by Administrator on 2017/12/18.
  */
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends Activity {
     private static final String TAG = "LoginActivity";
     private MySwitchButton mySwitchButton;
     private EditText mUser;
@@ -58,7 +60,6 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    @Override
     protected void findViewById() {
 
         mUser = (EditText)findViewById(user);
@@ -84,7 +85,7 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @Override
+
     protected void initView() {
         if (AccountUtils.getUserid(LoginActivity.this)!=null){
             mUser.setText(AccountUtils.getUserid(LoginActivity.this));
@@ -119,8 +120,17 @@ public class LoginActivity extends BaseActivity {
                                 AccountUtils.setUsername(LoginActivity.this,list.get(0).getDesperation());
                                 AccountUtils.setTitle(LoginActivity.this,list.get(0).getTitle());
                                 AccountUtils.setid(LoginActivity.this,list.get(0).getObjectId());
-                            } else {
+                            } else {}
+                        }
+                    });
+                    BmobQuery<currentyear> currentyearBmobQuery = new BmobQuery<currentyear>();
+                    currentyearBmobQuery.findObjects(new FindListener<currentyear>() {
+                        @Override
+                        public void done(List<currentyear> list, BmobException e) {
+                            if (e == null){
+                                AccountUtils.setyear(LoginActivity.this,list.get(0).getYear().getObjectId());
                             }
+
                         }
                     });
 

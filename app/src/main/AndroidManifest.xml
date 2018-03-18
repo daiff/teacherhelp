@@ -22,7 +22,11 @@
         <activity android:name=".view.Activity.SplashActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".view.Activity.LoginActivity"
@@ -34,11 +38,7 @@
             android:screenOrientation="portrait"
             android:label="主页面"
             android:windowSoftInputMode="adjustPan|stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
@@ -46,7 +46,7 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".view.Activity.dc_Activity" />
-        <activity android:name=".view.Activity.sjfx_Activity" />
+        <activity android:name=".view.Activity.shjfx_detail" />
         <activity android:name=".view.Activity.zcj_Activity" />
         <activity android:name=".view.Activity.pscj_Activity" />
         <activity android:name=".view.Activity.gzzj_Activity" />
@@ -58,6 +58,7 @@
         <activity android:name=".view.Activity.my_course" />
         <activity android:name=".view.my_download" />
         <activity android:name=".view.Activity.shjfx_list" />
+        <activity android:name=".view.Activity.shjfx_adddetail" />
 
         <!--  蒲公英-->
         <meta-data
