@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/honeydew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/value_schoolyear"
+           style="@style/value_button"
+            android:textColor="@drawable/bar_footer_text_color"
+            android:text="学年"/>
+        <View
+            style="@style/value_shuView"/>
+        <TextView
+            android:id="@+id/value_grade"
+           style="@style/value_button"
+            android:textColor="@drawable/bar_footer_text_color"
+            android:text="年级"/>
+        <View
+            style="@style/value_shuView"/>
+        <TextView
+            android:id="@+id/value_major"
+            style="@style/value_button"
+            android:textColor="@drawable/bar_footer_text_color"
+            android:text="专业"/>
+        <View
+            style="@style/value_shuView"/>
+        <TextView
+            android:id="@+id/value_course"
+            style="@style/value_button"
+            android:textColor="@drawable/bar_footer_text_color"
+            android:text="课程"/>
+        <View
+            style="@style/value_shuView"/>
+        <TextView
+            android:id="@+id/value_college"
+            style="@style/value_button"
+            android:textColor="@drawable/bar_footer_text_color"
+            android:text="学院"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/listt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</LinearLayout>

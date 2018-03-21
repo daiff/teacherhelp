@@ -1,5 +1,7 @@
 package com.example.administrator.teacherhelper.Bean;
 
+import java.io.File;
+
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobFile;
 
@@ -8,6 +10,8 @@ import cn.bmob.v3.datatype.BmobFile;
  */
 
 public class MATERIAL extends BmobObject {
+
+
     public BmobFile getMaterial() {
         return material;
     }
@@ -17,4 +21,6 @@ public class MATERIAL extends BmobObject {
     }
 
     private BmobFile material;
+
+
 }

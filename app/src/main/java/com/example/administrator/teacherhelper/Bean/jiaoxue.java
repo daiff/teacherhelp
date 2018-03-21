@@ -27,6 +27,16 @@ public class jiaoxue extends BmobObject {
     }
     private FIELD nature;
 
+    public com.example.administrator.teacherhelper.Bean.book getBook() {
+        return book;
+    }
+
+    public void setBook(com.example.administrator.teacherhelper.Bean.book book) {
+        this.book = book;
+    }
+
+    private book book;
+
 
 
 
@@ -96,4 +106,14 @@ public class jiaoxue extends BmobObject {
     }
 
     private FIELD major;
+
+    public String getPersonnum() {
+        return personnum;
+    }
+
+    public void setPersonnum(String personnum) {
+        this.personnum = personnum;
+    }
+
+    private String personnum;
 }

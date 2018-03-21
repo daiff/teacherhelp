@@ -59,6 +59,16 @@
         <activity android:name=".view.my_download" />
         <activity android:name=".view.Activity.shjfx_list" />
         <activity android:name=".view.Activity.shjfx_adddetail" />
+        <activity android:name=".view.Activity.MaxActivity" />
+        <activity android:name=".view.Activity.max.mx_upload" />
+        <activity android:name=".view.Activity.gzzj_detial" />
+        <activity android:name=".view.Activity.gzzj_add" />
+        <activity android:name=".view.Activity.max.max_teacher" />
+        <activity android:name=".view.Activity.max.max_teacheradd" />
+        <activity android:name=".view.select_Activity.value_select" />
+        <activity android:name=".view.Activity.max.max_value" />
+        <activity android:name=".view.Activity.max.max_valueadd" />
+        <activity android:name=".view.select_Activity.book_select" />
 
         <!--  蒲公英-->
         <meta-data

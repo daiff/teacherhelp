@@ -150,7 +150,7 @@ public class shjfx_adddetail extends Activity {
                         if (e==null){
                             Toast.makeText(shjfx_adddetail.this, "保存成功", Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(shjfx_adddetail.this, "保存失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(shjfx_adddetail.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
 
                     }

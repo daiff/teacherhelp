@@ -87,7 +87,7 @@ public class my_detail extends Activity {
                                 AccountUtils.setPhone(my_detail.this,p);
                                 AccountUtils.setEmail(my_detail.this,em);
                             } else {
-                                Toast.makeText(my_detail.this,"保存失败",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(my_detail.this,e.toString(),Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

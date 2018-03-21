@@ -137,11 +137,16 @@ public class LoginActivity extends Activity {
                     AccountUtils.setUserid(LoginActivity.this,user_num);
                     AccountUtils.setUserPassword(LoginActivity.this,user_password);
                     Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
-                    Intent intent_main = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent_main =null;
+                    if (user_num.equals("maxadmin")){
+                        intent_main = new Intent(LoginActivity.this, MaxActivity.class);
+                    }else{
+                        intent_main = new Intent(LoginActivity.this, MainActivity.class);
+                    }
                     startActivity(intent_main);
                     finish();
                 }else{
-                    Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,e.getMessage().toString(),Toast.LENGTH_SHORT).show();
 
                 }
             }

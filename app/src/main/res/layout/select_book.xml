@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:gravity="center_vertical">
+    <RelativeLayout
+        android:id="@+id/jxrl_image"
+        android:paddingRight="15dp"
+        android:paddingLeft="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/book"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/jxrl_image">
+        <TextView
+            android:id="@+id/bookname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_deep"
+            android:hint=""/>
+        <TextView
+            android:id="@+id/bookbianzhu"
+            android:layout_toRightOf="@+id/bookname"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_deep"
+            android:hint="" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/jxrl_image"
+        android:layout_below="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="13dp"
+            android:id="@+id/bookchuban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_deep"
+            android:hint=""/>
+        <TextView
+            android:textSize="13dp"
+            android:layout_toRightOf="@+id/bookchuban"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_deep"
+            android:hint="" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

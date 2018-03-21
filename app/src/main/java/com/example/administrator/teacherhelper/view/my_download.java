@@ -76,11 +76,13 @@ public class my_download extends Activity {
     }
 
     private void getData() {
+
         BmobQuery<MATERIAL> bmobQuery= new BmobQuery<>();
         bmobQuery.findObjects(new FindListener<MATERIAL>() {
             @Override
             public void done(final List<MATERIAL> list, BmobException e) {
                 if (e == null) {
+                    if (list.size()!=0){
                     adapter=new materialAdapter(list,my_download.this);
                     listt.setAdapter(adapter);
 
@@ -122,8 +124,11 @@ public class my_download extends Activity {
                                     .show();
                         }
                     });
+                    }else {
+                        Toast.makeText(my_download.this, "没有下载的文件列表", Toast.LENGTH_LONG).show();
+                    }
                 } else {
-                    Toast.makeText(my_download.this, "no", Toast.LENGTH_LONG).show();
+                    Toast.makeText(my_download.this, e.toString(), Toast.LENGTH_LONG).show();
                 }
             }
         });

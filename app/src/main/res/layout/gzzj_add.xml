@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/gzzj_top"/>
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_weight="0.7"
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/list_failure_tab_left"
+                            android:text="学生人数:"/>
+                        <EditText
+                            style="@style/shjfx_add_righttextview"
+                            android:id="@+id/gzzj_personnum"
+                            android:hint="人数"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/background"/>
+
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/list_failure_tab_left"
+                            android:text="理论学时/实践学时"/>
+                        <EditText
+                            android:layout_weight="0.7"
+                            style="@style/shjfx_add_righttextview"
+                            android:id="@+id/gzzj_hour"
+                            android:hint="比例"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                style="@style/View_hen"/>
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    style="@style/list_failure_tab">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        style="@style/list_failure_tab_left"
+                        android:text="教材:"/>
+                    <EditText
+                        style="@style/shjfx_add_righttextview"
+                        android:id="@+id/gzzj_book"
+                        android:text=""/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                style="@style/gzjj_sun_bar_textview"
+                android:text="教学一般情况"/>
+
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+                <LinearLayout
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/one"/>
+                    <TextView
+                        android:lineSpacingExtra="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="教学工作开展的情况，针对本课程的教学内容和学生的学习态度在保证教学质量方面采取了哪些措施（教学方法及手段的改革）"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <EditText
+                    android:background="@null"
+                    android:id="@+id/gzzj_kaizhan"
+                    style="@style/gzjj_detail_textview"
+                    android:text=""/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+
+                <LinearLayout
+
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/two"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="教学工作的基本完成情况"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <EditText
+                    android:background="@null"
+                    android:id="@+id/gzzj_wanch"
+                    style="@style/gzjj_detail_textview"
+                    android:text=""/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+                <LinearLayout
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/three"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="教师批改作业、实验报告的实际比例和情况"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <EditText
+                    android:background="@null"
+                    android:id="@+id/gzzj_pigai"
+                    style="@style/gzjj_detail_textview"
+                    android:text=""/>
+            </LinearLayout>
+            <TextView
+                style="@style/gzjj_sun_bar_textview"
+                android:text="学生学习情况"/>
+            <EditText
+                android:textSize="13dp"
+                android:padding="12dp"
+                android:layout_marginTop="0.5dp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/gzzj_xueshxx" />
+
+            <TextView
+                style="@style/gzjj_sun_bar_textview"
+                android:text="本课程平时成绩、考试（查）和期末试卷分析的情况"/>
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+
+                <LinearLayout
+
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/one"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="平时成绩评定的依据"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <EditText
+                    android:background="@null"
+                    android:id="@+id/gzzj_pschj"
+                    style="@style/gzjj_detail_textview"
+                    android:text=""/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+
+                <LinearLayout
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/two"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="有关操作技能考核的安排和执行情况"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <EditText
+                    android:background="@null"
+                    android:id="@+id/gzzj_czjn"
+                    style="@style/gzjj_detail_textview"
+                    android:text=""/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+                <LinearLayout
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/three"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="期末考试试卷总体情况分析"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/shjfxi_add_lefttext"
+                            android:text="实际参加人数:"/>
+                        <EditText
+                            android:id="@+id/gzzj_shj"
+                            style="@style/shjfx_add_righttextview"
+                            android:text=""/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/background"/>
+
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/shjfxi_add_lefttext"
+                            android:text="平均分"/>
+                        <EditText
+                            android:id="@+id/gzzj_pjfen"
+                            style="@style/shjfx_add_righttextview"
+                            android:text=""/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_height="0.5dp"
+                    style="@style/View_hen"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/shjfxi_add_lefttext"
+                            android:text="最高分:"/>
+                        <EditText
+                            android:id="@+id/gzzj_high"
+                            style="@style/shjfx_add_righttextview"
+                            android:text=""/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/background"/>
+
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/shjfxi_add_lefttext"
+                            android:text="最低分"/>
+                        <EditText
+                            android:id="@+id/gzzj_low"
+                            style="@style/shjfx_add_righttextview"
+                            android:text=""/>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_height="0.5dp"
+                    style="@style/View_hen"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/shjfxi_add_lefttext"
+                            android:text="不及格人数:"/>
+                        <EditText
+                            android:id="@+id/gzzj_bjg"
+                            style="@style/shjfx_add_righttextview"
+                            android:text=""/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/background"/>
+
+                    <LinearLayout
+                        style="@style/list_failure_tab">
+                        <TextView
+                            style="@style/shjfxi_add_lefttext"
+                            android:text="不及格率"/>
+                        <EditText
+                            android:id="@+id/gzzj_blbjg"
+                            style="@style/shjfx_add_righttextview"
+                            android:text=""/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/main_footer"
+                style="@style/gzjj_detail_Linerlayout">
+
+                <LinearLayout
+                    style="@style/bar_Linerlayout">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/four"/>
+                    <TextView
+                        android:lineSpacingExtra="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="考试主要失分章节或者题目及具体的原因分析（与教学安排、教材、教学大纲、理论课、实验课的授课质量、学生知识水平、综合素质、学习态度、学习方法和纪律等方面的关系）"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    style="@style/View_hen"/>
+                <EditText
+                    android:background="@null"
+                    android:id="@+id/gzzj_shifen"
+                    style="@style/gzjj_detail_textview"
+                    android:text=""/>
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/gzjj_sun_bar_textview"
+                android:text="本课程教学与考核等方面存在的问题和今后改进工作的具体措施"/>
+            <EditText
+                android:textSize="13dp"
+                android:padding="12dp"
+                android:layout_marginTop="0.5dp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  "
+                android:id="@+id/gzzj_problem" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

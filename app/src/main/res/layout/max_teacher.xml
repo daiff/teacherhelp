@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/gzzj_left"/>
+            android:src="@drawable/icon_my"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -29,21 +29,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_deep"
-            android:hint="c语言"/>
+            android:hint=" "/>
+        <TextView
+            android:id="@+id/my_class"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@+id/gzzj_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_deep"
+            android:hint=" "/>
         <TextView
             android:layout_alignParentEnd="true"
             android:id="@+id/gzzj_nature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_deep"
-            android:hint="课程性质"/>
+            android:hint=" "/>
         <TextView
             android:layout_below="@+id/gzzj_course"
-            android:id="@+id/gzzj_class"
+            android:id="@+id/email"
             android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp"
-            android:hint="2016级网络工程1班"/>
+            android:hint=" "/>
+        <TextView
+            android:id="@+id/phone"
+            android:layout_below="@+id/gzzj_course"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:hint=" "/>
     </RelativeLayout>
 </RelativeLayout>

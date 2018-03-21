@@ -65,4 +65,6 @@ public class my_courseAdapter extends BaseAdapter {
         return view;
     }
 
+
+
 }

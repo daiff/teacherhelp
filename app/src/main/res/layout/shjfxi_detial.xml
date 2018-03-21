@@ -25,7 +25,7 @@
             <TextView
                 android:id="@+id/fsh_9"
                 style="@style/list_failure_tab_right"
-                android:text=" "/>
+                android:text=""/>
             <TextView
                 android:id="@+id/bl_9"
                 style="@style/shjfxi_right_Textview"
@@ -68,7 +68,7 @@
             <TextView
                 android:id="@+id/fsh_7"
                 style="@style/list_failure_tab_right"
-                android:text=" "/>
+                android:text=""/>
             <TextView
                 android:id="@+id/bl_7"
                 style="@style/shjfxi_right_Textview"
@@ -111,7 +111,7 @@
             <TextView
                 android:id="@+id/fsh_0"
                 style="@style/list_failure_tab_right"
-                android:text=" "/>
+                android:text=""/>
             <TextView
                 android:id="@+id/bl_0"
                 style="@style/shjfxi_right_Textview"
@@ -131,7 +131,7 @@
             <TextView
                 android:id="@+id/total_people"
                 style="@style/list_failure_tab_right"
-                android:text=" "/>
+                android:text=""/>
         </LinearLayout>
     </LinearLayout>
         <View
@@ -153,7 +153,7 @@
             <TextView
                 android:id="@+id/high_fen"
                 style="@style/list_failure_tab_right"
-                android:text=" "/>
+                android:text=""/>
         </LinearLayout>
 
         <View
@@ -169,7 +169,7 @@
             <TextView
                 android:id="@+id/low_fen"
                 style="@style/list_failure_tab_right"
-                android:text=" "/>
+                android:text=""/>
         </LinearLayout>
     </LinearLayout>
 
@@ -202,7 +202,7 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" "
+        android:text=""
         android:id="@+id/prop_analysis" />
 
     </LinearLayout>

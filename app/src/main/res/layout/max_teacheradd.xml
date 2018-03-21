@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title" />
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+           style="@style/my_add_leftTextView"
+            android:text="登录id:"/>
+        <EditText
+            android:id="@+id/myadd_id"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+           style="@style/my_add_leftTextView"
+            android:text="密   码:"/>
+        <EditText
+            android:id="@+id/myadd_password"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="姓   名:"/>
+        <EditText
+            android:inputType="textPersonName"
+            android:id="@+id/myadd_username"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="职   称:"/>
+        <EditText
+            android:id="@+id/myadd_title"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="学   院:"/>
+        <TextView
+            android:id="@+id/myadd_major"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/myadd_selectmajor"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="phone:"/>
+        <EditText
+            android:phoneNumber="true"
+            android:id="@+id/myadd_phone"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text=" e-mail:"/>
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/myadd_email"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+</LinearLayout>

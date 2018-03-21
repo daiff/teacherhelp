@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/upload_path"
+            android:padding="5dp"
+            android:background="@drawable/main_footer"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text=""/>
+        <ImageView
+            android:id="@+id/upload_file"
+            android:padding="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/download_file"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/upload"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/item_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上传文件"/>
+
+
+</LinearLayout>

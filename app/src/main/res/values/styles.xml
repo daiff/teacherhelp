@@ -21,6 +21,17 @@
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/background</item>
     </style>
+    <style name="bar_Linerlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     <!--我的自我介绍栏linerlayout-->
     <style name="my_linerlayout">
         <item name="android:layout_marginTop">20dp</item>
@@ -150,6 +161,7 @@
         <item name="android:textSize">13dp</item>
         <item name="android:layout_marginLeft">5dp</item>
     </style>
+
     <style name="shjfx_add_righttextview">
         <item name="android:background">@null</item>
         <item name="android:layout_width">0dp</item>
@@ -158,12 +170,95 @@
         <item name="android:textSize">13dp</item>
         <item name="android:gravity">right</item>
     </style>
+
     <style name="shjfxi_add_lefttext">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:textSize">13dp</item>
     </style>
+    ////////////////////////////////////////////////////////////////////////////////////////////////工作总结
+    <style name="gzjj_sun_bar_textview">
+        <item name="android:background">@color/main_color</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="gzjj_detail_Linerlayout">
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="gzjj_detail_textview">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="gzjj_detail_addEditex">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+    ///////////////////////////////////////////////////////////////////////////////////////////////管理员我的
+    <style name="my_add_leftTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+    </style>
+
+    <style name="my_add_Linerlayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="my_add_rightEdittext">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/main_footer</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    /////////////////////////////////////////////////////////////////////////////////////////////////管理员域值
+    <style name="value_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="value_shuView">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:background">@color/background</item>
+        <item name="android:layout_marginTop">3dp</item>
+
+    </style>
+
+
+
+
 
 
 

@@ -3,10 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/main_color"
-    android:paddingLeft="12dp"
-    android:paddingRight="12dp">
+    android:background="@color/main_color">
     <include layout="@layout/bar_title"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
     <TextView
         android:id="@+id/course"
         android:layout_width="match_parent"
@@ -90,5 +94,6 @@
                 android:text="2014级1班"
                 android:textColor="@color/white"/>
         </LinearLayout>
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,22 +60,24 @@ public class shjfx_list extends Activity {
     ImageButton add;
     @Bind(R.id.listt)
     ListView listt;
-    shjfxAdapter adapter;
-    TCH_analysis tch_analysis;
-    List<TCH_analysis> arrayList = new ArrayList<TCH_analysis>();
-    List<jiaoxue> tan = new ArrayList<jiaoxue>();
     @Bind(R.id.right_button)
     RelativeLayout rightButton;
+
+    shjfxAdapter adapter;
+
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
-    List<jiaoxue> jiaoxue = new ArrayList<jiaoxue>();
-    jiaoxue teach ;
+
+    List<jiaoxue> mycourse;
+    List<TCH_analysis> allworksum;
+    List<jiaoxue> nothave = new ArrayList<>();
+    List<TCH_analysis> have = new ArrayList<>();
+
     protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this);
-        return mLoadingDialog;
-    }
+        return mLoadingDialog;}
 
 
     @Override
@@ -86,35 +89,99 @@ public class shjfx_list extends Activity {
         init();
         data();
     }
+    private void init() {
+        title.setText("试卷分析列表");
+        add.setVisibility(View.VISIBLE);
+    }
 
-    private void data() {
+    private  void data(){
+        mycourse = new ArrayList<>();
+        allworksum = new ArrayList<>();
+        nothave = new ArrayList<>();
+        have = new ArrayList<>();
+        getLoadingDialog().show();
+        BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
+        jiaoxueBmobQuery.addWhereEqualTo("teacher",BmobUser.getCurrentUser());
+        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(shjfx_list.this));
+        jiaoxueBmobQuery.include("classs,grade,ke,major,nature,college,teacher.xi,schoolyear,personnum,kaikeyuan,book");
+        jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
+            @Override
+            public void done(List<jiaoxue> list, BmobException e) {
+                if (e==null){
+                    if (list.size() == 0){
+                        getLoadingDialog().dismiss();
+                        Toast.makeText(shjfx_list.this, "本学期您没有课程", Toast.LENGTH_SHORT).show();
+                    }else{
+                        mycourse = list;
+                        getWorkSum();
+                    }
+                }else {
+                    getLoadingDialog().dismiss();
+                    Toast.makeText(shjfx_list.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+    private void getWorkSum(){
+        allworksum = new ArrayList<>();
         BmobQuery<TCH_analysis> bmobQuery = new BmobQuery<>();
-        jiaoxue j = new jiaoxue();
-        bmobQuery.include("jiaoxue.ke,jiaoxue.classs,jiaoxue.grade,jiaoxue.major");
+        bmobQuery.include("jiaoxue.ke,jiaoxue.classs,jiaoxue.grade,jiaoxue.major," +
+                "jiaoxue.college,jiaoxue.schoolyear,jiaoxue.nature,jiaoxue.kaikeyuan,jiaoxue.book");
         bmobQuery.findObjects(new FindListener<TCH_analysis>() {
             @Override
             public void done(final List<TCH_analysis> list, BmobException e) {
-                arrayList = list;
-                adapter = new shjfxAdapter(list, shjfx_list.this);
-                listt.setAdapter(adapter);
-                listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        tch_analysis = list.get(position);
-                        Intent intent = new Intent(shjfx_list.this, shjfx_detail.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("tch_analysis", tch_analysis);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                    }
-                });
+                if (e==null){
+                    allworksum = list;
+                    gethave();
+                }else {
+                    getLoadingDialog().dismiss();
+                    Toast.makeText(shjfx_list.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    private void init() {
-        title.setText("试卷分析列表");
-        add.setVisibility(View.VISIBLE);
+    private void gethave() {
+        for (int i = 0; i < mycourse.size(); i++) {
+            for (int j = 0; j < allworksum.size(); j++) {
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId())) {
+                    have.add(allworksum.get(j));
+                }
+            }
+        }
+        getnohave();
+        showData();
+    }
+    private void getnohave(){
+        int i = 0, j = 0;
+        for ( i = 0; i < mycourse.size(); ++i) {
+            for ( j = 0; j < allworksum.size(); ++j)
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId()) )
+                    break;
+            if (j == allworksum.size())
+                nothave.add(mycourse.get(i));
+        }
+    }
+
+    //    显示已填写的工作总结
+    private void showData() {
+        getLoadingDialog().dismiss();
+        if (have.size()==0){
+            Toast.makeText(this, "没有任何已填写的工作总结表", Toast.LENGTH_SHORT).show();
+        }else {
+            adapter = new shjfxAdapter(have, shjfx_list.this);
+            listt.setAdapter(adapter);
+            listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(shjfx_list.this, gzzj_detial.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("tch_worksum", have.get(position));
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     @OnClick({R.id.back1, R.id.right_button})
@@ -124,86 +191,30 @@ public class shjfx_list extends Activity {
                 finish();
                 break;
             case R.id.right_button:
-                getLoadingDialog().setMessage("").show();
-                selectdata();
+                if (nothave.size()==0){
+                    Toast.makeText(this, "本学期的工作总结已全部填写", Toast.LENGTH_SHORT).show();
+                }else {
+                    ShowDialog();
+                }
                 break;
         }
     }
-
-    private void selectdata() {
-        BmobQuery<jiaoxue> jiaoxueBmobQuery = new BmobQuery<>();
-        jiaoxueBmobQuery.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
-        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(shjfx_list.this));
-        jiaoxueBmobQuery.include("ke,classs,grade,kaikeyuan,major,nature,schoolyear");
-        jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
-            @Override
-            public void done(List<jiaoxue> list, BmobException e) {
-            if (e == null){
-                {
-                    jiaoxue = list;
-//        jiaoxueBmobQuery.groupby(new String[]{"ke"});
-//        jiaoxueBmobQuery.include("ke");
-//        jiaoxueBmobQuery.findStatistics(jiaoxue.class, new QueryListener<JSONArray>() {
-//            @Override
-//            public void done(JSONArray jsonArray, BmobException e) {
-//              if (e==null){
-//                  FIELD jiao = null;
-//                  for (int i=0;i<jsonArray.length();i++){
-//                     jiao = new FIELD();
-//                      try {
-//                          JSONObject jsonobject = jsonArray.getJSONObject(i).getJSONObject("ke");
-//                          jiao.setDespration(jsonobject.getString("despration"));
-//                          jiao.setCourse_code(jsonobject.getString("course_code"));
-//                          jiao.setCredit(jsonobject.getString("credit"));
-//                          jiao.setValue(jsonobject.getString("value"));
-//                          jiao.setObjectId(jsonobject.getString("objectId"));
-//                      } catch (JSONException e1) {
-//                          e1.printStackTrace();
-//                      }
-//                      liatjiao.add(jiao);
-                  }
-              } else{ }
-                //比较有没有相同的课
-                for (int i=0;i<jiaoxue.size();i++){
-                    for (int j=0;j<arrayList.size();j++){
-                        if (!(jiaoxue.get(i).getObjectId().equals(arrayList.get(j).getJiaoxue().getObjectId()))){
-//                                没有填写的加进去
-                            tan.add(jiaoxue.get(i));
-                        }
-                    }
-                }
-                if (tan.size() !=0){
-                    getLoadingDialog().setMessage("").dismiss();
-                    ShowDialog();
-                }else {
-                    getLoadingDialog().setMessage("").dismiss();
-                    Toast.makeText(shjfx_list.this, "没有要填写的内容", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-
-}
-
-
-
     public void ShowDialog() {
         Context context = shjfx_list.this;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.formcommonlist, null);
         ListView myListView = (ListView) layout.findViewById(R.id.formcustomspinner_list);
-        jiaoxueAdapter adapter = new jiaoxueAdapter(tan, shjfx_list.this);
+        jiaoxueAdapter adapter = new jiaoxueAdapter(nothave, shjfx_list.this);
         myListView.setAdapter(adapter);
-
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int positon, long id) {
                 Intent intent = new Intent(shjfx_list.this, shjfx_adddetail.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("ke",tan.get(positon) );
+                bundle.putSerializable("ke",nothave.get(positon) );
                 intent.putExtras(bundle);
                 startActivity(intent);
+                alertDialog.dismiss();
             }
         });
         builder = new AlertDialog.Builder(context);
@@ -211,18 +222,11 @@ public class shjfx_list extends Activity {
         alertDialog = builder.create();
         alertDialog.show();
     }
-
-
-
     //    自定义适配器
     class jiaoxueAdapter extends BaseAdapter {
-
         private List<jiaoxue> stuList;
         private LayoutInflater inflater;
-
-        public jiaoxueAdapter() {
-        }
-
+        public jiaoxueAdapter() {}
         public jiaoxueAdapter(List<jiaoxue> stuList, Context context) {
             this.stuList = stuList;
             this.inflater = LayoutInflater.from(context);
@@ -243,7 +247,6 @@ public class shjfx_list extends Activity {
             return position;
         }
 
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             //加载布局为一个视图
@@ -251,11 +254,16 @@ public class shjfx_list extends Activity {
             jiaoxue student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-
             course_code.setText(student.getKe().getDespration()+ "  " + student.getGrade().getDespration() + "级" +student.getMajor().getDespration()+student.getClasss().getDespration() + " 班");
             return view;
         }
-
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        data();
+    }
+
 
 }

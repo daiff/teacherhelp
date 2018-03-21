@@ -100,11 +100,11 @@ public class MyFragment extends Fragment {
                 BmobUser.resetPasswordByEmail(email, new UpdateListener() {
                     @Override
                     public void done(BmobException e) {
-                        getLoadingDialog().setMessage("...").dismiss();
+                        getLoadingDialog().setMessage("").dismiss();
                         if (e==null){
                             Toast.makeText(getActivity(),"您会收到一封邮件，请到邮箱查看",Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(getActivity(),"修改失败",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

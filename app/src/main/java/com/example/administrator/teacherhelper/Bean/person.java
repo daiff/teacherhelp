@@ -30,4 +30,14 @@ public class person extends BmobUser {
 
     private String desperation;
     private String title;
+
+    public FIELD getXi() {
+        return xi;
+    }
+
+    public void setXi(FIELD xi) {
+        this.xi = xi;
+    }
+
+    private FIELD xi;
 }
