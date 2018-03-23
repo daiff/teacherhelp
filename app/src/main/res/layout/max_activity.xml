@@ -1,143 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="55dp"
-    android:paddingRight="55dp"
-    android:paddingBottom="15dp"
-    android:paddingTop="30dp">
+    android:paddingTop="20dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
     <LinearLayout
-        android:paddingRight="20dp"
+        android:paddingLeft="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:id="@+id/current_schoolyear"
+        style="@style/my_add_rightEdittext" />
+        <ImageView
+            android:id="@+id/max_selectyear"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
-            android:id="@+id/max_teacher"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:id="@+id/max_value"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_gzjh"/>
+                style="@style/max_image"
+                android:src="@drawable/icon_jxrl"/>
             <TextView
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="教师信息"
-                android:textSize="15dp"/>
-
+                android:textSize="13dp"
+                android:text="基础信息"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/max_teach"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:id="@+id/max_teacher"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
+                style="@style/max_image"
+                android:src="@drawable/icon_gzjh"/>
+            <TextView
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_jxjd" />
+                android:textSize="13dp"
+                android:text="教师"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/max_class"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/max_image"
+                android:src="@drawable/icon_ban"
+                android:id="@+id/imageView2" />
 
             <TextView
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="教学信息"
-                android:textSize="15dp" />
+                android:textSize="13dp"
+                android:text="班级"/>
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/max_student"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                style="@style/max_image"
+                android:src="@drawable/icon_sxjd"/>
+            <TextView
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:text="学生"/>
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/max_teach"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                style="@style/max_image"
+                android:src="@drawable/icon_jxjd"/>
+            <TextView
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:text="教学"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/max_current"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_sxjd"/>
+                style="@style/max_image"
+                android:src="@drawable/icon_book"/>
             <TextView
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="当前学年"
-                android:textSize="15dp"/>
-
+                android:textSize="13dp"
+                android:text="教材"/>
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:paddingLeft="20dp"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/max_value"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_jxrl"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="录入域值"
-                android:textSize="15dp"/>
-
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/max_field"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_jxdg" />
+                style="@style/max_image"
+                android:src="@drawable/icon_cailiao"/>
             <TextView
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="上传教学资料"
-                android:textSize="15dp"/>
-
-
-
+                android:textSize="13dp"
+                android:text="上传教学材料"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/max_max"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_dc"/>
+                style="@style/max_image"
+                android:src="@drawable/icon_ke"/>
             <TextView
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="大创"
-                android:textSize="15dp"/>
-
+                android:textSize="13dp"
+                android:text="课程表"/>
         </LinearLayout>
-    </LinearLayout>
 
-</LinearLayout>
+
+
+
+
+    </LinearLayout>
+    </LinearLayout>

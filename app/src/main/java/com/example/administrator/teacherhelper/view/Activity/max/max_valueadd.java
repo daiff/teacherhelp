@@ -57,7 +57,7 @@ public class max_valueadd extends Activity {
     LinearLayout valueOne;
     @Bind(R.id.value_two)
     LinearLayout valueTwo;
-    private String valuee;
+    private String valuee = "major";
 
     protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {

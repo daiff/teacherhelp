@@ -96,7 +96,7 @@ public class shjfx_detail extends Activity {
                 tch_analysis.getJiaoxue().getNature().getDespration() + ")");
         yearSemester.setText(tch_analysis.getJiaoxue().getSchoolyear().getDespration());
         kaikeyuan.setText("开课院：" + tch_analysis.getJiaoxue().getKaikeyuan().getDespration());
-//        shjfxClasss.setText(tch_analysis.getJiaoxue().getTeam().toString());
+        shjfxClasss.setText(tch_analysis.getJiaoxue().getClasss().getGrade().getDespration() + "级" +tch_analysis.getJiaoxue().getClasss().getMajor().getDespration()+tch_analysis.getJiaoxue().getClasss().getClasss().getDespration() + " 班");
         fsh9.setText(tch_analysis.getNine_num() + "人");
         bl9.setText(tch_analysis.getNine_prop() + "%");
         fsh8.setText(tch_analysis.getEight_num() + "人");

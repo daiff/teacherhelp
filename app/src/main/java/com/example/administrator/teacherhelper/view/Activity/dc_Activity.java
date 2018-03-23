@@ -4,7 +4,7 @@ import android.app.Activity;
 
 /**
  * Created by daiff on 2018/1/29.
- * for:
+ * for:大创
  */
 
 public class dc_Activity  extends Activity{

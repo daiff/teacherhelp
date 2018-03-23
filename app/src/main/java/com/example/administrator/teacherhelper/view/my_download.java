@@ -78,6 +78,7 @@ public class my_download extends Activity {
     private void getData() {
 
         BmobQuery<MATERIAL> bmobQuery= new BmobQuery<>();
+        bmobQuery.order("-createdAt");
         bmobQuery.findObjects(new FindListener<MATERIAL>() {
             @Override
             public void done(final List<MATERIAL> list, BmobException e) {

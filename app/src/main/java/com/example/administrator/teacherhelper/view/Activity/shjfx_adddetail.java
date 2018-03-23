@@ -112,7 +112,7 @@ public class shjfx_adddetail extends Activity {
         course.setText(course1.getKe().getCourse_code() + " " + course1.getKe().getDespration() + " " + course1.getNature().getDespration());
         yearSemester.setText(course1.getSchoolyear().getDespration());
         kaikeyuan.setText("开课院：" + course1.getKaikeyuan().getDespration());
-        shjfxClasss.setText(course1.getGrade().getDespration() + "级 " + course1.getMajor().getDespration() + " " + course1.getClasss().getDespration() + "班");
+        shjfxClasss.setText(course1.getClasss().getGrade().getDespration() + "级 " + course1.getClasss().getMajor().getDespration() + " " + course1.getClasss().getClasss().getDespration() + "班");
     }
 
     @OnClick({R.id.back1, R.id.save})

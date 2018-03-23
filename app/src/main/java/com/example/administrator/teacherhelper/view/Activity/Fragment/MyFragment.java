@@ -92,6 +92,7 @@ public class MyFragment extends Fragment {
                 break;
             case R.id.mycourse:
                 Intent intent1 = new Intent(getActivity(),my_course.class);
+                intent1.putExtra("sourse","");
                 startActivity(intent1);
                 break;
             case R.id.resetpassword:

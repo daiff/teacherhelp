@@ -50,10 +50,12 @@ public class book_adapter extends BaseAdapter {
         TextView course_code = (TextView) view.findViewById(R.id.bookname);
         TextView schedule = (TextView) view.findViewById(R.id.bookbianzhu);
         TextView classs = (TextView) view.findViewById(R.id.bookchuban);
+        TextView shijian = (TextView) view.findViewById(R.id.shijian);
 
-        course_code.setText(worksum.getDespration());
+        course_code.setText(worksum.getDespration() + "  (" + worksum.getNumberOfWords() + ")字");
         schedule.setText(worksum.getEd());
         classs.setText(worksum.getPress());
+        shijian.setText(worksum.getPublishing_time());
         return view;
     }
 }

@@ -51,7 +51,7 @@ public class shjfxAdapter extends BaseAdapter {
         TextView schedule = (TextView) view.findViewById(R.id.ban);
 
         course_code.setText(student.getJiaoxue().getKe().getDespration());
-        schedule.setText(student.getJiaoxue().getGrade().getDespration()+"级"+student.getJiaoxue().getMajor().getDespration()+student.getJiaoxue().getClasss().getDespration()+"班");
+        schedule.setText(student.getJiaoxue().getClasss().getGrade().getDespration()+"级"+student.getJiaoxue().getClasss().getMajor().getDespration()+student.getJiaoxue().getClasss().getClasss().getDespration()+"班");
         return view;
     }
 }

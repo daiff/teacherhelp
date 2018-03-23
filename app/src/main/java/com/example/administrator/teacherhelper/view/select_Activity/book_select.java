@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.administrator.teacherhelper.Bean.book;
 import com.example.administrator.teacherhelper.Commen.commenDate;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.view.Activity.max.Max_bookadd;
 import com.example.administrator.teacherhelper.view.Adapter.book_adapter;
 
 import java.util.List;
@@ -48,6 +49,7 @@ public class book_select extends Activity {
     RelativeLayout rightButton;
     @Bind(R.id.listt)
     ListView listt;
+    String select;
 
     book_adapter adapter;
 
@@ -56,12 +58,17 @@ public class book_select extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
+        first();
         initView();
         getData();
+    }
+    private void first(){
+        select = getIntent().getStringExtra("book");
     }
 
     private void getData() {
         BmobQuery<book> bookbmob = new BmobQuery<>();
+        bookbmob.order("-createdAt");
         bookbmob.findObjects(new FindListener<book>() {
             @Override
             public void done(final List<book> list, BmobException e) {
@@ -71,16 +78,18 @@ public class book_select extends Activity {
                     }else {
                         adapter = new book_adapter(list, book_select.this);
                         listt.setAdapter(adapter);
-                        
+                        if (select.equals(commenDate.maxcour_book)){
                         listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 Intent intent = new Intent();
                                 intent.putExtra("bookid",list.get(position).getObjectId());
+                                intent.putExtra("bookname",list.get(position).getDespration());
                                 setResult(commenDate.select_book,intent);
                                 finish();
                             }
                         });
+                        }
                     }
                 }else {
                     Toast.makeText(book_select.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
@@ -91,6 +100,9 @@ public class book_select extends Activity {
 
     private void initView() {
         title.setText("教材");
+        if (!(select.equals(commenDate.maxcour_book))){
+            add.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -101,7 +113,15 @@ public class book_select extends Activity {
                 finish();
                 break;
             case R.id.right_button:
+                Intent intent = new Intent(book_select.this,Max_bookadd.class);
+                startActivity(intent);
                 break;
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getData();
     }
 }

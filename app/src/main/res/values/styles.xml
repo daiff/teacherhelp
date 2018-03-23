@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/main_color</item>
         <item name="colorAccent">@color/main_color</item>
         <item name="android:windowBackground">@color/background</item>
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
     <!--//记住密码的字体大小-->
@@ -254,6 +254,14 @@
         <item name="android:background">@color/background</item>
         <item name="android:layout_marginTop">3dp</item>
 
+    </style>
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////管理员主界面
+    <style name="max_image">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
 

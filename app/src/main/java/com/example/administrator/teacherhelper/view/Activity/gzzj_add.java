@@ -115,13 +115,13 @@ public class gzzj_add extends Activity {
 
     private void initView() {
         title.setText("新增工作总结表");
-        add.setVisibility(View.VISIBLE);
+        save.setVisibility(View.VISIBLE);
         gzzjSemester.setText(teach.getSchoolyear().getDespration());
-        gzzjClass.setText(teach.getGrade().getDespration() + "级" + teach.getMajor().getDespration() + teach.getClasss().getDespration() + "班");
+        gzzjClass.setText(teach.getClasss().getGrade().getDespration() + "级" + teach.getClasss().getMajor().getDespration() + teach.getClasss().getClasss().getDespration() + "班");
         gzzjTeacher.setText(teach.getTeacher().getDesperation());
         gzzjTitle.setText(teach.getTeacher().getTitle());
         gzzjMajor.setText(teach.getTeacher().getXi().getDespration());
-        gzzjPersonnum.setText(teach.getPersonnum());
+        gzzjPersonnum.setText(teach.getClasss().getTotal_person());
         gzzjBook.setText(teach.getBook().getDespration());
     }
 

@@ -96,12 +96,12 @@ public class gzzj_detial extends Activity {
     private void initView() {
         title.setText("工作总结详情");
         gzzjSemester.setText(worksum.getTeach().getSchoolyear().getDespration());
-        gzzjClass.setText(worksum.getTeach().getGrade().getDespration() + "级" + worksum.
-                getTeach().getMajor().getDespration() + worksum.getTeach().getClasss().getDespration() + "班");
+        gzzjClass.setText(worksum.getTeach().getClasss().getGrade().getDespration() + "级" + worksum.
+                getTeach().getClasss().getMajor().getDespration() + worksum.getTeach().getClasss().getClasss().getDespration() + "班");
         gzzjTeacher.setText(worksum.getTeach().getTeacher().getDesperation());
         gzzjTitle.setText(worksum.getTeach().getTeacher().getTitle());
         gzzjMajor.setText(worksum.getTeach().getTeacher().getXi().getDespration());
-        gzzjPersonnum.setText(worksum.getTeach().getPersonnum());
+        gzzjPersonnum.setText(worksum.getTeach().getClasss().getTotal_person());
         gzzjHour.setText(worksum.getLilun_hour());
         gzzjBook.setText(worksum.getTeach().getBook().getDespration());
         gzzjKaizhan.setText(worksum.getWork_kaizhan());

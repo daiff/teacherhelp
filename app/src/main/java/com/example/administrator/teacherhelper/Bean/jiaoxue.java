@@ -8,6 +8,8 @@ import cn.bmob.v3.datatype.BmobRelation;
  */
 
 public class jiaoxue extends BmobObject {
+
+
     public FIELD getKe() {
         return ke;
     }
@@ -16,8 +18,6 @@ public class jiaoxue extends BmobObject {
         this.ke = ke;
     }
 
-    private FIELD ke;
-
     public FIELD getNature() {
         return nature;
     }
@@ -25,40 +25,6 @@ public class jiaoxue extends BmobObject {
     public void setNature(FIELD nature) {
         this.nature = nature;
     }
-    private FIELD nature;
-
-    public com.example.administrator.teacherhelper.Bean.book getBook() {
-        return book;
-    }
-
-    public void setBook(com.example.administrator.teacherhelper.Bean.book book) {
-        this.book = book;
-    }
-
-    private book book;
-
-
-
-
-    public FIELD getSchoolyear() {
-        return schoolyear;
-    }
-
-    public void setSchoolyear(FIELD schoolyear) {
-        this.schoolyear = schoolyear;
-    }
-
-    private FIELD schoolyear;
-
-    public person getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(person teacher) {
-        this.teacher = teacher;
-    }
-
-    private person teacher;
 
     public FIELD getKaikeyuan() {
         return kaikeyuan;
@@ -68,52 +34,45 @@ public class jiaoxue extends BmobObject {
         this.kaikeyuan = kaikeyuan;
     }
 
-    private FIELD kaikeyuan;
-    private FIELD classs;
-    private FIELD college;
-    private FIELD grade;
-
-    public FIELD getMajor() {
-        return major;
+    public com.example.administrator.teacherhelper.Bean.book getBook() {
+        return book;
     }
 
-    public void setMajor(FIELD major) {
-        this.major = major;
+    public void setBook(com.example.administrator.teacherhelper.Bean.book book) {
+        this.book = book;
     }
 
-    public FIELD getGrade() {
-        return grade;
-    }
-
-    public void setGrade(FIELD grade) {
-        this.grade = grade;
-    }
-
-    public FIELD getCollege() {
-        return college;
-    }
-
-    public void setCollege(FIELD college) {
-        this.college = college;
-    }
-
-    public FIELD getClasss() {
+    public com.example.administrator.teacherhelper.Bean.classs getClasss() {
         return classs;
     }
 
-    public void setClasss(FIELD classs) {
+    public void setClasss(com.example.administrator.teacherhelper.Bean.classs classs) {
         this.classs = classs;
     }
 
-    private FIELD major;
-
-    public String getPersonnum() {
-        return personnum;
+    public FIELD getSchoolyear() {
+        return schoolyear;
     }
 
-    public void setPersonnum(String personnum) {
-        this.personnum = personnum;
+    public void setSchoolyear(FIELD schoolyear) {
+        this.schoolyear = schoolyear;
     }
 
-    private String personnum;
+    public person getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(person teacher) {
+        this.teacher = teacher;
+    }
+
+    private FIELD ke;//
+    private FIELD nature;//
+    private FIELD kaikeyuan;//
+    private book book;//
+    private classs classs;//
+    private FIELD schoolyear;//
+    private person teacher;//
+
+
 }

@@ -99,6 +99,7 @@ public class max_value extends Activity {
         grade = new ArrayList<>();
         major = new ArrayList<>();
         BmobQuery<FIELD> fieldBomb = new BmobQuery<>();
+        fieldBomb.order("-createdAt");
         fieldBomb.findObjects(new FindListener<FIELD>() {
             @Override
             public void done(List<FIELD> list, BmobException e) {

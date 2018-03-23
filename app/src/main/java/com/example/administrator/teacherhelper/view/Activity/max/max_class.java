@@ -11,26 +11,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.person;
+import com.example.administrator.teacherhelper.Bean.classs;
 import com.example.administrator.teacherhelper.Commen.commenDate;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Adapter.Adapter_teacher;
+import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.Adapter.classsAdapter;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 /**
- * Created by Administrator on 2018/3/19 0019.
+ * Created by Administrator on 2018/3/23 0023.
  */
 
-public class max_teacher extends Activity {
+public class max_class extends Activity {
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -49,64 +49,71 @@ public class max_teacher extends Activity {
     RelativeLayout rightButton;
     @Bind(R.id.listt)
     ListView listt;
-    Adapter_teacher adapter;
-
+    classsAdapter Adapter;
     String select;
+
+
+    protected FlippingLoadingDialog mLoadingDialog;
+    private FlippingLoadingDialog getLoadingDialog() {
+        if (mLoadingDialog == null)
+            mLoadingDialog = new FlippingLoadingDialog(this);
+        return mLoadingDialog;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
-        Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
         first();
         initView();
         initData();
     }
-    private void first(){
+
+    private void first() {
         select = getIntent().getStringExtra("select");
     }
 
     private void initData() {
-        BmobQuery<person> per = new BmobQuery<>();
-        per.include("xi.despration");
-        per.order("-createdAt");
-        per.findObjects(new FindListener<person>() {
+        getLoadingDialog().show();
+        BmobQuery<classs> bclass = new BmobQuery<>();
+        bclass.include("classs,college,major,grade");
+        bclass.findObjects(new FindListener<classs>() {
             @Override
-            public void done(final List<person> list, BmobException e) {
+            public void done(final List<classs> list, BmobException e) {
+                getLoadingDialog().dismiss();
                 if (e==null){
-                    if (list.size() == 0){
-                        Toast.makeText(max_teacher.this, "没有人员信息", Toast.LENGTH_SHORT).show();
+                    if (list.size()==0){
+                        Toast.makeText(max_class.this, "暂时没有数据", Toast.LENGTH_SHORT).show();
                     }else {
-                        adapter = new Adapter_teacher(list, max_teacher.this);
-                        listt.setAdapter(adapter);
-                        if (select.equals(commenDate.maxcour_teacher)){
+                        Adapter = new classsAdapter(list,max_class.this);
+                        listt.setAdapter(Adapter);
+                        if (select.equals( commenDate.maxcour_class)){
                             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     Intent intent = new Intent();
                                     intent.putExtra("majorid",list.get(position).getObjectId());
-                                    intent.putExtra("majordesc",list.get(position).getDesperation());
-                                    setResult(commenDate.select_teacher,intent);
+                                    intent.putExtra("majordesc",list.get(position).getCollege().getDespration()+
+                                            list.get(position).getGrade().getDespration()+"级"
+                                            +list.get(position).getMajor().getDespration() +
+                                            list.get(position).getClasss().getDespration());
+                                    setResult(commenDate.select_class,intent);
                                     finish();
                                 }
                             });
                         }
                     }
-
-                }else{
-                    Toast.makeText(max_teacher.this, e.toString(), Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(max_class.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
 
     private void initView() {
-        title.setText("人员表");
-        if (!(select.equals(commenDate.maxcour_teacher))){
-            add.setVisibility(View.VISIBLE);
-        }
+        title.setText("班级信息");
+        add.setVisibility(View.VISIBLE);
     }
 
     @OnClick({R.id.back1, R.id.right_button})
@@ -116,8 +123,8 @@ public class max_teacher extends Activity {
                 finish();
                 break;
             case R.id.right_button:
-                Intent intent = new Intent(max_teacher.this,max_teacheradd.class);
-                startActivity(intent);
+                Intent in = new Intent(max_class.this,max_addclasss.class);
+                startActivity(in);
                 break;
         }
     }

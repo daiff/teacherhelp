@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title" />
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="书        名:"/>
+        <EditText
+            android:id="@+id/book_name"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="编        著:"/>
+        <EditText
+            android:id="@+id/bookauther"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="字        数:"/>
+        <EditText
+            android:inputType="date"
+            android:id="@+id/booknum"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="出  版  社:"/>
+        <EditText
+            android:id="@+id/bookpurchase"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="出版时间:"/>
+        <EditText
+
+            android:id="@+id/bookdate"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+</LinearLayout>

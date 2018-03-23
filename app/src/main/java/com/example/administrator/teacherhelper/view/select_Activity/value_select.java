@@ -73,6 +73,7 @@ public class value_select extends Activity {
     private void initData() {
         BmobQuery<FIELD> value_bmob =new BmobQuery<>();
         value_bmob.addWhereEqualTo("value",value);
+        value_bmob.order("-createdAt");
         value_bmob.findObjects(new FindListener<FIELD>() {
             @Override
             public void done(final List<FIELD> list, BmobException e) {

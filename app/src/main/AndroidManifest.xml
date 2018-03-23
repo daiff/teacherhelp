@@ -69,6 +69,12 @@
         <activity android:name=".view.Activity.max.max_value" />
         <activity android:name=".view.Activity.max.max_valueadd" />
         <activity android:name=".view.select_Activity.book_select" />
+        <activity android:name=".view.Activity.max.max_courseadd" />
+        <activity android:name=".view.Activity.max.Max_bookadd" />
+        <activity android:name=".view.Activity.max.max_addclasss" />
+        <activity android:name=".view.Activity.max.max_class" />
+        <activity android:name=".view.Activity.zcj_detial" />
+        <activity android:name=".view.Activity.zcj_add" />
 
         <!--  蒲公英-->
         <meta-data

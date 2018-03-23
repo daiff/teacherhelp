@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/co_co"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程名称"
+                android:textColor="#8AC87F"/>
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/co_tea"
+                android:layout_toRightOf="@+id/co_co"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="教师"
+                android:textColor="#8AC87F"/>
+            <TextView
+                android:id="@+id/co_kaike"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开课学院"
+                android:textColor="#8AC87F"/>
+            <TextView
+                android:textSize="13dp"
+                android:id="@+id/co_nature"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/co_co"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程类型"/>
+            <TextView
+                android:textSize="13dp"
+                android:id="@+id/co_sch"
+                android:layout_marginTop="3dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/co_tea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学年"/>
+            <TextView
+                android:id="@+id/co_class"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/co_nature"
+                android:textSize="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2014ji wangluogch iban"/>
+            <TextView
+                android:id="@+id/co_book"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/co_class"
+                android:textSize="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2014ji wangluogch iban"/>
+        </RelativeLayout>
+
+
+</LinearLayout>

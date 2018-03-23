@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.Bean.TCH_analysis;
 import com.example.administrator.teacherhelper.Bean.jiaoxue;
+import com.example.administrator.teacherhelper.Commen.commenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
@@ -103,7 +104,8 @@ public class shjfx_list extends Activity {
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher",BmobUser.getCurrentUser());
         jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(shjfx_list.this));
-        jiaoxueBmobQuery.include("classs,grade,ke,major,nature,college,teacher.xi,schoolyear,personnum,kaikeyuan,book");
+        jiaoxueBmobQuery.include(commenDate.include_jiaoxue);
+        jiaoxueBmobQuery.order("-createdAt");
         jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
             @Override
             public void done(List<jiaoxue> list, BmobException e) {
@@ -126,7 +128,9 @@ public class shjfx_list extends Activity {
         allworksum = new ArrayList<>();
         BmobQuery<TCH_analysis> bmobQuery = new BmobQuery<>();
         bmobQuery.include("jiaoxue.ke,jiaoxue.classs,jiaoxue.grade,jiaoxue.major," +
-                "jiaoxue.college,jiaoxue.schoolyear,jiaoxue.nature,jiaoxue.kaikeyuan,jiaoxue.book");
+                "jiaoxue.college,jiaoxue.schoolyear,jiaoxue.nature,jiaoxue.kaikeyuan,jiaoxue.book," +
+                "jiaoxue.classs.classs,jiaoxue.classs.college,jiaoxue.classs.grade,jiaoxue.classs.major");
+        bmobQuery.order("-createdAt");
         bmobQuery.findObjects(new FindListener<TCH_analysis>() {
             @Override
             public void done(final List<TCH_analysis> list, BmobException e) {
@@ -167,16 +171,16 @@ public class shjfx_list extends Activity {
     private void showData() {
         getLoadingDialog().dismiss();
         if (have.size()==0){
-            Toast.makeText(this, "没有任何已填写的工作总结表", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "没有任何已填写的试卷分析表", Toast.LENGTH_SHORT).show();
         }else {
             adapter = new shjfxAdapter(have, shjfx_list.this);
             listt.setAdapter(adapter);
             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(shjfx_list.this, gzzj_detial.class);
+                    Intent intent = new Intent(shjfx_list.this, shjfx_detail.class);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("tch_worksum", have.get(position));
+                    bundle.putSerializable("tch_analysis", have.get(position));
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
@@ -192,7 +196,7 @@ public class shjfx_list extends Activity {
                 break;
             case R.id.right_button:
                 if (nothave.size()==0){
-                    Toast.makeText(this, "本学期的工作总结已全部填写", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "本学期的试卷分析表已全部填写", Toast.LENGTH_SHORT).show();
                 }else {
                     ShowDialog();
                 }
@@ -254,7 +258,7 @@ public class shjfx_list extends Activity {
             jiaoxue student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-            course_code.setText(student.getKe().getDespration()+ "  " + student.getGrade().getDespration() + "级" +student.getMajor().getDespration()+student.getClasss().getDespration() + " 班");
+            course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + " 班");
             return view;
         }
     }
