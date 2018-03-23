@@ -21,6 +21,7 @@ public class zcj_studentAdapter  extends BaseAdapter {
     private LayoutInflater inflater;
 
     public zcj_studentAdapter() {
+
     }
 
     public zcj_studentAdapter(List<STUDENT> stuList, Context context) {
