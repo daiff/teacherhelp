@@ -1,8 +1,6 @@
 package com.example.administrator.teacherhelper.view.Adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.Bean.MATERIAL;
+import com.example.administrator.teacherhelper.bean.MATERIAL;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.LoginActivity;
 
 import java.io.File;
 import java.util.List;
-
-import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by Administrator on 2018/3/15 0015.

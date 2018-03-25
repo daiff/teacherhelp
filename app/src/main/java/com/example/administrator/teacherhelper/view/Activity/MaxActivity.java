@@ -9,17 +9,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.FIELD;
-import com.example.administrator.teacherhelper.Bean.currentyear;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.FIELD;
+import com.example.administrator.teacherhelper.bean.currentyear;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.max.max_addclasss;
 import com.example.administrator.teacherhelper.view.Activity.max.max_class;
 import com.example.administrator.teacherhelper.view.Activity.max.max_teacher;
 import com.example.administrator.teacherhelper.view.Activity.max.max_value;
 import com.example.administrator.teacherhelper.view.Activity.max.mx_upload;
-import com.example.administrator.teacherhelper.view.select_Activity.book_select;
-import com.example.administrator.teacherhelper.view.select_Activity.value_select;
+import com.example.administrator.teacherhelper.view.Activity.select_Activity.book_select;
+import com.example.administrator.teacherhelper.view.Activity.select_Activity.value_select;
 
 import java.util.List;
 
@@ -77,7 +76,7 @@ public class MaxActivity extends Activity {
         });
     }
 
-    @OnClick({R.id.max_teacher, R.id.max_teach, R.id.max_current, R.id.max_value, R.id.max_field, R.id.max_max,R.id.max_student, R.id.max_class})
+    @OnClick({R.id.max_teacher, R.id.max_teach, R.id.max_current, R.id.max_value, R.id.max_field, R.id.max_max, R.id.max_student, R.id.max_class})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.max_teacher:
@@ -87,7 +86,7 @@ public class MaxActivity extends Activity {
                 break;
             case R.id.max_teach:
                 Intent intent3 = new Intent(MaxActivity.this, my_course.class);
-                intent3.putExtra("sourse", commenDate.max_mycourse);
+                intent3.putExtra("sourse", CommenDate.max_mycourse);
                 startActivity(intent3);
                 break;
             case R.id.max_current:
@@ -109,7 +108,7 @@ public class MaxActivity extends Activity {
                 break;
             case R.id.max_class:
                 Intent intent5 = new Intent(MaxActivity.this, max_class.class);
-                intent5.putExtra("select","");
+                intent5.putExtra("select", "");
                 startActivity(intent5);
                 break;
         }
@@ -118,8 +117,8 @@ public class MaxActivity extends Activity {
     @OnClick(R.id.max_selectyear)
     public void onViewClicked() {
         Intent intent = new Intent(MaxActivity.this, value_select.class);
-        intent.putExtra("value", commenDate.value_schoolyear);
-        startActivityForResult(intent, commenDate.max_year);
+        intent.putExtra("value", CommenDate.value_schoolyear);
+        startActivityForResult(intent, CommenDate.max_year);
     }
 
     @Override

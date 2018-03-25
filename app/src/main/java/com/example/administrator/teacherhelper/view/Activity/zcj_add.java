@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.STUDENT;
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
+import com.example.administrator.teacherhelper.bean.STUDENT;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.view.Adapter.zcj_studentAdapter;
 
@@ -83,7 +83,7 @@ public class zcj_add extends Activity {
 
     private void initDate() {
         BmobQuery<STUDENT>  bstudent = new BmobQuery<>();
-        bstudent.addWhereEqualTo("classs",teach.getClasss().getObjectId());
+//        bstudent.addWhereEqualTo("classs",teach.getClasss().getObjectId());
         bstudent.findObjects(new FindListener<STUDENT>() {
             @Override
             public void done(List<STUDENT> list, BmobException e) {
@@ -106,7 +106,7 @@ public class zcj_add extends Activity {
         failurePeoploname.setText(teach.getTeacher().getDesperation());
         major.setText(teach.getKe().getCredit());
         gradeClass.setText(teach.getKaikeyuan().getDespration());
-        classs.setText(teach.getClasss().getGrade().getDespration()+"级"+teach.getClasss().getMajor().getDespration()+teach.getClasss().getClasss().getDespration()+"班");
+//        classs.setText(teach.getClasss().getGrade().getDespration()+"级"+teach.getClasss().getMajor().getDespration()+teach.getClasss().getClasss().getDespration()+"班");
     }
 
 
@@ -127,8 +127,6 @@ public class zcj_add extends Activity {
     }
 
     private void saveall() {
-
-
 
     }
 }

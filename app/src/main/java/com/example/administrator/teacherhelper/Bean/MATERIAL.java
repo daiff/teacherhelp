@@ -1,6 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
-
-import java.io.File;
+package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobFile;

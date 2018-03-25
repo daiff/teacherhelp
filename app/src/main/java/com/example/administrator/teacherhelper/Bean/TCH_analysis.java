@@ -1,4 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
+package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
 
@@ -13,11 +13,11 @@ public class TCH_analysis extends BmobObject {
     private String  zero_num;
 
 
-    public com.example.administrator.teacherhelper.Bean.jiaoxue getJiaoxue() {
+    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
         return jiaoxue;
     }
 
-    public void setJiaoxue(com.example.administrator.teacherhelper.Bean.jiaoxue jiaoxue) {
+    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
         this.jiaoxue = jiaoxue;
     }
 
@@ -35,6 +35,16 @@ public class TCH_analysis extends BmobObject {
     private String highest_score ;
     private String eight_prop ;
     private String eight_num ;
+
+    public String getClasss() {
+        return classs;
+    }
+
+    public void setClasss(String classs) {
+        this.classs = classs;
+    }
+
+    private String classs ;
 
     public String getZhurqianmin() {
         return zhurqianmin;

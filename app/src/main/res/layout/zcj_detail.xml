@@ -106,7 +106,9 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout></LinearLayout>
+
     <LinearLayout
+        android:id="@+id/liner"
         android:layout_marginTop="12dp"
         android:background="@color/white"
         android:orientation="horizontal"
@@ -174,7 +176,9 @@
             style="@style/jxrl_textview"
             android:text="总评成绩"/>
     </LinearLayout>
+
     <View
+        android:id="@+id/viewzcj"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/background"/>

@@ -12,12 +12,11 @@ import android.widget.Toast;
 
 
 import com.example.administrator.teacherhelper.AppManager;
-import com.example.administrator.teacherhelper.Bean.currentyear;
-import com.example.administrator.teacherhelper.Bean.person;
+import com.example.administrator.teacherhelper.bean.currentyear;
+import com.example.administrator.teacherhelper.bean.person;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
-import com.example.administrator.teacherhelper.view.Activity.switchButtopn.MySwitchButton;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 import com.pgyersdk.javabean.AppBean;
 import com.pgyersdk.update.PgyUpdateManager;
 import com.pgyersdk.update.UpdateManagerListener;
@@ -40,7 +39,6 @@ import static com.example.administrator.teacherhelper.R.id.user;
 
 public class LoginActivity extends Activity {
     private static final String TAG = "LoginActivity";
-    private MySwitchButton mySwitchButton;
     private EditText mUser;
     private EditText mPassword;
     private LinearLayout login;

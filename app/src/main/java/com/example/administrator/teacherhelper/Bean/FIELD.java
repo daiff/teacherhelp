@@ -1,4 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
+package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
 

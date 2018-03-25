@@ -116,25 +116,6 @@
             android:src="@drawable/green_select"/>
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/my_add_Linerlayout">
-        <TextView
-            style="@style/my_add_leftTextView"
-            android:text="班        级:"/>
-        <TextView
-            android:id="@+id/course_class"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            style="@style/my_add_rightEdittext"
-            android:text=""/>
-        <ImageView
-            android:id="@+id/select_course_class"
-            android:padding="5dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/green_select"/>
-    </LinearLayout>
-
 
 
     <LinearLayout
@@ -150,6 +131,115 @@
             android:text=""/>
         <ImageView
             android:id="@+id/select_course_book"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:textSize="13dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#8AC87F"
+        android:text="班级信息"/>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="班        级:"/>
+        <TextView
+            android:id="@+id/course_class1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course1_sc"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="                 "/>
+        <TextView
+            android:id="@+id/course_class2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course2_sc"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="                 "/>
+        <TextView
+            android:id="@+id/course_class3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course3_sc"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="                 "/>
+        <TextView
+            android:id="@+id/course_class4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course4_sc"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="                 "/>
+        <TextView
+            android:id="@+id/course_class5"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course5_sc"
             android:padding="5dp"
             android:layout_width="30dp"
             android:layout_height="30dp"

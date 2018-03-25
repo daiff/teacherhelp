@@ -1,4 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
+package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
 
@@ -87,11 +87,11 @@ public class TCH_achievement extends BmobObject {
         this.zp_shiyan = zp_shiyan;
     }
 
-    public com.example.administrator.teacherhelper.Bean.jiaoxue getJiaoxue() {
+    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
         return jiaoxue;
     }
 
-    public void setJiaoxue(com.example.administrator.teacherhelper.Bean.jiaoxue jiaoxue) {
+    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
         this.jiaoxue = jiaoxue;
     }
 

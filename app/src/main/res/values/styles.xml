@@ -118,7 +118,6 @@
     <style name="commen_textview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">15dp</item>
         <item name="android:paddingTop">7dp</item>
         <item name="android:paddingBottom">7dp</item>
         <item name="android:layout_marginLeft">3dp</item>
@@ -134,7 +133,7 @@
     <style name="jxrl_edittext">
         <item name="android:paddingBottom">7dp</item>
         <item name="android:textSize">13dp</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@null</item>
     </style>
@@ -265,7 +264,36 @@
     </style>
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////管理员主界面
+    <style name="ps_Linerlayout">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 
+    <style name="ps_textview">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////教学进度
+    <style name="jxjd_textView">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="jxdg_textview">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:layout_marginLeft">3dp</item>
+    </style>
 
 
 

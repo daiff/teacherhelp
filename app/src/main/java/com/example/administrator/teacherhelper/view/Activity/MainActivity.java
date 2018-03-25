@@ -9,9 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.Fragment.InboxFragment;
-import com.example.administrator.teacherhelper.view.Activity.Fragment.ManageFragment;
-import com.example.administrator.teacherhelper.view.Activity.Fragment.MyFragment;
+import com.example.administrator.teacherhelper.view.fragment.InboxFragment;
+import com.example.administrator.teacherhelper.view.fragment.ManageFragment;
+import com.example.administrator.teacherhelper.view.fragment.MyFragment;
 
 
 public class MainActivity extends Activity implements View.OnClickListener{

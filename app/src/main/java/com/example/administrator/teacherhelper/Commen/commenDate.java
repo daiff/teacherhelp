@@ -1,10 +1,10 @@
-package com.example.administrator.teacherhelper.Commen;
+package com.example.administrator.teacherhelper.commen;
 
 /**
  * Created by Administrator on 2018/3/20 0020.
  */
 
-public class commenDate {
+public class CommenDate {
 
     public static final int select_major = 1; //专业选择
     public static final int select_book = 2; //教材选择
@@ -17,6 +17,11 @@ public class commenDate {
     public static final int select_grade = 9; //max选择年
     public static final int select_class = 10; //max选择年
     public static final int select_teacher = 11; //选择教师
+
+    public static final int select_class1 = 12; //max选择年
+    public static final int select_class2 = 13; //max选择年
+    public static final int select_class3 = 14; //max选择年
+    public static final int select_class4 = 15; //max选择年
 
 
     public static final String value_major = "major"; //专业选择
@@ -35,6 +40,7 @@ public class commenDate {
     public static final String maxcour_class ="maxcour_class"; //由添加课程的选择框进班级列表页面
 
 
-    public static final String include_jiaoxue = "book,classs.classs,kaikeyuan,ke,nature,schoolyear,teacher.xi,classs.college,classs.grade,classs.major"; //专业选择
+    public static final String include_jiaoxue = "book,kaikeyuan,ke,nature,schoolyear,teacher.xi"; //专业选择
+    public static final String IncludePaperAnalysis = "jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher"; //试卷分析包括教学的内容
     public static final String achieve_jiaoxue = "jiaoxue.classs.classs,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher.xi,jiaooxue.classs.college,jiaoxue.classs.grade,jiaoxue.classs.major"; //专业选择
 }

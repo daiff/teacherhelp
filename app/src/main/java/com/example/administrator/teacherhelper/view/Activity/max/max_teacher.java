@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.person;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.person;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.view.Adapter.Adapter_teacher;
 
@@ -80,14 +80,14 @@ public class max_teacher extends Activity {
                     }else {
                         adapter = new Adapter_teacher(list, max_teacher.this);
                         listt.setAdapter(adapter);
-                        if (select.equals(commenDate.maxcour_teacher)){
+                        if (select.equals(CommenDate.maxcour_teacher)){
                             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     Intent intent = new Intent();
                                     intent.putExtra("majorid",list.get(position).getObjectId());
                                     intent.putExtra("majordesc",list.get(position).getDesperation());
-                                    setResult(commenDate.select_teacher,intent);
+                                    setResult(CommenDate.select_teacher,intent);
                                     finish();
                                 }
                             });
@@ -104,7 +104,7 @@ public class max_teacher extends Activity {
 
     private void initView() {
         title.setText("人员表");
-        if (!(select.equals(commenDate.maxcour_teacher))){
+        if (!(select.equals(CommenDate.maxcour_teacher))){
             add.setVisibility(View.VISIBLE);
         }
     }

@@ -10,9 +10,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
-import com.example.administrator.teacherhelper.Bean.person;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
+import com.example.administrator.teacherhelper.bean.person;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.Activity.max.max_courseadd;
@@ -71,23 +71,20 @@ public class my_course extends Activity {
 
     private void init() {
         title.setText("本学期课程");
-        if (source.equals(commenDate.max_mycourse)) {
+        if (source.equals(CommenDate.max_mycourse)) {
             add.setVisibility(View.VISIBLE);
         }
     }
 
-    private void show(String msg) {
-        Toast.makeText(my_course.this, msg, Toast.LENGTH_LONG).show();
-    }
 
     private void getData() {
         BmobQuery<jiaoxue> b = new BmobQuery<>();
-        if (!(source.equals(commenDate.max_mycourse))) {
+        if (!(source.equals(CommenDate.max_mycourse))) {
             BmobUser user = BmobUser.getCurrentUser();
             b.addWhereEqualTo("teacher", user);
             b.addWhereEqualTo("schoolyear", AccountUtils.getyear(my_course.this));
         }
-        b.include(commenDate.include_jiaoxue);
+        b.include(CommenDate.include_jiaoxue);
         b.order("-createdAt");
         b.findObjects(new FindListener<jiaoxue>() {
             @Override

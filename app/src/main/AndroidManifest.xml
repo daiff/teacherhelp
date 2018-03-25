@@ -46,35 +46,47 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".view.Activity.dc_Activity" />
-        <activity android:name=".view.Activity.shjfx_detail" />
+        <activity android:name=".view.Activity.PaperAnalysis_Detial" />
         <activity android:name=".view.Activity.zcj_Activity" />
         <activity android:name=".view.Activity.pscj_Activity" />
         <activity android:name=".view.Activity.gzzj_Activity" />
-        <activity android:name=".view.Activity.jxjd_Activity" />
-        <activity android:name=".view.Activity.jxdg_Activity" />
+        <activity android:name=".view.Activity.Program_item" />
         <activity android:name=".view.Activity.jxrl_Activity" />
         <activity android:name=".view.Activity.PermissionsActivity" />
         <activity android:name=".view.Activity.my_detail" />
         <activity android:name=".view.Activity.my_course" />
-        <activity android:name=".view.my_download" />
-        <activity android:name=".view.Activity.shjfx_list" />
-        <activity android:name=".view.Activity.shjfx_adddetail" />
+        <activity android:name=".view.Adapter.my_download" />
+        <activity android:name=".view.Activity.PaperAnalysis_List" />
+        <activity android:name=".view.Activity.PaperAnalysis_Add" />
         <activity android:name=".view.Activity.MaxActivity" />
         <activity android:name=".view.Activity.max.mx_upload" />
         <activity android:name=".view.Activity.gzzj_detial" />
         <activity android:name=".view.Activity.gzzj_add" />
         <activity android:name=".view.Activity.max.max_teacher" />
         <activity android:name=".view.Activity.max.max_teacheradd" />
-        <activity android:name=".view.select_Activity.value_select" />
+        <activity android:name=".view.Activity.select_Activity.value_select" />
         <activity android:name=".view.Activity.max.max_value" />
         <activity android:name=".view.Activity.max.max_valueadd" />
-        <activity android:name=".view.select_Activity.book_select" />
+        <activity android:name=".view.Activity.select_Activity.book_select" />
         <activity android:name=".view.Activity.max.max_courseadd" />
         <activity android:name=".view.Activity.max.Max_bookadd" />
         <activity android:name=".view.Activity.max.max_addclasss" />
         <activity android:name=".view.Activity.max.max_class" />
         <activity android:name=".view.Activity.zcj_detial" />
         <activity android:name=".view.Activity.zcj_add" />
+        <activity android:name=".view.Activity.jxrl_detial" />
+        <activity android:name=".view.Activity.jxrl_mudi" />
+        <activity android:name=".view.Activity.jxrl_book" />
+        <activity android:name=".view.Activity.jxrl_check" />
+        <activity android:name=".view.Activity.jxrl_time" />
+        <activity android:name=".view.Activity.jxrl_ddetial" />
+        <activity android:name=".view.Activity.Program_Detial" />
+        <activity android:name=".view.Activity.jxjd_detial" />
+        <activity android:name=".view.Activity.jxjd_item" />
+        <activity android:name=".view.Activity.Program_Time" />
+        <activity android:name=".view.Activity.Program_Object" />
+        <activity android:name=".view.Activity.Program_add" />
+        <activity android:name=".view.Activity.ProgramTime_Add" />
 
         <!--  蒲公英-->
         <meta-data

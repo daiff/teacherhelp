@@ -11,12 +11,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.FIELD;
-import com.example.administrator.teacherhelper.Bean.person;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.FIELD;
+import com.example.administrator.teacherhelper.bean.person;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
-import com.example.administrator.teacherhelper.view.select_Activity.value_select;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.Activity.select_Activity.value_select;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -120,8 +120,8 @@ public class max_teacheradd extends Activity {
     @OnClick(R.id.myadd_selectmajor)
     public void onViewClicked() {
         Intent intent = new Intent(max_teacheradd.this,value_select.class);
-        intent.putExtra("value",commenDate.value_major);
-        startActivityForResult(intent, commenDate.select_major);
+        intent.putExtra("value", CommenDate.value_major);
+        startActivityForResult(intent, CommenDate.select_major);
     }
 
     @Override

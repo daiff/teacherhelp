@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.Bean.MATERIAL;
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
 
 import java.util.List;
@@ -57,15 +56,13 @@ public class my_courseAdapter extends BaseAdapter {
         TextView nature = (TextView) view.findViewById(R.id.co_nature);
         TextView schoolyear = (TextView) view.findViewById(R.id.co_sch);
         TextView classs = (TextView) view.findViewById(R.id.co_class);
-        TextView bookk = (TextView) view.findViewById(R.id.co_book);
 
         course.setText(student.getKe().getDespration());
         teacher.setText(student.getTeacher().getDesperation());
         kaikeyuan.setText(student.getKaikeyuan().getDespration());
         nature.setText(student.getNature().getDespration());
         schoolyear.setText(student.getSchoolyear().getDespration());
-        classs.setText(student.getClasss().getCollege().getDespration() + "   "+ student.getClasss().getGrade().getDespration()+"级"+student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration()+"班");
-        bookk.setText("教材:《" + student.getBook().getDespration() + "》  "+ student.getBook().getPress());
+        classs.setText("教材:《" + student.getBook().getDespration() + "》  "+ student.getBook().getPress());
         return view;
     }
 

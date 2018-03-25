@@ -1,4 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
+package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
 
@@ -63,21 +63,49 @@ public class TCH_calender extends BmobObject {
         this.total_weeks = total_weeks;
     }
 
-    public jiaoxue getTeach() {
-        return teach;
-    }
-
-    public void setTeach(jiaoxue teach) {
-        this.teach = teach;
-    }
-
     private String data  ;
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public String getHavedone() {
+        return havedone;
+    }
+
+    public void setHavedone(String havedone) {
+        this.havedone = havedone;
+    }
+
+    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
+        return jiaoxue;
+    }
+
+    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
+        this.jiaoxue = jiaoxue;
+    }
+
+    public TCA_Timetatistic getTca_time() {
+        return tca_time;
+    }
+
+    public void setTca_time(TCA_Timetatistic tca_time) {
+        this.tca_time = tca_time;
+    }
+
+    private String rank  ;
+    private String  objective ;
     private String  end_hour ;
     private String  end_number ;
     private String  mid_hour ;
     private String  mid_number ;
-    private String  objective ;
+    private String  havedone ;
     private String  total_weeks ;
-    private jiaoxue  teach ;
+    private jiaoxue  jiaoxue ;
+    private TCA_Timetatistic  tca_time ;
 
 }

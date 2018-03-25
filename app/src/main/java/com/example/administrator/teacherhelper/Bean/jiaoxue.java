@@ -1,4 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
+package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobRelation;
@@ -34,21 +34,14 @@ public class jiaoxue extends BmobObject {
         this.kaikeyuan = kaikeyuan;
     }
 
-    public com.example.administrator.teacherhelper.Bean.book getBook() {
+    public com.example.administrator.teacherhelper.bean.book getBook() {
         return book;
     }
 
-    public void setBook(com.example.administrator.teacherhelper.Bean.book book) {
+    public void setBook(com.example.administrator.teacherhelper.bean.book book) {
         this.book = book;
     }
 
-    public com.example.administrator.teacherhelper.Bean.classs getClasss() {
-        return classs;
-    }
-
-    public void setClasss(com.example.administrator.teacherhelper.Bean.classs classs) {
-        this.classs = classs;
-    }
 
     public FIELD getSchoolyear() {
         return schoolyear;
@@ -66,11 +59,21 @@ public class jiaoxue extends BmobObject {
         this.teacher = teacher;
     }
 
+
+
+    public BmobRelation getTeam() {
+        return Team;
+    }
+
+    public void setTeam(BmobRelation team) {
+        Team = team;
+    }
+
     private FIELD ke;//
     private FIELD nature;//
     private FIELD kaikeyuan;//
     private book book;//
-    private classs classs;//
+    private BmobRelation Team;//
     private FIELD schoolyear;//
     private person teacher;//
 

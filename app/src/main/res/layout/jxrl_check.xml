@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_bg"
-
-    android:layout_margin="5dp">
+    android:background="@drawable/item_bg">
+    <include layout="@layout/bar_title"/>
     <LinearLayout
         android:paddingRight="12dp"
         android:paddingLeft="12dp"
@@ -15,6 +14,7 @@
             style="@style/commen_textview"
             android:text="本人执行情况说明:" />
         <EditText
+            android:id="@+id/zxqk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="男男女女男男女女男男女女男男女女男男女女奶奶呢"/>
@@ -35,6 +35,7 @@
             style="@style/commen_textview"
             android:text="本学期教学质量等级:" />
         <EditText
+            android:id="@+id/zldj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="男男女女男男女女男男女女男"/>
@@ -54,6 +55,7 @@
             style="@style/commen_textview"
             android:text="教研室检查意见:" />
         <EditText
+            android:id="@+id/jys"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="男男女女男男女女男男女女男"/>
@@ -75,6 +77,7 @@
             style="@style/commen_textview"
             android:text="教研室（所长）签字:" />
         <EditText
+            android:id="@+id/jysqz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="你你你"/>
@@ -95,6 +98,7 @@
             style="@style/commen_textview"
             android:text="签字月日：" />
         <EditText
+            android:id="@+id/jysqzrq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="你你你"/>
@@ -114,6 +118,7 @@
             style="@style/commen_textview"
             android:text="系主任检查意见:" />
         <EditText
+            android:id="@+id/xzr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="男男女女男男女女男男女女男"/>
@@ -135,6 +140,7 @@
             style="@style/commen_textview"
             android:text="系主任签字:" />
         <EditText
+            android:id="@+id/xzrqz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="男男女女男男女女男男女女男"/>
@@ -155,6 +161,7 @@
             style="@style/commen_textview"
             android:text="签字月日:" />
         <EditText
+            android:id="@+id/xzrrq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="男男女女男男女女男男女女男"/>

@@ -10,10 +10,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.FIELD;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.FIELD;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 import com.example.administrator.teacherhelper.view.Adapter.Adapter_value;
 
 import java.util.ArrayList;
@@ -109,15 +109,15 @@ public class max_value extends Activity {
                         Toast.makeText(max_value.this, "无数据", Toast.LENGTH_SHORT).show();
                     }else {
                         for (int i = 0;i<list.size();i++){
-                            if (list.get(i).getValue().equals(commenDate.value_college)){
+                            if (list.get(i).getValue().equals(CommenDate.value_college)){
                                 college.add(list.get(i));
-                            }else if (list.get(i).getValue().equals(commenDate.value_schoolyear)){
+                            }else if (list.get(i).getValue().equals(CommenDate.value_schoolyear)){
                                 schoolyear.add(list.get(i));
-                            }else if (list.get(i).getValue().equals(commenDate.value_schele)){
+                            }else if (list.get(i).getValue().equals(CommenDate.value_schele)){
                                 schedule.add(list.get(i));
-                            }else if (list.get(i).getValue().equals(commenDate.value_grade)){
+                            }else if (list.get(i).getValue().equals(CommenDate.value_grade)){
                                 grade.add(list.get(i));
-                            }else if (list.get(i).getValue().equals(commenDate.value_major)){
+                            }else if (list.get(i).getValue().equals(CommenDate.value_major)){
                                 major.add(list.get(i));
                             }
                         }

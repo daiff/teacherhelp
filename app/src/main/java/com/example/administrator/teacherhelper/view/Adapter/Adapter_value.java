@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.Bean.FIELD;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.FIELD;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 
 import java.util.List;
@@ -48,7 +48,7 @@ public class Adapter_value extends BaseAdapter {
         View view = inflater.inflate(R.layout.select_value, null);
         FIELD student = getItem(position);
         TextView course_code = (TextView) view.findViewById(R.id.value);
-        if (student.getValue().equals(commenDate.value_schele)){
+        if (student.getValue().equals(CommenDate.value_schele)){
             course_code.setText(student.getDespration() + "   编码：" + student.getCourse_code() + "    学分：" + student.getCredit());
         }else {
             course_code.setText(student.getDespration());

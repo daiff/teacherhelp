@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.Bean.TCH_worksum;
+import com.example.administrator.teacherhelper.bean.TCH_worksum;
 import com.example.administrator.teacherhelper.R;
 
 import java.util.List;
@@ -53,7 +53,7 @@ public class gzzjAdapter extends BaseAdapter {
 
         course_code.setText(worksum.getTeach().getKe().getDespration());
         schedule.setText(worksum.getTeach().getNature().getDespration());
-        classs.setText(worksum.getTeach().getClasss().getGrade().getDespration()+"级"+worksum.getTeach().getClasss().getMajor().getDespration()+worksum.getTeach().getClasss().getClasss().getDespration()+"班");
+//        classs.setText(worksum.getTeach().getClasss().getGrade().getDespration()+"级"+worksum.getTeach().getClasss().getMajor().getDespration()+worksum.getTeach().getClasss().getClasss().getDespration()+"班");
         return view;
     }
 }

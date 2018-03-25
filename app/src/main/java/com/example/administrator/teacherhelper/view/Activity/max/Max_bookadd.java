@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.book;
+import com.example.administrator.teacherhelper.bean.book;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

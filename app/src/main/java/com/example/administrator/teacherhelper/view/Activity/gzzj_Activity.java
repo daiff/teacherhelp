@@ -17,14 +17,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.TCH_worksum;
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.TCH_worksum;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 import com.example.administrator.teacherhelper.view.Adapter.gzzjAdapter;
-import com.example.administrator.teacherhelper.view.Adapter.shjfxAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,6 @@ import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -129,7 +127,7 @@ public class gzzj_Activity extends Activity {
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher",BmobUser.getCurrentUser());
         jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(gzzj_Activity.this));
-        jiaoxueBmobQuery.include(commenDate.include_jiaoxue);
+        jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
         jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
             @Override
@@ -272,7 +270,7 @@ public class gzzj_Activity extends Activity {
                 jiaoxue student = getItem(position);
                 //在view视图中查找id为image_photo的控件
                 TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-                course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + "班");
+//                course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + "班");
                 return view;
             }
         }

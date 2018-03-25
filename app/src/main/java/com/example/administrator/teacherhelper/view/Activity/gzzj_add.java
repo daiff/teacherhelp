@@ -5,16 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.TCH_worksum;
-import com.example.administrator.teacherhelper.Bean.book;
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
+import com.example.administrator.teacherhelper.bean.TCH_worksum;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -117,11 +115,11 @@ public class gzzj_add extends Activity {
         title.setText("新增工作总结表");
         save.setVisibility(View.VISIBLE);
         gzzjSemester.setText(teach.getSchoolyear().getDespration());
-        gzzjClass.setText(teach.getClasss().getGrade().getDespration() + "级" + teach.getClasss().getMajor().getDespration() + teach.getClasss().getClasss().getDespration() + "班");
+//        gzzjClass.setText(teach.getClasss().getGrade().getDespration() + "级" + teach.getClasss().getMajor().getDespration() + teach.getClasss().getClasss().getDespration() + "班");
         gzzjTeacher.setText(teach.getTeacher().getDesperation());
         gzzjTitle.setText(teach.getTeacher().getTitle());
         gzzjMajor.setText(teach.getTeacher().getXi().getDespration());
-        gzzjPersonnum.setText(teach.getClasss().getTotal_person());
+//        gzzjPersonnum.setText(teach.getClasss().getTotal_person());
         gzzjBook.setText(teach.getBook().getDespration());
     }
 

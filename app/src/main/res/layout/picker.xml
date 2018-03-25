@@ -21,7 +21,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <com.example.administrator.teacherhelper.jiemian.PickerView
+            <com.example.administrator.teacherhelper.view.enclosure.PickerView
                 android:id="@+id/value_pv"
                 android:layout_width="200dp"
                 android:layout_height="100dp" />

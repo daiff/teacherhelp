@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/main_footer"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/pscj_num"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="12016241234"
+            android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/pscj_name"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="12016241234"
+            android:paddingTop="8dp" />
+    </LinearLayout>
+    <View
+        style="@style/View_hen"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            style="@style/ps_Linerlayout">
+            <TextView
+                style="@style/ps_textview"
+                android:text="考勤:"/>
+            <TextView
+                android:id="@+id/kq"
+                android:gravity="center_horizontal"
+                android:background="@null"
+                style="@style/ps_textview"
+                android:text="12"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ps_Linerlayout">
+            <TextView
+                style="@style/ps_textview"
+                android:text="作业:"/>
+            <TextView
+                android:id="@+id/zy"
+                android:gravity="center_horizontal"
+                android:background="@null"
+                style="@style/ps_textview"
+                android:text="12"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ps_Linerlayout">
+            <TextView
+                style="@style/ps_textview"
+                android:text="实验:"/>
+            <TextView
+                android:id="@+id/sy"
+                android:gravity="center_horizontal"
+                android:background="@null"
+                style="@style/ps_textview"
+                android:text="12"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            style="@style/ps_Linerlayout">
+            <TextView
+                style="@style/ps_textview"
+                android:text="其他:"/>
+            <TextView
+                android:id="@+id/qt"
+                android:gravity="center_horizontal"
+                android:background="@null"
+                style="@style/ps_textview"
+                android:text="12"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ps_Linerlayout">
+            <TextView
+                style="@style/ps_textview"
+                android:text="成绩:"/>
+            <TextView
+                android:id="@+id/cj"
+                android:gravity="center_horizontal"
+                android:background="@null"
+                style="@style/ps_textview"
+                android:text="12"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ps_Linerlayout">
+            <TextView
+                style="@style/ps_textview"
+                android:text="备注:"/>
+            <TextView
+                android:id="@+id/bz"
+                android:gravity="center_horizontal"
+                android:background="@null"
+                style="@style/ps_textview"
+                android:text="12"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

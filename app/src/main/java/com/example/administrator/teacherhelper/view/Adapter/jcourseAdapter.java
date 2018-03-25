@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
 
 import java.util.List;
@@ -53,7 +53,7 @@ public class jcourseAdapter extends BaseAdapter {
 
         course_code.setText(student.getKe().getDespration() + "  " + student.getKe().getCourse_code());
         schedule.setText("学分:" + student.getKe().getCredit());
-        title.setText(student.getClasss().getGrade().getDespration()+"级"+student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration()+"班");
+//        title.setText(student.getClasss().getGrade().getDespration()+"级"+student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration()+"班");
         return view;
     }
 }

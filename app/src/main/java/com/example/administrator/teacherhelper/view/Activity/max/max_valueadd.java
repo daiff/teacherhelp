@@ -10,10 +10,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.FIELD;
+import com.example.administrator.teacherhelper.bean.FIELD;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.jiemian.PickerView;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.PickerView;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.administrator.teacherhelper.Bean;
+package com.example.administrator.teacherhelper.bean;
 
 
 import cn.bmob.v3.BmobObject;
@@ -8,11 +8,11 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class STUDENT extends BmobObject {
-    public com.example.administrator.teacherhelper.Bean.classs getClasss() {
+    public com.example.administrator.teacherhelper.bean.classs getClasss() {
         return classs;
     }
 
-    public void setClasss(com.example.administrator.teacherhelper.Bean.classs classs) {
+    public void setClasss(com.example.administrator.teacherhelper.bean.classs classs) {
         this.classs = classs;
     }
 

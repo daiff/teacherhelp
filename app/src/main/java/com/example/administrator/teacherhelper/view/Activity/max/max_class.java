@@ -11,10 +11,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.classs;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.classs;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 import com.example.administrator.teacherhelper.view.Adapter.classsAdapter;
 
 import java.util.List;
@@ -88,7 +88,7 @@ public class max_class extends Activity {
                     }else {
                         Adapter = new classsAdapter(list,max_class.this);
                         listt.setAdapter(Adapter);
-                        if (select.equals( commenDate.maxcour_class)){
+                        if (select.equals( CommenDate.maxcour_class)){
                             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -98,7 +98,7 @@ public class max_class extends Activity {
                                             list.get(position).getGrade().getDespration()+"级"
                                             +list.get(position).getMajor().getDespration() +
                                             list.get(position).getClasss().getDespration());
-                                    setResult(commenDate.select_class,intent);
+                                    setResult(CommenDate.select_class,intent);
                                     finish();
                                 }
                             });

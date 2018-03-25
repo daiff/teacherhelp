@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.Bean.book;
+import com.example.administrator.teacherhelper.bean.book;
 import com.example.administrator.teacherhelper.R;
 
 import java.util.List;

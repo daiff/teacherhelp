@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingBottom="12dp">
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:orientation="vertical"
+        android:background="@drawable/main_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/chapter"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            style="@style/jxjd_textView"
+            android:text="章节:"/>
+        <View
+            style="@style/View_hen"/>
+        <TextView
+            android:paddingTop="3dp"
+            style="@style/jxjd_textView"
+            android:text="教学内容:"/>
+        <TextView
+            android:textSize="12dp"
+            android:id="@+id/content"
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            style="@style/View_hen"/>
+        <TextView
+            android:paddingTop="3dp"
+            style="@style/jxjd_textView"
+            android:text="教学要求 :"/>
+        <TextView
+            android:textSize="12dp"
+            android:id="@+id/Remarks"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

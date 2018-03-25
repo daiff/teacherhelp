@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +16,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.Bean.TCH_achievement;
-import com.example.administrator.teacherhelper.Bean.jiaoxue;
-import com.example.administrator.teacherhelper.Commen.commenDate;
+import com.example.administrator.teacherhelper.bean.TCH_achievement;
+import com.example.administrator.teacherhelper.bean.jiaoxue;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
-import com.example.administrator.teacherhelper.view.Activity.dialog.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 import com.example.administrator.teacherhelper.view.Adapter.jcourseAdapter;
 
 import org.json.JSONArray;
@@ -110,7 +109,7 @@ public class zcj_Activity extends Activity {
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
         jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(zcj_Activity.this));
-        jiaoxueBmobQuery.include(commenDate.include_jiaoxue);
+        jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
         jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
             @Override
@@ -134,7 +133,7 @@ public class zcj_Activity extends Activity {
     private void getWorkSum() {
         BmobQuery<TCH_achievement> tchachieve = new BmobQuery<>();
         tchachieve.groupby(new String[]{"jiaoxue"});
-        tchachieve.include(commenDate.achieve_jiaoxue);
+        tchachieve.include(CommenDate.achieve_jiaoxue);
         tchachieve.order("-createdAt");//降序排列
         tchachieve.findStatistics(TCH_achievement.class, new QueryListener<JSONArray>() {
             @Override
@@ -187,6 +186,7 @@ public class zcj_Activity extends Activity {
                     Intent intent = new Intent(zcj_Activity.this, zcj_detial.class);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("jiaoxueid", have.get(position));
+                    bundle.putSerializable("source","zcj");
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
@@ -277,7 +277,7 @@ public class zcj_Activity extends Activity {
             jiaoxue student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-            course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + " 班");
+//            course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + " 班");
             return view;
         }
     }

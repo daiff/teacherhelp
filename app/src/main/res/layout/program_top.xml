@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color">
+    <include layout="@layout/bar_title"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+        <TextView
+            android:id="@+id/jxjd_course"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="数据结构（专业必修课）"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/jxjd_year"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="学年"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</LinearLayout>
