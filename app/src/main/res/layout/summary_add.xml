@@ -13,7 +13,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <include layout="@layout/gzzj_top"/>
+            <include layout="@layout/summary_top"/>
             <LinearLayout
                 android:background="@color/white"
                 android:layout_width="match_parent"

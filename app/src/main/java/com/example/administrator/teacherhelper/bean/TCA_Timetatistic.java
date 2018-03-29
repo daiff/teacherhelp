@@ -178,4 +178,13 @@ public class TCA_Timetatistic extends BmobObject {
     private String  discuss_number ;
     private String  discuss_hour ;
     private String  Writing_total ;
+    private TCH_calender tch_calender;
+
+    public TCH_calender getTch_calender() {
+        return tch_calender;
+    }
+
+    public void setTch_calender(TCH_calender tch_calender) {
+        this.tch_calender = tch_calender;
+    }
 }

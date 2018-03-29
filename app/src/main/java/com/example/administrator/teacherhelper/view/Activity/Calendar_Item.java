@@ -16,17 +16,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.bean.TCH_achievement;
+import com.example.administrator.teacherhelper.bean.TCH_calender;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
-import com.example.administrator.teacherhelper.view.Adapter.jcourseAdapter;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.administrator.teacherhelper.view.Adapter.Calendar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,15 +34,13 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
-import cn.bmob.v3.listener.QueryListener;
 
 /**
  * Created by daiff on 2018/1/29.
- * for:
+ * for:教学日历列表
  */
 
-public class zcj_Activity extends Activity {
-    private final static String TAG= "Summary_Item";
+public class Calendar_Item extends Activity {
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -65,50 +59,101 @@ public class zcj_Activity extends Activity {
     RelativeLayout rightButton;
     @Bind(R.id.listt)
     ListView listt;
+
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
+
+    List<jiaoxue> mycourse;
+    List<TCH_calender> allworksum;
+    List<jiaoxue> nothave;
+    List<TCH_calender> have;
+
     protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this);
-        return mLoadingDialog;
-    }
+        return mLoadingDialog;}
 
-
-    List<jiaoxue> mycourse;
-    List<jiaoxue> nothave;
-    List<jiaoxue> have;
-    List<jiaoxue> havejiaoxue;//有的
-
-    jcourseAdapter adapter;
+    Calendar adapter;
+    String resource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
-        initView();
-        initDate();
+        first();
+        init();
+        initData();
+
     }
 
-    private void initDate() {
-        getLoadingDialog().show();
+    private void initData() {
         mycourse = new ArrayList<>();
+        allworksum = new ArrayList<>();
         nothave = new ArrayList<>();
         have = new ArrayList<>();
-        getmycourse();
+        getLoadingDialog().show();
+        if (resource.equals(CommenDate.main)){
+            data();
+        }else if (resource.equals(CommenDate.max)){
+            allworksum = new ArrayList<>();
+            BmobQuery<TCH_calender> bmobQuery = new BmobQuery<>();
+            bmobQuery.include(CommenDate.IncludeCalender);
+            bmobQuery.order("-createdAt");
+            bmobQuery.findObjects(new FindListener<TCH_calender>() {
+                @Override
+                public void done(final List<TCH_calender> list, BmobException e) {
+                    getLoadingDialog().dismiss();
+                    if (e==null){
+                       if (list.size()!=0){
+                           adapter = new Calendar(list, Calendar_Item.this);
+                           listt.setAdapter(adapter);
+                           listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                               @Override
+                               public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                   Intent intent = new Intent(Calendar_Item.this, Calendar_Detial.class);
+                                   Bundle bundle = new Bundle();
+                                   bundle.putSerializable("tch_calender", list.get(position));
+                                   intent.putExtras(bundle);
+                                   startActivity(intent);
+                               }
+                           });
+                       }
+                    }else {
+                        getLoadingDialog().dismiss();
+                        Toast.makeText(Calendar_Item.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
-    private void initView() {
-        title.setText("总成绩");
-        add.setVisibility(View.VISIBLE);
+    private void first() {
+        resource = getIntent().getStringExtra("resource");
     }
 
-    //本教师本学期的所有课程
-    private void getmycourse(){
+    private void init() {
+        title.setText("教学日历");
+        if (resource.equals(CommenDate.main)){
+            add.setVisibility(View.VISIBLE);
+            rightButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (nothave.size()==0){
+                        Toast.makeText(Calendar_Item.this, "没有要填写的课程", Toast.LENGTH_SHORT).show();
+                    }else {
+                        ShowDialog();
+                    }
+                }
+            });
+        }
+    }
+
+    private  void data(){
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
-        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(zcj_Activity.this));
+        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(Calendar_Item.this));
         jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
         jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
@@ -117,53 +162,43 @@ public class zcj_Activity extends Activity {
                 if (e==null){
                     if (list.size() == 0){
                         getLoadingDialog().dismiss();
-                        Toast.makeText(zcj_Activity.this, "本学期您没有课程", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Calendar_Item.this, "本学期您没有课程", Toast.LENGTH_SHORT).show();
                     }else{
                         mycourse = list;
                         getWorkSum();
                     }
                 }else {
                     getLoadingDialog().dismiss();
-                    Toast.makeText(zcj_Activity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Calendar_Item.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void getWorkSum() {
-        BmobQuery<TCH_achievement> tchachieve = new BmobQuery<>();
-        tchachieve.groupby(new String[]{"jiaoxue"});
-        tchachieve.include(CommenDate.achieve_jiaoxue);
-        tchachieve.order("-createdAt");//降序排列
-        tchachieve.findStatistics(TCH_achievement.class, new QueryListener<JSONArray>() {
+    private void getWorkSum(){
+        allworksum = new ArrayList<>();
+        BmobQuery<TCH_calender> bmobQuery = new BmobQuery<>();
+        bmobQuery.include(CommenDate.IncludeCalender);
+        bmobQuery.order("-createdAt");
+        bmobQuery.findObjects(new FindListener<TCH_calender>() {
             @Override
-            public void done(JSONArray jsonArray, BmobException e) {
+            public void done(final List<TCH_calender> list, BmobException e) {
                 if (e==null){
-                        havejiaoxue  = new ArrayList<jiaoxue>();
-                        for (int i=0 ;i<jsonArray.length();i++){
-                            jiaoxue jiao = new jiaoxue();
-                            try {
-                                JSONObject jsonobject = jsonArray.getJSONObject(i).getJSONObject("jiaoxue");
-                                jiao.setObjectId(jsonobject.getString("objectId"));
-                            } catch (JSONException e1) {
-                                e1.printStackTrace();
-                            }
-                            havejiaoxue.add(jiao);
-                        }
+                    allworksum = list;
                     gethave();
-                }else{
+                }else {
                     getLoadingDialog().dismiss();
-                    Toast.makeText(zcj_Activity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Calendar_Item.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     private void gethave() {
-        for (int i =0;i<mycourse.size();i++){
-            for (int j=0;j<havejiaoxue.size();j++){
-                if (mycourse.get(i).getObjectId() .equals(havejiaoxue.get(j).getObjectId()) ){
-                    have.add(mycourse.get(i));
+        for (int i = 0; i < mycourse.size(); i++) {
+            for (int j = 0; j < allworksum.size(); j++) {
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId())) {
+                    have.add(allworksum.get(j));
                 }
             }
         }
@@ -171,22 +206,31 @@ public class zcj_Activity extends Activity {
         showData();
     }
 
+    private void getnohave(){
+        int i = 0, j = 0;
+        for ( i = 0; i < mycourse.size(); ++i) {
+            for ( j = 0; j < allworksum.size(); ++j)
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId()) )
+                    break;
+            if (j == allworksum.size())
+                nothave.add(mycourse.get(i));
+        }
+    }
 
     //    显示已填写的工作总结
     private void showData() {
         getLoadingDialog().dismiss();
         if (have.size()==0){
-            Toast.makeText(this, "没有任何已填写的试卷分析表", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "没有任何已填写的教学日历", Toast.LENGTH_SHORT).show();
         }else {
-            adapter = new jcourseAdapter(have, zcj_Activity.this);
+            adapter = new Calendar(have, Calendar_Item.this);
             listt.setAdapter(adapter);
             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(zcj_Activity.this, zcj_detial.class);
+                    Intent intent = new Intent(Calendar_Item.this, Calendar_Detial.class);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("jiaoxueid", have.get(position));
-                    bundle.putSerializable("source","zcj");
+                    bundle.putSerializable("tch_calender", have.get(position));
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
@@ -194,45 +238,26 @@ public class zcj_Activity extends Activity {
         }
     }
 
-    private void getnohave() {
-            int i = 0, j = 0;
-            for ( i = 0; i < mycourse.size(); ++i) {
-                for ( j = 0; j < havejiaoxue.size(); ++j)
-                    if (mycourse.get(i).getObjectId().equals(havejiaoxue.get(j).getObjectId()) )
-                        break;
-                if (j == havejiaoxue.size())
-                    nothave.add(mycourse.get(i));
-            }
-    }
-
-
-    @OnClick({R.id.back1, R.id.right_button})
+    @OnClick({R.id.back1})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back1:
                 finish();
                 break;
-            case R.id.right_button:
-                if (nothave.size()==0){
-                    Toast.makeText(this, "本学期的试卷分析表已全部填写", Toast.LENGTH_SHORT).show();
-                }else {
-                    ShowDialog();
-                }
-                break;
         }
     }
 
     public void ShowDialog() {
-        Context context = zcj_Activity.this;
+        Context context = Calendar_Item.this;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.formcommonlist, null);
         ListView myListView = (ListView) layout.findViewById(R.id.formcustomspinner_list);
-        jiaoxueAdapter adapter = new jiaoxueAdapter(nothave, zcj_Activity.this);
+        jiaoxueAdapter adapter = new jiaoxueAdapter(nothave, Calendar_Item.this);
         myListView.setAdapter(adapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int positon, long id) {
-                Intent intent = new Intent(zcj_Activity.this, zcj_add.class);
+                Intent intent = new Intent(Calendar_Item.this, Calender_Add.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("ke",nothave.get(positon) );
                 intent.putExtras(bundle);
@@ -277,7 +302,7 @@ public class zcj_Activity extends Activity {
             jiaoxue student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-//            course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + " 班");
+            course_code.setText(student.getKe().getDespration());
             return view;
         }
     }
@@ -285,6 +310,6 @@ public class zcj_Activity extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        initDate();
+        initData();
     }
 }

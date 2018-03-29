@@ -24,6 +24,25 @@ public class TCH_worksum extends BmobObject {
     private String  high_fen;
     private String bjgpeople ;
     private String work_wanch ;
+    private String classs ;
+
+    public String getTotalperson() {
+        return totalperson;
+    }
+
+    public void setTotalperson(String totalperson) {
+        this.totalperson = totalperson;
+    }
+
+    private String totalperson ;
+
+    public String getClasss() {
+        return classs;
+    }
+
+    public void setClasss(String classs) {
+        this.classs = classs;
+    }
 
 
     public String getWork_wanch() {

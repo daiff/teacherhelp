@@ -89,12 +89,14 @@ public class TCH_calender extends BmobObject {
         this.jiaoxue = jiaoxue;
     }
 
-    public TCA_Timetatistic getTca_time() {
-        return tca_time;
+
+
+    public String getClasss() {
+        return classs;
     }
 
-    public void setTca_time(TCA_Timetatistic tca_time) {
-        this.tca_time = tca_time;
+    public void setClasss(String classs) {
+        this.classs = classs;
     }
 
     private String rank  ;
@@ -105,7 +107,7 @@ public class TCH_calender extends BmobObject {
     private String  mid_number ;
     private String  havedone ;
     private String  total_weeks ;
+    private String  classs ;
     private jiaoxue  jiaoxue ;
-    private TCA_Timetatistic  tca_time ;
 
 }

@@ -11,17 +11,18 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
         <TextView
-            android:id="@+id/course"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="数据结构  开课院"
-            android:textColor="@color/white"/>
-        <TextView
-            android:id="@+id/year_semester"
+            android:id="@+id/gzzj_semester"
             android:layout_marginTop="1dp"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="2017―2081学年度第一学期"
+            android:text="  "
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/gzzj_class"
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
             android:textColor="@color/white"/>
 
         <LinearLayout
@@ -38,17 +39,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="课程负责人"
+                    android:text="授课教师"
                     android:textColor="@color/white"
                     android:textSize="12dp"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/jxjd_fzr"
+                        android:id="@+id/gzzj_teacher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="留"
+                        android:text=""
                         android:textColor="@color/white"/>
 
                 </LinearLayout>
@@ -61,14 +62,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="专业"
+                    android:text="职称"
                     android:textColor="@color/white"
                     android:textSize="12dp"/>
                 <TextView
-                    android:id="@+id/major"
+                    android:id="@+id/gzzj_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="网络工程"
+                    android:text=" "
                     android:textColor="@color/white"/>
             </LinearLayout>
 
@@ -80,16 +81,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="班级"
+                    android:text="所属系"
                     android:textColor="@color/white"
                     android:textSize="12dp"/>
                 <TextView
-                    android:id="@+id/grade_class"
+                    android:id="@+id/gzzj_major"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2014级1班"
+                    android:text=" "
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

@@ -26,7 +26,7 @@ import cn.bmob.v3.listener.FindListener;
  * Created by Administrator on 2018/3/24 0024.
  */
 
-public class jxrl_book extends Activity {
+public class Calendar_Book extends Activity {
 
 
     @Bind(R.id.back)
@@ -65,7 +65,7 @@ public class jxrl_book extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.jxrl_book);
+        setContentView(R.layout.calender_book);
         ButterKnife.bind(this);
         first();
         initView();
@@ -80,11 +80,11 @@ public class jxrl_book extends Activity {
             public void done(List<book> list, BmobException e) {
                 if (e==null){
                     if (list.size()!=0){
-                        adapter = new book_adapter(list,jxrl_book.this);
+                        adapter = new book_adapter(list,Calendar_Book.this);
                         listt.setAdapter(adapter);
                     }
                 }else {
-                    Toast.makeText(jxrl_book.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Calendar_Book.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

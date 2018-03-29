@@ -9,10 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.FIELD;
 import com.example.administrator.teacherhelper.bean.currentyear;
 import com.example.administrator.teacherhelper.commen.CommenDate;
-import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.view.Activity.max.max_StudentAdd;
 import com.example.administrator.teacherhelper.view.Activity.max.max_class;
 import com.example.administrator.teacherhelper.view.Activity.max.max_teacher;
 import com.example.administrator.teacherhelper.view.Activity.max.max_value;
@@ -55,6 +56,24 @@ public class MaxActivity extends Activity {
     LinearLayout maxStudent;
     @Bind(R.id.max_class)
     LinearLayout maxClass;
+    @Bind(R.id.calender)
+    TextView calender;
+    @Bind(R.id.program)
+    TextView program;
+    @Bind(R.id.progress)
+    TextView progress;
+    @Bind(R.id.worksum)
+    TextView worksum;
+    @Bind(R.id.ps)
+    TextView ps;
+    @Bind(R.id.z)
+    TextView z;
+    @Bind(R.id.analysis)
+    TextView analysis;
+    @Bind(R.id.dachuang)
+    TextView dachuang;
+    @Bind(R.id.exit)
+    TextView exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +95,7 @@ public class MaxActivity extends Activity {
         });
     }
 
-    @OnClick({R.id.max_teacher, R.id.max_teach, R.id.max_current, R.id.max_value, R.id.max_field, R.id.max_max, R.id.max_student, R.id.max_class})
+    @OnClick({R.id.max_teacher, R.id.max_teach, R.id.max_current, R.id.max_value, R.id.max_field, R.id.max_max, R.id.max_student, R.id.max_class,R.id.calender, R.id.program, R.id.progress, R.id.worksum, R.id.ps, R.id.z, R.id.analysis, R.id.dachuang, R.id.exit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.max_teacher:
@@ -105,11 +124,35 @@ public class MaxActivity extends Activity {
             case R.id.max_max:
                 break;
             case R.id.max_student:
+                Intent intent6 = new Intent(MaxActivity.this, max_StudentAdd.class);
+                startActivity(intent6);
                 break;
             case R.id.max_class:
                 Intent intent5 = new Intent(MaxActivity.this, max_class.class);
                 intent5.putExtra("select", "");
                 startActivity(intent5);
+                break;
+//侧滑
+            case R.id.calender:
+                Intent intent7 = new Intent(MaxActivity.this,Calendar_Item.class);
+                intent7.putExtra("resource",CommenDate.max);
+                startActivity(intent7);
+                break;
+            case R.id.program:
+                break;
+            case R.id.progress:
+                break;
+            case R.id.worksum:
+                break;
+            case R.id.ps:
+                break;
+            case R.id.z:
+                break;
+            case R.id.analysis:
+                break;
+            case R.id.dachuang:
+                break;
+            case R.id.exit:
                 break;
         }
     }
@@ -147,5 +190,6 @@ public class MaxActivity extends Activity {
         }
 
     }
+
 
 }

@@ -18,7 +18,7 @@ import cn.bmob.v3.Bmob;
  * Created by Administrator on 2018/3/19 0019.
  */
 
-public class gzzj_detial extends Activity {
+public class Summary_Detial extends Activity {
 
 
     TCH_worksum worksum = new TCH_worksum();
@@ -86,22 +86,23 @@ public class gzzj_detial extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gzzj_detial);
+        setContentView(R.layout.summary_detial);
         ButterKnife.bind(this);
         Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
         first();
         initView();
     }
 
+
+
     private void initView() {
         title.setText("工作总结详情");
         gzzjSemester.setText(worksum.getTeach().getSchoolyear().getDespration());
-//        gzzjClass.setText(worksum.getTeach().getClasss().getGrade().getDespration() + "级" + worksum.
-//                getTeach().getClasss().getMajor().getDespration() + worksum.getTeach().getClasss().getClasss().getDespration() + "班");
+        gzzjClass.setText(worksum.getClasss());
         gzzjTeacher.setText(worksum.getTeach().getTeacher().getDesperation());
         gzzjTitle.setText(worksum.getTeach().getTeacher().getTitle());
         gzzjMajor.setText(worksum.getTeach().getTeacher().getXi().getDespration());
-//        gzzjPersonnum.setText(worksum.getTeach().getClasss().getTotal_person());
+        gzzjPersonnum.setText(worksum.getTotalperson());
         gzzjHour.setText(worksum.getLilun_hour());
         gzzjBook.setText(worksum.getTeach().getBook().getDespration());
         gzzjKaizhan.setText(worksum.getWork_kaizhan());

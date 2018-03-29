@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="50dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/calender"
+       style="@style/max_slide"
+        android:text="教学日历"/>
+    <TextView
+        android:id="@+id/program"
+        android:layout_marginTop="5dp"
+       style="@style/max_slide"
+        android:text="教学大纲"/>
+    <TextView
+        android:id="@+id/progress"
+        android:layout_marginTop="5dp"
+        style="@style/max_slide"
+        android:text="教学进度"/>
+    <TextView
+        android:id="@+id/worksum"
+        android:layout_marginTop="5dp"
+        style="@style/max_slide"
+        android:text="工作总结"/>
+    <TextView
+        android:id="@+id/ps"
+        android:layout_marginTop="5dp"
+        style="@style/max_slide"
+        android:text="平时成绩"/>
+    <TextView
+        android:id="@+id/z"
+        android:layout_marginTop="5dp"
+        style="@style/max_slide"
+        android:text="总成绩"/>
+    <TextView
+        android:id="@+id/analysis"
+        android:layout_marginTop="5dp"
+        style="@style/max_slide"
+        android:text="试卷分析"/>
+    <TextView
+        android:id="@+id/dachuang"
+        android:layout_marginTop="5dp"
+        style="@style/max_slide"
+        android:text="大创"/>
+
+    <TextView
+        android:textColor="@color/orangered"
+        android:id="@+id/exit"
+        android:layout_marginTop="50dp"
+        style="@style/max_slide"
+        android:text="退出登录"/>
+
+</LinearLayout>

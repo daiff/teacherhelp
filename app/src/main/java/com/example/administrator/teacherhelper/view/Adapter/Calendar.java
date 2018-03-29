@@ -16,14 +16,14 @@ import java.util.List;
  * Created by Administrator on 2018/3/24 0024.
  */
 
-public class jxriAdapter  extends BaseAdapter {
+public class Calendar extends BaseAdapter {
     private List<TCH_calender> stuList;
     private LayoutInflater inflater;
 
-    public jxriAdapter() {
+    public Calendar() {
     }
 
-    public jxriAdapter(List<TCH_calender> stuList, Context context) {
+    public Calendar(List<TCH_calender> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
     }
@@ -51,7 +51,7 @@ public class jxriAdapter  extends BaseAdapter {
         TextView schedule = (TextView) view.findViewById(R.id.ban);
 
         course_code.setText(student.getJiaoxue().getKe().getDespration());
-//        schedule.setText(student.getJiaoxue().getClasss().getGrade().getDespration()+"级"+student.getJiaoxue().getClasss().getMajor().getDespration()+student.getJiaoxue().getClasss().getClasss().getDespration()+"班");
+        schedule.setText(student.getClasss());
         return view;
     }
 }

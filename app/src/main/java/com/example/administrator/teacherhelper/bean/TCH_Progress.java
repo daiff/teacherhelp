@@ -10,11 +10,12 @@ public class TCH_Progress extends BmobObject {
     private String chapter  ;
     private String  content ;
     private String  hour ;
-    private jiaoxue  jiaoxue ;
+    private TCH_pro  tch_pro ;
     private String  objective ;
     private String  Remarks ;
     private String  task_hour ;
     private String  Teaching_methods ;
+    private String  weekly ;
 
     public String getWeekly() {
         return weekly;
@@ -40,13 +41,6 @@ public class TCH_Progress extends BmobObject {
         this.objective = objective;
     }
 
-    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
-        return jiaoxue;
-    }
-
-    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
-        this.jiaoxue = jiaoxue;
-    }
 
     public String getHour() {
         return hour;
@@ -88,5 +82,13 @@ public class TCH_Progress extends BmobObject {
         Teaching_methods = teaching_methods;
     }
 
-    private String  weekly ;
+
+
+    public TCH_pro getTch_pro() {
+        return tch_pro;
+    }
+
+    public void setTch_pro(TCH_pro tch_pro) {
+        this.tch_pro = tch_pro;
+    }
 }

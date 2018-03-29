@@ -48,7 +48,7 @@ public class Program_Object extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.jxrl_mudi);
+        setContentView(R.layout.calender_object);
         ButterKnife.bind(this);
         first();
         initView();

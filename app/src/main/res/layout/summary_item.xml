@@ -29,14 +29,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_deep"
-            android:hint="c语言"/>
+            android:hint=""/>
         <TextView
             android:layout_alignParentEnd="true"
             android:id="@+id/gzzj_nature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_deep"
-            android:hint="课程性质"/>
+            android:hint=""/>
         <TextView
             android:layout_below="@+id/gzzj_course"
             android:id="@+id/gzzj_class"
@@ -44,6 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp"
-            android:hint="2016级网络工程1班"/>
+            android:hint=""/>
     </RelativeLayout>
 </RelativeLayout>

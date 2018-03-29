@@ -41,7 +41,7 @@
                 <EditText
                     android:id="@+id/jk_zs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -62,7 +62,7 @@
                 <EditText
                     android:id="@+id/jk_pj"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -83,7 +83,7 @@
                 <EditText
                     android:id="@+id/jk_xs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -125,7 +125,7 @@
                 <EditText
                     android:id="@+id/xz_cs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -146,7 +146,7 @@
                 <EditText
                     android:id="@+id/xz_pj"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -167,7 +167,7 @@
                 <EditText
                     android:id="@+id/xz_xs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
             </LinearLayout>
         </LinearLayout>
 
@@ -210,7 +210,7 @@
                 <EditText
                     android:id="@+id/tl_cs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -231,7 +231,7 @@
                 <EditText
                     android:id="@+id/tl_pj"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -252,7 +252,7 @@
                 <EditText
                     android:id="@+id/tl_xs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
             </LinearLayout>
         </LinearLayout>
 
@@ -296,7 +296,7 @@
                     android:id="@+id/sj_cs"
                     android:layout_width="match_parent"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -317,7 +317,7 @@
                 <EditText
                     android:id="@+id/sj_pj"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -338,7 +338,7 @@
                 <EditText
                     android:id="@+id/sj_xs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
             </LinearLayout>
         </LinearLayout>
 
@@ -381,7 +381,7 @@
                 <EditText
                     android:id="@+id/sjjx_cs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -402,7 +402,7 @@
                 <EditText
                     android:id="@+id/sj_zs"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
 
             </LinearLayout>
             <View
@@ -423,7 +423,7 @@
                 <EditText
                     android:id="@+id/sj_ts"
                     style="@style/jxrl_edittext"
-                    android:text="17"/>
+                    android:text=""/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -443,7 +443,7 @@
             <EditText
                 android:id="@+id/skzzs"
                 style="@style/jxrl_edittext"
-                android:text="17"/>
+                android:text=""/>
 
         </LinearLayout>
         <View
@@ -462,7 +462,7 @@
             <EditText
                 android:id="@+id/skzxs"
                 style="@style/jxrl_edittext"
-                android:text="17"/>
+                android:text=""/>
         </LinearLayout>
     </LinearLayout>
 
@@ -476,7 +476,7 @@
         <EditText
             android:id="@+id/zx"
             style="@style/jxrl_edittext"
-            android:text="17"/>
+            android:text=""/>
     </LinearLayout>
     <LinearLayout
         android:layout_marginTop="1dp"
@@ -488,7 +488,7 @@
         <EditText
             android:id="@+id/qzxz"
             style="@style/jxrl_edittext"
-            android:text="17"/>
+            android:text=""/>
     </LinearLayout>
 
 </LinearLayout>

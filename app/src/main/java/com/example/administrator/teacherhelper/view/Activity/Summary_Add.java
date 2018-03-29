@@ -10,22 +10,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.bean.TCH_worksum;
+import com.example.administrator.teacherhelper.bean.classs;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by Administrator on 2018/3/19 0019.
  */
 
-public class gzzj_add extends Activity {
+public class Summary_Add extends Activity {
 
     protected FlippingLoadingDialog mLoadingDialog;
 
@@ -91,6 +97,9 @@ public class gzzj_add extends Activity {
     @Bind(R.id.gzzj_problem)
     EditText gzzjProblem;
 
+    StringBuilder str = new StringBuilder();
+
+
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this);
@@ -100,26 +109,47 @@ public class gzzj_add extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gzzj_add);
+        setContentView(R.layout.summary_add);
         ButterKnife.bind(this);
         Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
         first();
         initView();
+        initData();
     }
 
     private void first() {
         teach = (jiaoxue) getIntent().getSerializableExtra("ke");
     }
 
+
+    private void initData() {
+        BmobQuery<classs> bjiaoxue = new BmobQuery<>();
+        bjiaoxue.include("classs,college,grade,major");
+
+        jiaoxue analysis = new jiaoxue();
+        analysis.setObjectId(teach.getObjectId());
+        bjiaoxue.addWhereRelatedTo("Team",new BmobPointer(analysis));
+        bjiaoxue.findObjects(new FindListener<classs>() {
+            @Override
+            public void done(List<classs> list, BmobException e) {
+                if (e==null){
+                    for (int i =0;i<list.size();i++){
+                        str.append(list.get(i).getCollege().getDespration()+list.get(i).getGrade().getDespration()+list.get(i).getMajor().getDespration()+list.get(i).getClasss().getDespration()+ "班  ");
+                    }
+                    gzzjClass.setText(str);
+                }
+
+            }
+        });
+    }
+
     private void initView() {
         title.setText("新增工作总结表");
         save.setVisibility(View.VISIBLE);
         gzzjSemester.setText(teach.getSchoolyear().getDespration());
-//        gzzjClass.setText(teach.getClasss().getGrade().getDespration() + "级" + teach.getClasss().getMajor().getDespration() + teach.getClasss().getClasss().getDespration() + "班");
         gzzjTeacher.setText(teach.getTeacher().getDesperation());
         gzzjTitle.setText(teach.getTeacher().getTitle());
         gzzjMajor.setText(teach.getTeacher().getXi().getDespration());
-//        gzzjPersonnum.setText(teach.getClasss().getTotal_person());
         gzzjBook.setText(teach.getBook().getDespration());
     }
 
@@ -139,6 +169,8 @@ public class gzzj_add extends Activity {
                 tchworksum.setPigai(gzzjPigai.getText().toString());
                 tchworksum.setLearn(gzzjXueshxx.getText().toString());
                 tchworksum.setPshi(gzzjPschj.getText().toString());
+                tchworksum.setClasss(gzzjClass.getText().toString());
+                tchworksum.setTotalperson(gzzjPersonnum.getText().toString());
                 tchworksum.setJineng(gzzjCzjn.getText().toString());
                 tchworksum.setSjpeople(gzzjShj.getText().toString());
                 tchworksum.setPinjun(gzzjPjfen.getText().toString());
@@ -154,9 +186,9 @@ public class gzzj_add extends Activity {
                     public void done(String s, BmobException e) {
                         getLoadingDialog().dismiss();
                         if (e == null) {
-                            Toast.makeText(gzzj_add.this, "保存成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Summary_Add.this, "保存成功", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(gzzj_add.this, e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Summary_Add.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

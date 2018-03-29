@@ -40,7 +40,15 @@ public class CommenDate {
     public static final String maxcour_class ="maxcour_class"; //由添加课程的选择框进班级列表页面
 
 
+
     public static final String include_jiaoxue = "book,kaikeyuan,ke,nature,schoolyear,teacher.xi"; //专业选择
+    public static final String include_classs = "classs,college,grade,major"; //班级选择
     public static final String IncludePaperAnalysis = "jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher"; //试卷分析包括教学的内容
+    public static final String IncludeCalender = "jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher"; //试卷分析包括教学的内容
     public static final String achieve_jiaoxue = "jiaoxue.classs.classs,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher.xi,jiaooxue.classs.college,jiaoxue.classs.grade,jiaoxue.classs.major"; //专业选择
+
+    public static final String main ="main"; //由添加课程的选择框进班级列表页面
+    public static final String max ="max"; //由添加课程的选择框进班级列表页面
+
+
 }

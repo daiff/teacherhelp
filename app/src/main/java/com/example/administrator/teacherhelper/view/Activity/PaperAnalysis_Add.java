@@ -124,7 +124,6 @@ public class PaperAnalysis_Add extends Activity {
 
             }
         });
-
     }
 
     private void first() {

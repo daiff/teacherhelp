@@ -16,14 +16,14 @@ import java.util.List;
  * Created by Administrator on 2018/3/24 0024.
  */
 
-public class jxjditemAdapter extends BaseAdapter {
+public class SpeedContent extends BaseAdapter {
     private List<TCH_Progress> stuList;
     private LayoutInflater inflater;
 
-    public jxjditemAdapter() {
+    public SpeedContent() {
     }
 
-    public jxjditemAdapter(List<TCH_Progress> stuList, Context context) {
+    public SpeedContent(List<TCH_Progress> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
     }
@@ -44,7 +44,7 @@ public class jxjditemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = inflater.inflate(R.layout.jxjd_item, null);
+        View view = inflater.inflate(R.layout.speed_itemcontent, null);
         TCH_Progress student = getItem(position);
         //在view视图中查找id为image_photo的控件
         TextView weekly = (TextView) view.findViewById(R.id.weekly);

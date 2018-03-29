@@ -16,15 +16,15 @@ import java.util.List;
  * Created by Administrator on 2018/3/24 0024.
  */
 
-public class jxrl_detialAdapter extends BaseAdapter {
+public class CalendarContent extends BaseAdapter {
 
     private List<TCA_detail> stuList;
     private LayoutInflater inflater;
 
-    public jxrl_detialAdapter() {
+    public CalendarContent() {
     }
 
-    public jxrl_detialAdapter(List<TCA_detail> stuList, Context context) {
+    public CalendarContent(List<TCA_detail> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
     }
@@ -47,7 +47,7 @@ public class jxrl_detialAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //加载布局为一个视图
-        View view = inflater.inflate(R.layout.jxrl_item, null);
+        View view = inflater.inflate(R.layout.calender_contentdetial, null);
         TCA_detail student = getItem(position);
         //在view视图中查找id为image_photo的控件
         TextView m_d = (TextView) view.findViewById(R.id.yueri);

@@ -1,7 +1,9 @@
 package com.example.administrator.teacherhelper.view.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -10,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.bean.TCA_detail;
 import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.Adapter.jxrl_detialAdapter;
+import com.example.administrator.teacherhelper.view.Adapter.CalendarContent;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ import cn.bmob.v3.listener.FindListener;
  * Created by Administrator on 2018/3/24 0024.
  */
 
-public class jxrl_ddetial extends Activity {
+public class Calendar_Content extends Activity {
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -46,12 +48,13 @@ public class jxrl_ddetial extends Activity {
     ListView listt;
 
     String calenderid;
-    jxrl_detialAdapter adapter;
+    CalendarContent adapter;
+    String source;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.jxrl_itemtou);
+        setContentView(R.layout.calender_contenttop);
         ButterKnife.bind(this);
         first();
         initView();
@@ -66,15 +69,15 @@ public class jxrl_ddetial extends Activity {
             public void done(List<TCA_detail> list, BmobException e) {
                 if (e==null){
                     if (list.size()==0){
-                        Toast.makeText(jxrl_ddetial.this, "没有详情", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Calendar_Content.this, "没有详情", Toast.LENGTH_SHORT).show();
                     }else{
-                        adapter = new jxrl_detialAdapter(list,jxrl_ddetial.this);
+                        adapter = new CalendarContent(list,Calendar_Content.this);
                         listt.setAdapter(adapter);
 
                     }
 
                 }else {
-                    Toast.makeText(jxrl_ddetial.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Calendar_Content.this,e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -82,14 +85,33 @@ public class jxrl_ddetial extends Activity {
 
     private void first() {
         calenderid = getIntent().getStringExtra("calenderid");
+        source = getIntent().getStringExtra("resource");
     }
 
     private void initView() {
         title.setText("教学日历详情");
+        if (source.equals("add")){
+            add.setVisibility(View.VISIBLE);
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Calendar_Content.this,Calender_ContentAdd.class);
+                    intent.putExtra("calenderid", calenderid);
+                    startActivity(intent);
+                }
+            }
+            );
+        }
     }
 
     @OnClick(R.id.back1)
     public void onViewClicked() {
         finish();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        iniitData();
     }
 }

@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.bean.TCH_calender;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.bean.TCH_calender;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,9 +19,13 @@ import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2018/3/24 0024.
+ * 教学日历详情
  */
 
-public class jxrl_detial extends Activity {
+public class Calendar_Detial extends Activity {
+
+
+    TCH_calender calender;
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -42,18 +46,8 @@ public class jxrl_detial extends Activity {
     TextView course;
     @Bind(R.id.year_semester)
     TextView yearSemester;
-    @Bind(R.id.xibie)
-    TextView xibie;
     @Bind(R.id.failure_peoploname)
     TextView failurePeoploname;
-    @Bind(R.id.zhuanye)
-    TextView zhuanye;
-    @Bind(R.id.major)
-    TextView major;
-    @Bind(R.id.banji)
-    TextView banji;
-    @Bind(R.id.grade_class)
-    TextView gradeClass;
     @Bind(R.id.jxrl_teacher)
     TextView jxrlTeacher;
     @Bind(R.id.jxrl_title)
@@ -66,14 +60,6 @@ public class jxrl_detial extends Activity {
     LinearLayout mudi;
     @Bind(R.id.book)
     LinearLayout book;
-    @Bind(R.id.anpai_detial)
-    LinearLayout anpaiDetial;
-    @Bind(R.id.jxrl_xiang)
-    LinearLayout jxrlXiang;
-    @Bind(R.id.jxrl_check)
-    LinearLayout jxrlCheck;
-
-    TCH_calender calender;
     @Bind(R.id.zzs)
     EditText zzs;
     @Bind(R.id.qzks)
@@ -84,11 +70,18 @@ public class jxrl_detial extends Activity {
     EditText qmks;
     @Bind(R.id.qmks_xs)
     EditText qmksXs;
+    @Bind(R.id.anpai_detial)
+    LinearLayout anpaiDetial;
+    @Bind(R.id.jxrl_xiang)
+    LinearLayout jxrlXiang;
+    @Bind(R.id.jxrl_check)
+    LinearLayout jxrlCheck;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.jxrl_detial);
+        setContentView(R.layout.calender_detial);
         ButterKnife.bind(this);
         first();
         initView();
@@ -105,9 +98,7 @@ public class jxrl_detial extends Activity {
         course.setText(calender.getJiaoxue().getKe().getDespration() + " (" +
                 calender.getJiaoxue().getNature().getDespration() + ")");
         yearSemester.setText(calender.getJiaoxue().getSchoolyear().getDespration());
-//        failurePeoploname.setText(calender.getJiaoxue().getClasss().getMajor().getDespration());
-//        major.setText(calender.getJiaoxue().getClasss().getMajor().getDespration());
-//        gradeClass.setText(calender.getJiaoxue().getClasss().getGrade().getDespration() + "级" +calender.getJiaoxue().getClasss().getClasss().getDespration() + " 班");
+        failurePeoploname.setText(calender.getClasss());
         jxrlTeacher.setText(calender.getJiaoxue().getTeacher().getDesperation());
         jxrlTitle.setText(calender.getJiaoxue().getTeacher().getTitle());
         zzs.setText(calender.getTotal_weeks());
@@ -130,29 +121,33 @@ public class jxrl_detial extends Activity {
             case R.id.right_button:
                 break;
             case R.id.mudi:
-                Intent intent = new Intent(jxrl_detial.this,jxrl_mudi.class);
-                intent.putExtra("mudi",calender.getObjective());
+                Intent intent = new Intent(Calendar_Detial.this, Calender_Object.class);
+                intent.putExtra("mudi", calender.getObjective());
+                intent.putExtra("calenderid","");
                 startActivity(intent);
                 break;
             case R.id.book:
-                Intent intent1 = new Intent(jxrl_detial.this,jxrl_book.class);
-                intent1.putExtra("calenderid",calender.getObjectId());
-                intent1.putExtra("book",calender.getJiaoxue().getBook());
+                Intent intent1 = new Intent(Calendar_Detial.this, Calendar_Book.class);
+                intent1.putExtra("calenderid", calender.getObjectId());
+                intent1.putExtra("book", calender.getJiaoxue().getBook());
                 startActivity(intent1);
                 break;
             case R.id.anpai_detial:
-                Intent intent3 = new Intent(jxrl_detial.this,jxrl_time.class);
-                intent3.putExtra("timedetial",calender.getTca_time());
+                Intent intent3 = new Intent(Calendar_Detial.this, Calendar_Time.class);
+                intent3.putExtra("timedetial", calender.getObjectId());
+                intent3.putExtra("source","detial");
                 startActivity(intent3);
                 break;
             case R.id.jxrl_xiang:
-                Intent intent4 = new Intent(jxrl_detial.this,jxrl_ddetial.class);
-                intent4.putExtra("calenderid",calender.getObjectId());
+                Intent intent4 = new Intent(Calendar_Detial.this, Calendar_Content.class);
+                intent4.putExtra("calenderid", calender.getObjectId());
+                intent4.putExtra("resource","detial");
                 startActivity(intent4);
                 break;
             case R.id.jxrl_check:
-                Intent intent2 = new Intent(jxrl_detial.this,jxrl_check.class);
-                intent2.putExtra("check",calender);
+                Intent intent2 = new Intent(Calendar_Detial.this, Calendar_Check.class);
+                intent2.putExtra("check", calender);
+                intent2.putExtra("source", "");
                 startActivity(intent2);
                 break;
         }

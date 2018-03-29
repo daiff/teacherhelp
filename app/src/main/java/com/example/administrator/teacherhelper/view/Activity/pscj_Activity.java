@@ -46,7 +46,7 @@ import cn.bmob.v3.listener.QueryListener;
  */
 
 public class pscj_Activity extends Activity {
-    private final static String TAG= "gzzj_Activity";
+    private final static String TAG= "Summary_Item";
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)

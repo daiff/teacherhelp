@@ -11,11 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.view.Activity.Program_item;
+import com.example.administrator.teacherhelper.view.Activity.Speed_Item;
 import com.example.administrator.teacherhelper.view.Activity.dc_Activity;
-import com.example.administrator.teacherhelper.view.Activity.gzzj_Activity;
-import com.example.administrator.teacherhelper.view.Activity.jxjd_item;
-import com.example.administrator.teacherhelper.view.Activity.jxrl_Activity;
+import com.example.administrator.teacherhelper.view.Activity.Summary_Item;
+import com.example.administrator.teacherhelper.view.Activity.Calendar_Item;
 import com.example.administrator.teacherhelper.view.Activity.pscj_Activity;
 import com.example.administrator.teacherhelper.view.Activity.PaperAnalysis_List;
 import com.example.administrator.teacherhelper.view.Activity.zcj_Activity;
@@ -74,7 +75,8 @@ public class ManageFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home_jxrl:
-                Intent intent = new Intent(getActivity(),jxrl_Activity.class);
+                Intent intent = new Intent(getActivity(),Calendar_Item.class);
+                intent.putExtra("resource", CommenDate.main);
                 startActivity(intent);
                 break;
             case R.id.home_jxdg:
@@ -82,11 +84,11 @@ public class ManageFragment extends Fragment {
                 startActivity(intent1);
                 break;
             case R.id.home_jxjd:
-                Intent intent2 = new Intent(getActivity(),jxjd_item.class);
+                Intent intent2 = new Intent(getActivity(),Speed_Item.class);
                 startActivity(intent2);
                 break;
             case R.id.home_gzzj:
-                Intent intent3 = new Intent(getActivity(),gzzj_Activity.class);
+                Intent intent3 = new Intent(getActivity(),Summary_Item.class);
                 startActivity(intent3);
                 break;
             case R.id.home_pscj:

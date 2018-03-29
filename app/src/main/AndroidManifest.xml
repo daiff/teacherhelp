@@ -49,9 +49,9 @@
         <activity android:name=".view.Activity.PaperAnalysis_Detial" />
         <activity android:name=".view.Activity.zcj_Activity" />
         <activity android:name=".view.Activity.pscj_Activity" />
-        <activity android:name=".view.Activity.gzzj_Activity" />
+        <activity android:name=".view.Activity.Summary_Item" />
         <activity android:name=".view.Activity.Program_item" />
-        <activity android:name=".view.Activity.jxrl_Activity" />
+        <activity android:name=".view.Activity.Calendar_Item" />
         <activity android:name=".view.Activity.PermissionsActivity" />
         <activity android:name=".view.Activity.my_detail" />
         <activity android:name=".view.Activity.my_course" />
@@ -60,8 +60,8 @@
         <activity android:name=".view.Activity.PaperAnalysis_Add" />
         <activity android:name=".view.Activity.MaxActivity" />
         <activity android:name=".view.Activity.max.mx_upload" />
-        <activity android:name=".view.Activity.gzzj_detial" />
-        <activity android:name=".view.Activity.gzzj_add" />
+        <activity android:name=".view.Activity.Summary_Detial" />
+        <activity android:name=".view.Activity.Summary_Add" />
         <activity android:name=".view.Activity.max.max_teacher" />
         <activity android:name=".view.Activity.max.max_teacheradd" />
         <activity android:name=".view.Activity.select_Activity.value_select" />
@@ -74,19 +74,24 @@
         <activity android:name=".view.Activity.max.max_class" />
         <activity android:name=".view.Activity.zcj_detial" />
         <activity android:name=".view.Activity.zcj_add" />
-        <activity android:name=".view.Activity.jxrl_detial" />
-        <activity android:name=".view.Activity.jxrl_mudi" />
-        <activity android:name=".view.Activity.jxrl_book" />
-        <activity android:name=".view.Activity.jxrl_check" />
-        <activity android:name=".view.Activity.jxrl_time" />
-        <activity android:name=".view.Activity.jxrl_ddetial" />
+        <activity android:name=".view.Activity.Calendar_Detial" />
+        <activity android:name=".view.Activity.Calender_Object" />
+        <activity android:name=".view.Activity.Calendar_Book" />
+        <activity android:name=".view.Activity.Calendar_Check" />
+        <activity android:name=".view.Activity.Calendar_Time" />
+        <activity android:name=".view.Activity.Calendar_Content" />
         <activity android:name=".view.Activity.Program_Detial" />
-        <activity android:name=".view.Activity.jxjd_detial" />
-        <activity android:name=".view.Activity.jxjd_item" />
+        <activity android:name=".view.Activity.Speed_Detial" />
+        <activity android:name=".view.Activity.Speed_Item" />
         <activity android:name=".view.Activity.Program_Time" />
         <activity android:name=".view.Activity.Program_Object" />
         <activity android:name=".view.Activity.Program_add" />
         <activity android:name=".view.Activity.ProgramTime_Add" />
+        <activity android:name=".view.Activity.Speed_Add" />
+        <activity android:name=".view.Activity.Speed_AddItem" />
+        <activity android:name=".view.Activity.Calender_Add" />
+        <activity android:name=".view.Activity.Calender_ContentAdd" />
+        <activity android:name=".view.Activity.max.max_StudentAdd" />
 
         <!--  蒲公英-->
         <meta-data

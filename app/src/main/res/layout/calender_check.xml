@@ -17,7 +17,7 @@
             android:id="@+id/zxqk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="男男女女男男女女男男女女男男女女男男女女奶奶呢"/>
+            android:text=""/>
     </LinearLayout>
     <View
         android:layout_marginLeft="12dp"
@@ -38,7 +38,7 @@
             android:id="@+id/zldj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="男男女女男男女女男男女女男"/>
+            android:text=""/>
     </LinearLayout>
 
     <View
@@ -54,11 +54,12 @@
             android:layout_marginRight="10dp"
             style="@style/commen_textview"
             android:text="教研室检查意见:" />
+
         <EditText
             android:id="@+id/jys"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="男男女女男男女女男男女女男"/>
+            android:text=""/>
     </LinearLayout>
 
     <View
@@ -80,7 +81,7 @@
             android:id="@+id/jysqz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="你你你"/>
+            android:text=""/>
     </LinearLayout>
     <View
         android:layout_marginLeft="12dp"
@@ -101,7 +102,7 @@
             android:id="@+id/jysqzrq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="你你你"/>
+            android:text=""/>
     </LinearLayout>
 
     <View
@@ -121,7 +122,7 @@
             android:id="@+id/xzr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="男男女女男男女女男男女女男"/>
+            android:text=""/>
     </LinearLayout>
     <View
         android:layout_marginLeft="12dp"
@@ -143,7 +144,7 @@
             android:id="@+id/xzrqz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="男男女女男男女女男男女女男"/>
+            android:text=""/>
     </LinearLayout>
     <View
         android:layout_marginLeft="12dp"
@@ -164,7 +165,7 @@
             android:id="@+id/xzrrq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="男男女女男男女女男男女女男"/>
+            android:text=""/>
     </LinearLayout>
 
 
