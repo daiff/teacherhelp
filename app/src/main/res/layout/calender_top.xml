@@ -26,10 +26,11 @@
         android:textColor="@color/white"/>
 
         <TextView
+            android:layout_marginBottom="8dp"
         android:id="@+id/failure_peoploname"
         android:layout_marginTop="1dp"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="2017―2081学年度第一学期"
         android:textColor="@color/white"/>
     </LinearLayout>

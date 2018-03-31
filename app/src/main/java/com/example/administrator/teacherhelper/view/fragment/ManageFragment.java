@@ -12,9 +12,9 @@ import android.widget.LinearLayout;
 
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.commen.CommenDate;
+import com.example.administrator.teacherhelper.view.Activity.Innovate_Item;
 import com.example.administrator.teacherhelper.view.Activity.Program_item;
 import com.example.administrator.teacherhelper.view.Activity.Speed_Item;
-import com.example.administrator.teacherhelper.view.Activity.dc_Activity;
 import com.example.administrator.teacherhelper.view.Activity.Summary_Item;
 import com.example.administrator.teacherhelper.view.Activity.Calendar_Item;
 import com.example.administrator.teacherhelper.view.Activity.pscj_Activity;
@@ -81,14 +81,17 @@ public class ManageFragment extends Fragment {
                 break;
             case R.id.home_jxdg:
                 Intent intent1 = new Intent(getActivity(),Program_item.class);
+                intent1.putExtra("resource",CommenDate.main);
                 startActivity(intent1);
                 break;
             case R.id.home_jxjd:
                 Intent intent2 = new Intent(getActivity(),Speed_Item.class);
+                intent2.putExtra("resource",CommenDate.main);
                 startActivity(intent2);
                 break;
             case R.id.home_gzzj:
                 Intent intent3 = new Intent(getActivity(),Summary_Item.class);
+                intent3.putExtra("resource",CommenDate.main);
                 startActivity(intent3);
                 break;
             case R.id.home_pscj:
@@ -101,10 +104,11 @@ public class ManageFragment extends Fragment {
                 break;
             case R.id.home_sjfx:
                 Intent intent6 = new Intent(getActivity(),PaperAnalysis_List.class);
+                intent6.putExtra("resource",CommenDate.main);
                 startActivity(intent6);
                 break;
             case R.id.home_dg:
-                Intent intent7 = new Intent(getActivity(),dc_Activity.class);
+                Intent intent7 = new Intent(getActivity(),Innovate_Item.class);
                 startActivity(intent7);
                 break;
         }

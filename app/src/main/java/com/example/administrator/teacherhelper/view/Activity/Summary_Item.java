@@ -78,6 +78,7 @@ public class Summary_Item extends Activity {
     List<jiaoxue> nothave;
     List<TCH_worksum> have;
     Summary adapter;
+    String resource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +86,13 @@ public class Summary_Item extends Activity {
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
         Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
+        first();
         initView();
         initData();
+    }
+
+    private void first() {
+        resource = getIntent().getStringExtra("resource");
     }
 
     protected void initView() {
@@ -101,7 +107,35 @@ public class Summary_Item extends Activity {
         allworksum = new ArrayList<>();
        nothave = new ArrayList<>();
         have = new ArrayList<>();
-        getmycourse();
+        if (resource.equals(CommenDate.main)) {
+            getmycourse();
+        }else if (resource.equals(CommenDate.max)){
+            BmobQuery<TCH_worksum> worksumbmob = new BmobQuery<>();
+            worksumbmob.include("teach.book.despration ,teach.kaikeyuan,teach.ke,teach.nature,teach.schoolyear,teach.teacher");
+            worksumbmob.order("-createdAt");
+            worksumbmob.findObjects(new FindListener<TCH_worksum>() {
+                @Override
+                public void done(final List<TCH_worksum> list, BmobException e) {
+                    getLoadingDialog().dismiss();
+                    if (e==null){
+                        adapter = new Summary(list, Summary_Item.this);
+                        listt.setAdapter(adapter);
+                        listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent intent = new Intent(Summary_Item.this, Summary_Detial.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("tch_worksum", list.get(position));
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            }
+                        });
+                    }else {
+                        Toast.makeText(Summary_Item.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
 

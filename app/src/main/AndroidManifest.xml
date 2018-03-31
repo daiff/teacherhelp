@@ -45,7 +45,6 @@
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".view.Activity.dc_Activity" />
         <activity android:name=".view.Activity.PaperAnalysis_Detial" />
         <activity android:name=".view.Activity.zcj_Activity" />
         <activity android:name=".view.Activity.pscj_Activity" />
@@ -92,6 +91,11 @@
         <activity android:name=".view.Activity.Calender_Add" />
         <activity android:name=".view.Activity.Calender_ContentAdd" />
         <activity android:name=".view.Activity.max.max_StudentAdd" />
+        <activity android:name=".view.Activity.max.Max_StudentDetial" />
+        <activity android:name=".view.Activity.Innovatte_Detial" />
+        <activity android:name=".view.Activity.Innovate_Item" />
+        <activity android:name=".view.Activity.Innovate_Student" />
+        <activity android:name=".view.Activity.Innovate_Add" />
 
         <!--  蒲公英-->
         <meta-data

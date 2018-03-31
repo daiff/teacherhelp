@@ -77,6 +77,7 @@ public class Speed_Item extends Activity {
     List<jiaoxue> nothave;
     List<TCH_pro> have;
     Speed adapter;
+    String resource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,23 +85,60 @@ public class Speed_Item extends Activity {
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
         Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
+        first();
         initView();
-        initData();
+        Data();
+
     }
 
-    protected void initView() {
-        title.setText("教学工作总结");
-        add.setVisibility(View.VISIBLE);
-    }
-
-
-    protected void initData() {
+    private void Data() {
         getLoadingDialog().show();
         mycourse = new ArrayList<>();
         allworksum = new ArrayList<>();
         nothave = new ArrayList<>();
         have = new ArrayList<>();
-        getmycourse();
+        if (resource.equals(CommenDate.main)){
+            getmycourse();
+        }else {
+            BmobQuery<TCH_pro> worksumbmob = new BmobQuery<>();
+            worksumbmob.include(CommenDate.IncludePaperAnalysis);
+            worksumbmob.order("-createdAt");
+            worksumbmob.findObjects(new FindListener<TCH_pro>() {
+                @Override
+                public void done(final List<TCH_pro> list, BmobException e) {
+                    getLoadingDialog().dismiss();
+                    if (e==null){
+                        if (list.size()!=0) {
+                            adapter = new Speed(list, Speed_Item.this);
+                            listt.setAdapter(adapter);
+                            listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent(Speed_Item.this, Speed_Detial.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putSerializable("tch_worksum", list.get(position));
+                                    intent.putExtras(bundle);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }else {
+                        getLoadingDialog().dismiss();
+                        Toast.makeText(Speed_Item.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+        }
+    }
+
+    private void first() {
+        resource = getIntent().getStringExtra("resource");
+    }
+
+    protected void initView() {
+        title.setText("教学进度");
+        add.setVisibility(View.VISIBLE);
     }
 
 
@@ -271,6 +309,6 @@ public class Speed_Item extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        initData();
+        Data();
     }
 }

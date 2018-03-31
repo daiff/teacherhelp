@@ -7,23 +7,23 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.bean.Innovate;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/3/23 0023.
+ * Created by Administrator on 2018/3/31 0031.
  */
 
-public class jcourseAdapter extends BaseAdapter {
-    private List<jiaoxue> stuList;
+public class InnovateItem extends BaseAdapter {
+    private List<Innovate> stuList;
     private LayoutInflater inflater;
 
-    public jcourseAdapter() {
+    public InnovateItem() {
     }
 
-    public jcourseAdapter(List<jiaoxue> stuList, Context context) {
+    public InnovateItem(List<Innovate> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
     }
@@ -33,7 +33,7 @@ public class jcourseAdapter extends BaseAdapter {
     }
 
     @Override
-    public jiaoxue getItem(int position) {
+    public Innovate getItem(int position) {
         return stuList.get(position);
     }
 
@@ -44,16 +44,12 @@ public class jcourseAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = inflater.inflate(R.layout.innovate_item, null);
-        jiaoxue student = getItem(position);
+        View view = inflater.inflate(R.layout.summary_item, null);
+        Innovate student = getItem(position);
         //在view视图中查找id为image_photo的控件
         TextView course_code = (TextView) view.findViewById(R.id.gzzj_course);
-        TextView schedule = (TextView) view.findViewById(R.id.gzzj_nature);
-        TextView title = (TextView) view.findViewById(R.id.gzzj_class);
 
-        course_code.setText(student.getKe().getDespration() + "  " + student.getKe().getCourse_code());
-        schedule.setText("学分:" + student.getKe().getCredit());
-//        title.setText(student.getClasss().getGrade().getDespration()+"级"+student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration()+"班");
+        course_code.setText(student.getTitle());
         return view;
     }
 }

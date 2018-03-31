@@ -23,6 +23,12 @@ public class CommenDate {
     public static final int select_class3 = 14; //max选择年
     public static final int select_class4 = 15; //max选择年
 
+    public static final int select_student1= 16; //大创选择学生
+    public static final int select_student2 = 17; //大创选择学生
+    public static final int select_student3 = 18; //大创选择学生
+    public static final int select_student4 = 19; //大创选择学生
+    public static final int select_student5 = 20; //大创选择学生
+
 
     public static final String value_major = "major"; //专业选择
     public static final String value_schoolyear = "schoolyear"; //专业选择

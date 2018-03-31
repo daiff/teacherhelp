@@ -178,33 +178,53 @@ public class Calender_Add extends Activity {
                 }
                 break;
             case R.id.mudi:
-                Intent intent = new Intent(Calender_Add.this, Calender_Object.class);
-                intent.putExtra("mudi","");
-                intent.putExtra("calenderid",calenderid);
-                startActivity(intent);
+                if (calenderid.equals(null)){
+                    Toast.makeText(this, "请将此页面填写完整并保存", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(Calender_Add.this, Calender_Object.class);
+                    intent.putExtra("mudi", "");
+                    intent.putExtra("calenderid", calenderid);
+                    startActivity(intent);
+                }
                 break;
             case R.id.book:
-                Intent intent1 = new Intent(Calender_Add.this, Calendar_Book.class);
-                intent1.putExtra("calenderid", calenderid);
-                intent1.putExtra("book", jiao.getBook());
-                startActivity(intent1);
+                if (calenderid.equals(null)){
+                    Toast.makeText(this, "请将此页面填写完整并保存", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent1 = new Intent(Calender_Add.this, Calendar_Book.class);
+                    intent1.putExtra("calenderid", calenderid);
+                    intent1.putExtra("book", jiao.getBook());
+                    startActivity(intent1);
+                }
                 break;
             case R.id.anpai_detial:
-                Intent intent3 = new Intent(Calender_Add.this, Calendar_Time.class);
-                intent3.putExtra("timedetial", calenderid);
-                intent3.putExtra("source","add");
-                startActivity(intent3);
+                if (calenderid.equals(null)){
+                    Toast.makeText(this, "请将此页面填写完整并保存", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent3 = new Intent(Calender_Add.this, Calendar_Time.class);
+                    intent3.putExtra("timedetial", calenderid);
+                    intent3.putExtra("source", "add");
+                    startActivity(intent3);
+                }
                 break;
             case R.id.jxrl_xiang:
-                Intent intent4 = new Intent(Calender_Add.this, Calendar_Content.class);
-                intent4.putExtra("calenderid", calenderid);
-                intent4.putExtra("resource","add");
-                startActivity(intent4);
+                if (calenderid.equals(null)){
+                    Toast.makeText(this, "请将此页面填写完整并保存", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent4 = new Intent(Calender_Add.this, Calendar_Content.class);
+                    intent4.putExtra("calenderid", calenderid);
+                    intent4.putExtra("resource", "add");
+                    startActivity(intent4);
+                }
                 break;
             case R.id.jxrl_check:
-                Intent intent2 = new Intent(Calender_Add.this, Calendar_Check.class);
-                intent2.putExtra("source", calenderid);
-                startActivity(intent2);
+                if (calenderid.equals(null)){
+                    Toast.makeText(this, "请将此页面填写完整并保存", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent2 = new Intent(Calender_Add.this, Calendar_Check.class);
+                    intent2.putExtra("source", calenderid);
+                    startActivity(intent2);
+                }
                 break;
         }
     }

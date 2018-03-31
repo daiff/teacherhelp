@@ -13,7 +13,6 @@ import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.FIELD;
 import com.example.administrator.teacherhelper.bean.currentyear;
 import com.example.administrator.teacherhelper.commen.CommenDate;
-import com.example.administrator.teacherhelper.view.Activity.max.max_StudentAdd;
 import com.example.administrator.teacherhelper.view.Activity.max.max_class;
 import com.example.administrator.teacherhelper.view.Activity.max.max_teacher;
 import com.example.administrator.teacherhelper.view.Activity.max.max_value;
@@ -124,7 +123,8 @@ public class MaxActivity extends Activity {
             case R.id.max_max:
                 break;
             case R.id.max_student:
-                Intent intent6 = new Intent(MaxActivity.this, max_StudentAdd.class);
+                Intent intent6 = new Intent(MaxActivity.this, max_class.class);
+                intent6.putExtra("select", "student");
                 startActivity(intent6);
                 break;
             case R.id.max_class:
@@ -139,20 +139,35 @@ public class MaxActivity extends Activity {
                 startActivity(intent7);
                 break;
             case R.id.program:
+                Intent intent8 = new Intent(MaxActivity.this,Program_item.class);
+                intent8.putExtra("resource",CommenDate.max);
+                startActivity(intent8);
                 break;
             case R.id.progress:
+                Intent intent9 = new Intent(MaxActivity.this,Speed_Item.class);
+                intent9.putExtra("resource",CommenDate.max);
+                startActivity(intent9);
                 break;
             case R.id.worksum:
+                Intent intent10 = new Intent(MaxActivity.this,Summary_Item.class);
+                intent10.putExtra("resource",CommenDate.max);
+                startActivity(intent10);
                 break;
             case R.id.ps:
                 break;
             case R.id.z:
                 break;
             case R.id.analysis:
+                Intent intent11 = new Intent(MaxActivity.this,PaperAnalysis_List.class);
+                intent11.putExtra("resource",CommenDate.max);
+                startActivity(intent11);
                 break;
             case R.id.dachuang:
                 break;
             case R.id.exit:
+                Intent logoutIntent = new Intent(MaxActivity.this, LoginActivity.class);
+                logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(logoutIntent);
                 break;
         }
     }

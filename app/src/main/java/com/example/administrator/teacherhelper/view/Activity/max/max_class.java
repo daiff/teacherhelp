@@ -102,6 +102,15 @@ public class max_class extends Activity {
                                     finish();
                                 }
                             });
+                        }else if (select.equals("student")){
+                         listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                             @Override
+                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                 Intent intent = new Intent(max_class.this,Max_StudentDetial.class);
+                                 intent.putExtra("classid",list.get(position).getObjectId());
+                                 startActivity(intent);
+                             }
+                         });
                         }
                     }
                 }else {
@@ -112,7 +121,11 @@ public class max_class extends Activity {
     }
 
     private void initView() {
-        title.setText("班级信息");
+        if (select.equals("student")){
+            title.setText("学生信息");
+        }else{
+            title.setText("班级信息");
+        }
         add.setVisibility(View.VISIBLE);
     }
 
@@ -123,8 +136,13 @@ public class max_class extends Activity {
                 finish();
                 break;
             case R.id.right_button:
-                Intent in = new Intent(max_class.this,max_addclasss.class);
-                startActivity(in);
+                if (select.equals("student")){
+                    Intent intent = new Intent(max_class.this,max_StudentAdd.class);
+                    startActivity(intent);
+                }else {
+                    Intent in = new Intent(max_class.this, max_addclasss.class);
+                    startActivity(in);
+                }
                 break;
         }
     }

@@ -63,8 +63,9 @@ public class PaperAnalysis_List extends Activity {
 
     List<jiaoxue> mycourse;
     List<TCH_analysis> allworksum;
-    List<jiaoxue> nothave = new ArrayList<>();
-    List<TCH_analysis> have = new ArrayList<>();
+    List<jiaoxue> nothave;
+    List<TCH_analysis> have;
+    String resource;
 
     protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {
@@ -79,20 +80,60 @@ public class PaperAnalysis_List extends Activity {
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
         Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
+        first();
         init();
+        InitData();
         data();
     }
+
+    private void InitData() {
+        mycourse = new ArrayList<>();
+        allworksum = new ArrayList<>();
+        nothave = new ArrayList<>();
+        have = new ArrayList<>();
+        getLoadingDialog().show();
+        if (resource.equals(CommenDate.main)){
+            data();
+        }else if (resource.equals(CommenDate.max)){
+            BmobQuery<TCH_analysis> bmobQuery = new BmobQuery<>();
+            bmobQuery.include(CommenDate.IncludePaperAnalysis);
+            bmobQuery.order("-createdAt");
+            bmobQuery.findObjects(new FindListener<TCH_analysis>() {
+                @Override
+                public void done(final List<TCH_analysis> list, BmobException e) {
+                    getLoadingDialog().dismiss();
+                    if (e==null){if (list.size()!=0){
+                        adapter = new PaperAnalysis(list, PaperAnalysis_List.this);
+                        listt.setAdapter(adapter);
+                        listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent intent = new Intent(PaperAnalysis_List.this, PaperAnalysis_Detial.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("tch_analysis", list.get(position));
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                    }else {
+                        Toast.makeText(PaperAnalysis_List.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void first() {
+        resource = getIntent().getStringExtra("resource");
+    }
+
     private void init() {
         title.setText("试卷分析列表");
         add.setVisibility(View.VISIBLE);
     }
 
     private  void data(){
-        mycourse = new ArrayList<>();
-        allworksum = new ArrayList<>();
-        nothave = new ArrayList<>();
-        have = new ArrayList<>();
-        getLoadingDialog().show();
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher",BmobUser.getCurrentUser());
         jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(PaperAnalysis_List.this));
@@ -117,7 +158,6 @@ public class PaperAnalysis_List extends Activity {
         });
     }
     private void getWorkSum(){
-        allworksum = new ArrayList<>();
         BmobQuery<TCH_analysis> bmobQuery = new BmobQuery<>();
         bmobQuery.include(CommenDate.IncludePaperAnalysis);
         bmobQuery.order("-createdAt");

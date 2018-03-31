@@ -65,8 +65,9 @@ public class Program_item extends Activity {
 
     List<jiaoxue> mycourse;
     List<TCH_program> allworksum;
-    List<jiaoxue> nothave = new ArrayList<>();
-    List<TCH_program> have = new ArrayList<>();
+    List<jiaoxue> nothave;
+    List<TCH_program> have;
+    String resource;
 
     protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {
@@ -81,8 +82,55 @@ public class Program_item extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
+        first();
         init();
-        data();
+        initData();
+
+    }
+
+    private void initData() {
+        mycourse = new ArrayList<>();
+        allworksum = new ArrayList<>();
+        nothave = new ArrayList<>();
+        have = new ArrayList<>();
+        getLoadingDialog().show();
+        if (resource.equals(CommenDate.main)){
+            data();
+        }else if (resource.equals(CommenDate.max)){
+            allworksum = new ArrayList<>();
+            BmobQuery<TCH_program> bmobQuery = new BmobQuery<>();
+            bmobQuery.include("jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature," +
+                    "jiaoxue.schoolyear,jiaoxue.teacher,");
+            bmobQuery.order("-createdAt");
+            bmobQuery.findObjects(new FindListener<TCH_program>() {
+                @Override
+                public void done(final List<TCH_program> list, BmobException e) {
+                    getLoadingDialog().dismiss();
+                    if (e==null){
+                        if (list.size()!=0){
+                            adapter = new com.example.administrator.teacherhelper.view.Adapter.Program_item(list, Program_item.this);
+                            listt.setAdapter(adapter);
+                            listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent(Program_item.this, Program_Detial.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putSerializable("tch_program", list.get(position));
+                                    intent.putExtras(bundle);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }else {
+                        Toast.makeText(Program_item.this, "获取失败", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void first() {
+        resource = getIntent().getStringExtra("resource");
     }
 
     private void init() {
@@ -91,11 +139,6 @@ public class Program_item extends Activity {
     }
 
     private  void data(){
-        mycourse = new ArrayList<>();
-        allworksum = new ArrayList<>();
-        nothave = new ArrayList<>();
-        have = new ArrayList<>();
-        getLoadingDialog().show();
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
         jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(Program_item.this));
@@ -121,7 +164,6 @@ public class Program_item extends Activity {
     }
 
     private void getWorkSum(){
-        allworksum = new ArrayList<>();
         BmobQuery<TCH_program> bmobQuery = new BmobQuery<>();
         bmobQuery.include("jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature," +
                 "jiaoxue.schoolyear,jiaoxue.teacher,");
@@ -167,7 +209,7 @@ public class Program_item extends Activity {
     private void showData() {
         getLoadingDialog().dismiss();
         if (have.size()==0){
-            Toast.makeText(this, "没有任何已填写的试卷分析表", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "没有任何已填写的教学大纲", Toast.LENGTH_SHORT).show();
         }else {
             adapter = new com.example.administrator.teacherhelper.view.Adapter.Program_item(have, Program_item.this);
             listt.setAdapter(adapter);
@@ -192,7 +234,7 @@ public class Program_item extends Activity {
                 break;
             case R.id.right_button:
                 if (nothave.size()==0){
-                    Toast.makeText(this, "本学期的教学日历已全部填写", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "本学期的教学大纲已全部填写", Toast.LENGTH_SHORT).show();
                 }else {
                     ShowDialog();
                 }
@@ -263,6 +305,6 @@ public class Program_item extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        data();
+        initData();
     }
 }
