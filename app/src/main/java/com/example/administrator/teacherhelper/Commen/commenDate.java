@@ -30,6 +30,7 @@ public class CommenDate {
     public static final int select_student5 = 20; //大创选择学生
 
 
+
     public static final String value_major = "major"; //专业选择
     public static final String value_schoolyear = "schoolyear"; //专业选择
     public static final String value_schele = "schedule"; //专业选择
@@ -41,9 +42,14 @@ public class CommenDate {
 
 
     public static final String max_mycourse ="max_course"; //教材选择
+    public static final String main_mycourse ="main_mycourse"; //教材选择
     public static final String maxcour_teacher ="maxcour_teacher"; //由添加课程的选择框进教师列表页面
     public static final String maxcour_book ="maxcour_book"; //由添加课程的选择框进教师列表页面
     public static final String maxcour_class ="maxcour_class"; //由添加课程的选择框进班级列表页面
+    public static final String maxschedule_jiaoxue ="maxschedule_jiaoxue"; //由添加课程表的选择框进教学列表页面
+
+
+
 
 
 

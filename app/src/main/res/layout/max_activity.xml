@@ -136,40 +136,8 @@
                 android:text="授课"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/max_current"
-            android:gravity="center_horizontal"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                style="@style/max_image"
-                android:src="@drawable/icon_book"/>
-            <TextView
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="13dp"
-                android:text="教材"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/max_field"
-            android:gravity="center_horizontal"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                style="@style/max_image"
-                android:src="@drawable/icon_cailiao"/>
-            <TextView
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="13dp"
-                android:text="上传教学材料"/>
-        </LinearLayout>
+
+
 
         <LinearLayout
             android:id="@+id/max_max"
@@ -187,6 +155,41 @@
                 android:layout_height="wrap_content"
                 android:textSize="13dp"
                 android:text="课程表"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/max_current"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                style="@style/max_image"
+                android:src="@drawable/icon_book"/>
+            <TextView
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:text="通知"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/max_field"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--<ImageView-->
+                <!--style="@style/max_image"-->
+                <!--android:src="@drawable/icon_cailiao"/>-->
+            <!--<TextView-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="13dp"-->
+                <!--android:text="上传教学材料"/>-->
         </LinearLayout>
     </LinearLayout>
     </LinearLayout>

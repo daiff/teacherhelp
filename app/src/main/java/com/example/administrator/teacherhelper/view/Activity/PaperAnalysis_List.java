@@ -61,10 +61,10 @@ public class PaperAnalysis_List extends Activity {
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
 
-    List<jiaoxue> mycourse;
-    List<TCH_analysis> allworksum;
-    List<jiaoxue> nothave;
-    List<TCH_analysis> have;
+    List<jiaoxue> mycourse= new ArrayList<>();
+    List<TCH_analysis> allworksum= new ArrayList<>();
+    List<jiaoxue> nothave= new ArrayList<>();
+    List<TCH_analysis> have= new ArrayList<>();
     String resource;
 
     protected FlippingLoadingDialog mLoadingDialog;

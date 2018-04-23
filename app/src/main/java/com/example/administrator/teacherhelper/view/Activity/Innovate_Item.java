@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.Innovate;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.Adapter.InnovateItem;
 import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
@@ -58,20 +59,28 @@ public class Innovate_Item extends Activity {
         return mLoadingDialog;
     }
     InnovateItem adapter;
+    String resource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adapteractivity);
         ButterKnife.bind(this);
+        first();
         initView();
         initData();
+    }
+
+    private void first() {
+        resource = getIntent().getStringExtra("resource");
     }
 
     private void initData() {
         getLoadingDialog().show();
         BmobQuery<Innovate> innovate = new BmobQuery<>();
-        innovate.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
+        if (resource.equals(CommenDate.main)) {
+            innovate.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
+        }
         innovate.findObjects(new FindListener<Innovate>() {
             @Override
             public void done(final List<Innovate> list, BmobException e) {

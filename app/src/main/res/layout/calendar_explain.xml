@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <TextView
+        android:background="@color/white"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="        1、本教学日历，可用于教学、社会实践、教学实习。本系代课和外系代课一律填写。\n
+        2、教师根据教学计划在每次教学活动结束时填写，不得事先填好或者学期结束时填写。\n
+        3、填写内容，按当日实际活动内容填写。上课只填篇、章、节，社会实践，按日填写活动内容；教学实习填试讲、听课等当时活动。\n
+        4、教研室主任、所长等要定期和不定期检查日历填写的实际工作进度和教学进度计划是否相吻合。\n
+        5、系主任进行检查。\n
+        6、本日历填写情况，作为教学质量评定的依据之一。\n"/>
+
+</LinearLayout>

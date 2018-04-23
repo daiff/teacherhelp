@@ -112,7 +112,7 @@ public class Calendar_Detial extends Activity {
         calender = (TCH_calender) getIntent().getSerializableExtra("tch_calender");
     }
 
-    @OnClick({R.id.back1, R.id.right_button, R.id.mudi, R.id.book, R.id.anpai_detial, R.id.jxrl_xiang, R.id.jxrl_check})
+    @OnClick({R.id.back1, R.id.right_button, R.id.mudi, R.id.book, R.id.anpai_detial, R.id.jxrl_xiang, R.id.jxrl_check,R.id.explain})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back1:
@@ -149,6 +149,11 @@ public class Calendar_Detial extends Activity {
                 intent2.putExtra("check", calender);
                 intent2.putExtra("source", "");
                 startActivity(intent2);
+                break;
+
+            case R.id.explain:
+                Intent intent5 = new Intent(Calendar_Detial.this, Calendar_explain.class);
+                startActivity(intent5);
                 break;
         }
     }

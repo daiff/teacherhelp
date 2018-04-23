@@ -13,6 +13,8 @@ import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.FIELD;
 import com.example.administrator.teacherhelper.bean.currentyear;
 import com.example.administrator.teacherhelper.commen.CommenDate;
+import com.example.administrator.teacherhelper.view.Activity.max.Max_Messege;
+import com.example.administrator.teacherhelper.view.Activity.max.Max_Shedule;
 import com.example.administrator.teacherhelper.view.Activity.max.max_class;
 import com.example.administrator.teacherhelper.view.Activity.max.max_teacher;
 import com.example.administrator.teacherhelper.view.Activity.max.max_value;
@@ -105,11 +107,11 @@ public class MaxActivity extends Activity {
             case R.id.max_teach:
                 Intent intent3 = new Intent(MaxActivity.this, my_course.class);
                 intent3.putExtra("sourse", CommenDate.max_mycourse);
+                intent3.putExtra("teacherid","");
                 startActivity(intent3);
                 break;
             case R.id.max_current:
-                Intent intent4 = new Intent(MaxActivity.this, book_select.class);
-                intent4.putExtra("book", "");
+                Intent intent4 = new Intent(MaxActivity.this, Max_Messege.class);
                 startActivity(intent4);
                 break;
             case R.id.max_value:
@@ -117,10 +119,12 @@ public class MaxActivity extends Activity {
                 startActivity(intent2);
                 break;
             case R.id.max_field:
-                Intent intent = new Intent(MaxActivity.this, mx_upload.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MaxActivity.this, mx_upload.class);
+//                startActivity(intent);
                 break;
             case R.id.max_max:
+                Intent intent = new Intent(MaxActivity.this, Max_Shedule.class);
+                startActivity(intent);
                 break;
             case R.id.max_student:
                 Intent intent6 = new Intent(MaxActivity.this, max_class.class);
@@ -163,6 +167,9 @@ public class MaxActivity extends Activity {
                 startActivity(intent11);
                 break;
             case R.id.dachuang:
+                Intent intent12 = new Intent(MaxActivity.this,Innovate_Item.class);
+                intent12.putExtra("resource",CommenDate.max);
+                startActivity(intent12);
                 break;
             case R.id.exit:
                 Intent logoutIntent = new Intent(MaxActivity.this, LoginActivity.class);

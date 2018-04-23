@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -52,6 +53,7 @@ public class my_course extends Activity {
     String source;
     @Bind(R.id.right_button)
     RelativeLayout rightButton;
+    String teacherid;
 
 
     @Override
@@ -67,6 +69,7 @@ public class my_course extends Activity {
 
     private void first() {
         source = getIntent().getStringExtra("sourse");
+        teacherid = getIntent().getStringExtra("teacherid");
     }
 
     private void init() {
@@ -79,22 +82,37 @@ public class my_course extends Activity {
 
     private void getData() {
         BmobQuery<jiaoxue> b = new BmobQuery<>();
-        if (!(source.equals(CommenDate.max_mycourse))) {
+        if (source.equals(CommenDate.main_mycourse)) {
             BmobUser user = BmobUser.getCurrentUser();
             b.addWhereEqualTo("teacher", user);
+            b.addWhereEqualTo("schoolyear", AccountUtils.getyear(my_course.this));
+        }else if (source.equals(CommenDate.maxschedule_jiaoxue)){//添加课程表   根据教师的id找他的课程
+            b.addWhereEqualTo("teacher", teacherid);
             b.addWhereEqualTo("schoolyear", AccountUtils.getyear(my_course.this));
         }
         b.include(CommenDate.include_jiaoxue);
         b.order("-createdAt");
         b.findObjects(new FindListener<jiaoxue>() {
             @Override
-            public void done(List<jiaoxue> list, BmobException e) {
+            public void done(final List<jiaoxue> list, BmobException e) {
                 if (e == null) {
                     if (list.size() == 0) {
                         Toast.makeText(my_course.this, "本学期您还没有课程", Toast.LENGTH_SHORT).show();
                     } else {
                         adapter = new my_courseAdapter(list, my_course.this);
                         listt.setAdapter(adapter);
+                        if (source.equals(CommenDate.maxschedule_jiaoxue)) {//添加课程表   根据教师的id找他的课程
+                            listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent();
+                                    intent.putExtra("course",list.get(position).getKe().getDespration());
+                                    intent.putExtra("courseid",list.get(position).getObjectId());
+                                    setResult(CommenDate.select_course,intent);
+                                    finish();
+                                }
+                            });
+                        }
                     }
                 } else {
                     Toast.makeText(my_course.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();

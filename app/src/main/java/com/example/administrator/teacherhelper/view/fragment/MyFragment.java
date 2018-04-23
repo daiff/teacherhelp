@@ -13,12 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.Activity.LoginActivity;
-import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
+import com.example.administrator.teacherhelper.view.Activity.max.Max_bookadd;
 import com.example.administrator.teacherhelper.view.Activity.my_course;
 import com.example.administrator.teacherhelper.view.Activity.my_detail;
+import com.example.administrator.teacherhelper.view.Activity.select_Activity.book_select;
 import com.example.administrator.teacherhelper.view.Adapter.my_download;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -56,6 +59,8 @@ public class MyFragment extends Fragment {
     TextView usernamaedes;
     @Bind(R.id.username)
     TextView username;
+    @Bind(R.id.my_book)
+    TextView myBook;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my, container, false);
@@ -83,16 +88,17 @@ public class MyFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mydetail:
-                Intent intent = new Intent(getActivity(),my_detail.class);
+                Intent intent = new Intent(getActivity(), my_detail.class);
                 startActivity(intent);
                 break;
             case R.id.downoaddata:
-                Intent intent2 = new Intent(getActivity(),my_download.class);
+                Intent intent2 = new Intent(getActivity(), my_download.class);
                 startActivity(intent2);
                 break;
             case R.id.mycourse:
-                Intent intent1 = new Intent(getActivity(),my_course.class);
-                intent1.putExtra("sourse","");
+                Intent intent1 = new Intent(getActivity(), my_course.class);
+                intent1.putExtra("sourse", CommenDate.main_mycourse);
+                intent1.putExtra("teacherid", "");
                 startActivity(intent1);
                 break;
             case R.id.resetpassword:
@@ -102,9 +108,9 @@ public class MyFragment extends Fragment {
                     @Override
                     public void done(BmobException e) {
                         getLoadingDialog().setMessage("").dismiss();
-                        if (e==null){
-                            Toast.makeText(getActivity(),"您会收到一封邮件，请到邮箱查看",Toast.LENGTH_SHORT).show();
-                        }else {
+                        if (e == null) {
+                            Toast.makeText(getActivity(), "您会收到一封邮件，请到邮箱查看", Toast.LENGTH_SHORT).show();
+                        } else {
                             Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -117,10 +123,20 @@ public class MyFragment extends Fragment {
                 break;
         }
     }
+
     protected FlippingLoadingDialog mLoadingDialog;
+
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(getActivity());
         return mLoadingDialog;
+    }
+
+    @OnClick(R.id.my_book)
+    public void onViewClicked() {
+        Intent intent = new Intent(getActivity(), book_select.class);
+        intent.putExtra("book","");
+        startActivity(intent);
+
     }
 }

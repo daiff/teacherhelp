@@ -102,6 +102,18 @@
         android:drawableLeft="@drawable/exit"/>
 
 
+    <TextView
+        android:id="@+id/my_book"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:text="  本学期所使用教材"
+        android:drawableLeft="@drawable/my_book"/>
+
+
 
 
 </LinearLayout>

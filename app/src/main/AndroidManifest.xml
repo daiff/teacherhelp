@@ -47,7 +47,7 @@
         </activity>
         <activity android:name=".view.Activity.PaperAnalysis_Detial" />
         <activity android:name=".view.Activity.zcj_Activity" />
-        <activity android:name=".view.Activity.pscj_Activity" />
+        <activity android:name=".view.Activity.Ordinary" />
         <activity android:name=".view.Activity.Summary_Item" />
         <activity android:name=".view.Activity.Program_item" />
         <activity android:name=".view.Activity.Calendar_Item" />
@@ -96,6 +96,12 @@
         <activity android:name=".view.Activity.Innovate_Item" />
         <activity android:name=".view.Activity.Innovate_Student" />
         <activity android:name=".view.Activity.Innovate_Add" />
+        <activity android:name=".view.Activity.max.Max_Shedule" />
+        <activity android:name=".view.Activity.select_Activity.classes_select" />
+        <activity android:name=".view.Activity.Calendar_explain" />
+        <activity android:name=".view.Activity.max.Max_Messege" />
+        <activity android:name=".view.Activity.max.Max_MessegeDetial" />
+        <activity android:name=".view.Activity.max.Max_MessegeList" />
 
         <!--  蒲公英-->
         <meta-data

@@ -307,6 +307,29 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////可课程表
+    <style name="schele_bar">
+        <item name="android:background">@color/darkseagreen</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="schele_textView">
+        <item name="android:background">#8efffacd</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+    </style>
+
 
 
 

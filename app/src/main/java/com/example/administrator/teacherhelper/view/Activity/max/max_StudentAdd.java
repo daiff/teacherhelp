@@ -66,7 +66,7 @@ public class max_StudentAdd extends Activity {
     private static final int FILE_SELECT_CODE = 0;
     String path;
 
-    protected FlippingLoadingDialog mLoadingDialog;
+
     @Bind(R.id.upload_path)
     TextView uploadPath;
     @Bind(R.id.upload_file)
@@ -74,6 +74,7 @@ public class max_StudentAdd extends Activity {
     @Bind(R.id.daoru)
     Button daoru;
 
+    protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this);

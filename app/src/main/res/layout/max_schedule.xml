@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="教    师:"/>
+        <TextView
+            android:id="@+id/sc_teacher"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_scteacher"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="课    程:"/>
+        <TextView
+            android:id="@+id/sc_cource"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_sccource"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="班    级:"/>
+        <TextView
+            android:id="@+id/sc_class"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_scclass"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_footer">
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="单双周:"/>
+        <RadioGroup
+            android:id="@+id/select_dsz1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="单双"
+                android:id="@+id/select_douyou"
+                android:checked="true" />
+
+            <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="单"
+            android:id="@+id/select_dan" />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="双"
+            android:id="@+id/select_sh" />
+    </RadioGroup>
+
+</LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="星    期:"/>
+        <RadioGroup
+            android:id="@+id/select_xq1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="一"
+                android:id="@+id/select_yi"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="二"
+                android:id="@+id/select_er" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="三"
+                android:id="@+id/select_san" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="四"
+                android:id="@+id/select_si" />
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="五"
+                android:id="@+id/select_wu" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="第几节:"
+            android:id="@+id/textView2" />
+
+        <RadioGroup
+            android:id="@+id/select_djj1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:id="@+id/select_one"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:id="@+id/select_two" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:id="@+id/select_three" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:id="@+id/select_four" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="教    室:"/>
+        <EditText
+            android:id="@+id/bookdate"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_footer">
+
+        <LinearLayout
+            style="@style/my_add_Linerlayout">
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="单双周:"/>
+            <RadioGroup
+                android:id="@+id/dsz2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="单双"
+                    android:id="@+id/select_douyou2"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="单"
+                    android:id="@+id/select_dan2" />
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="双"
+                    android:id="@+id/select_sh2" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/my_add_Linerlayout">
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="星    期:"/>
+            <RadioGroup
+                android:id="@+id/xq2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="一"
+                    android:id="@+id/select_yi2"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="二"
+                    android:id="@+id/select_er2" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="三"
+                    android:id="@+id/select_san2" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="四"
+                    android:id="@+id/select_si2" />
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="五"
+                    android:id="@+id/select_wu2" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/my_add_Linerlayout">
+
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="第几节:" />
+
+            <RadioGroup
+                android:id="@+id/djj2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:id="@+id/select_one2"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:id="@+id/select_two2" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:id="@+id/select_three2" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:id="@+id/select_four2" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            style="@style/my_add_Linerlayout">
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="教    室:"/>
+            <EditText
+                android:id="@+id/bookdate2"
+                style="@style/my_add_rightEdittext"
+                android:text=""/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_footer">
+
+        <LinearLayout
+            style="@style/my_add_Linerlayout">
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="单双周:"/>
+            <RadioGroup
+                android:id="@+id/dsz3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="单双"
+                    android:id="@+id/select_douyou3"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="单"
+                    android:id="@+id/select_dan3" />
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="双"
+                    android:id="@+id/select_sh3" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/my_add_Linerlayout">
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="星    期:"/>
+            <RadioGroup
+                android:id="@+id/xq3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="一"
+                    android:id="@+id/select_yi3"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="二"
+                    android:id="@+id/select_er3" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="三"
+                    android:id="@+id/select_san3" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="四"
+                    android:id="@+id/select_si3" />
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="五"
+                    android:id="@+id/select_wu3" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/my_add_Linerlayout">
+
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="第几节:" />
+
+            <RadioGroup
+                android:id="@+id/djj3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:id="@+id/select_one3"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:id="@+id/select_two3" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:id="@+id/select_three3" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:id="@+id/select_four3" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            style="@style/my_add_Linerlayout">
+            <TextView
+                style="@style/my_add_leftTextView"
+                android:text="教    室:"/>
+            <EditText
+                android:id="@+id/bookdate3"
+                style="@style/my_add_rightEdittext"
+                android:text=""/>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

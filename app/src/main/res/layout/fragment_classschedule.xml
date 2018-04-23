@@ -4,11 +4,181 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/bar_top_time"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="110px"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/darkseagreen"
+            android:textColor="@color/white"
+            android:text="节/周"/>
+        <TextView
+            style="@style/schele_bar"
+            android:text="周一"/>
+        <TextView
+            style="@style/schele_bar"
+            android:text="周二"/>
+        <TextView
+            style="@style/schele_bar"
+            android:text="周三"/>
+        <TextView
+            style="@style/schele_bar"
+            android:text="周四"/>
+        <TextView
+            style="@style/schele_bar"
+            android:text="周五"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <TextView
+            android:layout_width="110px"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#678AC87F"
+            android:textColor="@color/white"
+            android:text="1"/>
+        <TextView
+            android:id="@+id/week1_one"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week2_one"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week3_one"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week4_one"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week5_one"
+            style="@style/schele_textView"
+            android:text=""/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+
+        <TextView
+            android:layout_width="110px"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#678AC87F"
+            android:textColor="@color/white"
+            android:text="2"
+            android:id="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/week1_two"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week2_two"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week3_two"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week4_two"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week5_two"
+            style="@style/schele_textView"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+
+        <TextView
+            android:layout_width="110px"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#678AC87F"
+            android:textColor="@color/white"
+            android:text="3"
+            android:id="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/week1_three"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week2_three"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week3_three"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week4_three"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week5_three"
+            style="@style/schele_textView"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+        <TextView
+            android:layout_width="110px"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#678AC87F"
+            android:textColor="@color/white"
+            android:text="4"/>
+        <TextView
+            android:id="@+id/week1_four"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week2_four"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week3_four"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week4_four"
+            style="@style/schele_textView"
+            android:text=""/>
+        <TextView
+            android:id="@+id/week5_four"
+            style="@style/schele_textView"
+            android:text=""/>
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

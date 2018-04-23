@@ -29,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.Bind;
@@ -45,7 +46,7 @@ import cn.bmob.v3.listener.QueryListener;
  * for:
  */
 
-public class pscj_Activity extends Activity {
+public class Ordinary extends Activity {
     private final static String TAG= "Summary_Item";
     @Bind(R.id.back)
     ImageButton back;
@@ -65,23 +66,21 @@ public class pscj_Activity extends Activity {
     RelativeLayout rightButton;
     @Bind(R.id.listt)
     ListView listt;
+    String [] jiaoxueid;
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
+    List<jiaoxue> mycourse;
+    List<jiaoxue> nothave;
+    List<jiaoxue> have;
+    List<jiaoxue> havejiaoxue;//有的
+    jcourseAdapter adapter;
+
     protected FlippingLoadingDialog mLoadingDialog;
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this);
         return mLoadingDialog;
     }
-
-
-    List<jiaoxue> mycourse;
-    List<jiaoxue> nothave;
-    List<jiaoxue> have;
-    List<jiaoxue> havejiaoxue;//有的
-
-    jcourseAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +90,27 @@ public class pscj_Activity extends Activity {
         initDate();
     }
 
+
+    private void initView() {
+        title.setText("平时成绩");
+        add.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick({R.id.back1, R.id.right_button})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.back1:
+                finish();
+                break;
+            case R.id.right_button:
+                if (nothave.size()==0){
+                    Toast.makeText(this, "本学期的试卷分析表已全部填写", Toast.LENGTH_SHORT).show();
+                }else {
+                    ShowDialog();
+                }
+                break;
+   }
+}
     private void initDate() {
         getLoadingDialog().show();
         mycourse = new ArrayList<>();
@@ -99,16 +119,13 @@ public class pscj_Activity extends Activity {
         getmycourse();
     }
 
-    private void initView() {
-        title.setText("平时成绩");
-        add.setVisibility(View.VISIBLE);
-    }
+
 
     //本教师本学期的所有课程
     private void getmycourse(){
         BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
         jiaoxueBmobQuery.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
-        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(pscj_Activity.this));
+        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(Ordinary.this));
         jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
         jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
@@ -117,14 +134,14 @@ public class pscj_Activity extends Activity {
                 if (e==null){
                     if (list.size() == 0){
                         getLoadingDialog().dismiss();
-                        Toast.makeText(pscj_Activity.this, "本学期您没有课程", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Ordinary.this, "本学期您没有课程", Toast.LENGTH_SHORT).show();
                     }else{
                         mycourse = list;
                         getWorkSum();
                     }
                 }else {
                     getLoadingDialog().dismiss();
-                    Toast.makeText(pscj_Activity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Ordinary.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -153,7 +170,7 @@ public class pscj_Activity extends Activity {
                     gethave();
                 }else{
                     getLoadingDialog().dismiss();
-                    Toast.makeText(pscj_Activity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Ordinary.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -178,12 +195,12 @@ public class pscj_Activity extends Activity {
         if (have.size()==0){
             Toast.makeText(this, "没有任何已填写的平时成绩表", Toast.LENGTH_SHORT).show();
         }else {
-            adapter = new jcourseAdapter(have, pscj_Activity.this);
+            adapter = new jcourseAdapter(have, Ordinary.this);
             listt.setAdapter(adapter);
             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(pscj_Activity.this, zcj_detial.class);
+                    Intent intent = new Intent(Ordinary.this, zcj_detial.class);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("jiaoxueid", have.get(position));
                     bundle.putSerializable("source","pscj");
@@ -206,33 +223,19 @@ public class pscj_Activity extends Activity {
     }
 
 
-    @OnClick({R.id.back1, R.id.right_button})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.back1:
-                finish();
-                break;
-            case R.id.right_button:
-                if (nothave.size()==0){
-                    Toast.makeText(this, "本学期的试卷分析表已全部填写", Toast.LENGTH_SHORT).show();
-                }else {
-                    ShowDialog();
-                }
-                break;
-        }
-    }
+
 
     public void ShowDialog() {
-        Context context = pscj_Activity.this;
+        Context context = Ordinary.this;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.formcommonlist, null);
         ListView myListView = (ListView) layout.findViewById(R.id.formcustomspinner_list);
-        jiaoxueAdapter adapter = new jiaoxueAdapter(nothave, pscj_Activity.this);
+        jiaoxueAdapter adapter = new jiaoxueAdapter(nothave, Ordinary.this);
         myListView.setAdapter(adapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int positon, long id) {
-                Intent intent = new Intent(pscj_Activity.this, zcj_add.class);
+                Intent intent = new Intent(Ordinary.this, zcj_add.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("ke",nothave.get(positon) );
                 intent.putExtras(bundle);
@@ -277,7 +280,7 @@ public class pscj_Activity extends Activity {
             jiaoxue student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-//            course_code.setText(student.getKe().getDespration()+ "  " + student.getClasss().getGrade().getDespration() + "级" +student.getClasss().getMajor().getDespration()+student.getClasss().getClasss().getDespration() + " 班");
+            course_code.setText(student.getKe().getDespration());
             return view;
         }
     }
