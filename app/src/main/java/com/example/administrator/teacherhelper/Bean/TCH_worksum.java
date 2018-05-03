@@ -9,7 +9,16 @@ import cn.bmob.v3.BmobObject;
 public class TCH_worksum extends BmobObject {
     private String bjglv ;
     private String work_kaizhan ;
-    private jiaoxue teach ;
+
+    public TEACH getTeach() {
+        return teach;
+    }
+
+    public void setTeach(TEACH teach) {
+        this.teach = teach;
+    }
+
+    private TEACH teach ;
     private String sjpeople ;
     private String  shifen;
     private String qianmin ;
@@ -69,13 +78,6 @@ public class TCH_worksum extends BmobObject {
         this.work_kaizhan = work_kaizhan;
     }
 
-    public jiaoxue getTeach() {
-        return teach;
-    }
-
-    public void setTeach(jiaoxue teach) {
-        this.teach = teach;
-    }
 
     public String getSjpeople() {
         return sjpeople;

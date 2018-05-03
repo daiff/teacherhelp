@@ -23,7 +23,7 @@
             android:background="@drawable/item_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1"/>
+            android:hint="必填"/>
     </LinearLayout>
 
     <LinearLayout
@@ -45,7 +45,7 @@
             android:background="@drawable/item_bg"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text=""/>
+            android:hint="必填"/>
     </LinearLayout>
 
     <LinearLayout
@@ -67,7 +67,7 @@
             android:background="@drawable/item_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1"/>
+            android:hint="必填"/>
     </LinearLayout>
 
     <LinearLayout
@@ -89,7 +89,7 @@
             android:background="@drawable/item_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1"/>
+            android:hint="必填"/>
     </LinearLayout>
 
     <LinearLayout
@@ -111,7 +111,7 @@
             android:background="@drawable/item_bg"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="1"/>
+            android:hint="必填"/>
     </LinearLayout>
 
     <LinearLayout
@@ -133,7 +133,7 @@
             android:background="@drawable/item_bg"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="1"/>
+            android:hint="必填"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -19,10 +19,8 @@ import java.util.List;
 public class InnovateItem extends BaseAdapter {
     private List<Innovate> stuList;
     private LayoutInflater inflater;
-
     public InnovateItem() {
     }
-
     public InnovateItem(List<Innovate> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
@@ -44,11 +42,10 @@ public class InnovateItem extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = inflater.inflate(R.layout.summary_item, null);
+        View view = inflater.inflate(R.layout.program_item, null);
         Innovate student = getItem(position);
         //在view视图中查找id为image_photo的控件
-        TextView course_code = (TextView) view.findViewById(R.id.gzzj_course);
-
+        TextView course_code = (TextView) view.findViewById(R.id.course_code);
         course_code.setText(student.getTitle());
         return view;
     }

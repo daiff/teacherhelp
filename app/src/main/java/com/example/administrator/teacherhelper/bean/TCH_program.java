@@ -7,7 +7,15 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class TCH_program extends BmobObject {
-    private jiaoxue jiaoxue;
+    public TEACH getCourse() {
+        return Course;
+    }
+
+    public void setCourse(TEACH course) {
+        Course = course;
+    }
+
+    private TEACH Course;
     private String  ability;
     private String check ;
     private String contact ;
@@ -79,14 +87,6 @@ public class TCH_program extends BmobObject {
 
     public void setAbility(String ability) {
         this.ability = ability;
-    }
-
-    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
-        return jiaoxue;
-    }
-
-    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
-        this.jiaoxue = jiaoxue;
     }
 
     private String Object_oriented ;

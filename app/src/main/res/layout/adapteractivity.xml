@@ -4,6 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/bar_title"/>
+    <!--<RelativeLayout-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--<EditText-->
+        <!--android:id="@+id/search_k"-->
+        <!--android:paddingRight="12dp"-->
+        <!--android:paddingLeft="12dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@drawable/item_bg"-->
+        <!--android:hint="🔍搜索"/>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/search"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:padding="11dp"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:src="@drawable/sousuo"/>-->
+    <!--</RelativeLayout>-->
 
         <ListView
             android:id="@+id/listt"

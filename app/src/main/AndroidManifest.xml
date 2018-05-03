@@ -102,6 +102,11 @@
         <activity android:name=".view.Activity.max.Max_Messege" />
         <activity android:name=".view.Activity.max.Max_MessegeDetial" />
         <activity android:name=".view.Activity.max.Max_MessegeList" />
+        <activity android:name=".view.Activity.Mark_List" />
+        <activity android:name=".view.Activity.MarkDetial" />
+        <activity android:name=".view.Activity.Mark_add" />
+        <activity android:name=".view.Activity.Calendar_AddBook" />
+        <activity android:name=".view.Activity.book_course" />
 
         <!--  蒲公英-->
         <meta-data

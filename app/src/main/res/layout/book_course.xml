@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<include layout="@layout/bar_title"/>
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="书        名:"/>
+        <EditText
+            android:id="@+id/book_name"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="课        程:"/>
+        <TextView
+            android:id="@+id/book_course"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+        <ImageView
+            android:id="@+id/course_select"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -59,8 +59,6 @@ public class MyFragment extends Fragment {
     TextView usernamaedes;
     @Bind(R.id.username)
     TextView username;
-    @Bind(R.id.my_book)
-    TextView myBook;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my, container, false);
@@ -92,8 +90,10 @@ public class MyFragment extends Fragment {
                 startActivity(intent);
                 break;
             case R.id.downoaddata:
-                Intent intent2 = new Intent(getActivity(), my_download.class);
+                Intent intent2 = new Intent(getActivity(), book_select.class);
+                intent2.putExtra("book","wode");
                 startActivity(intent2);
+
                 break;
             case R.id.mycourse:
                 Intent intent1 = new Intent(getActivity(), my_course.class);
@@ -132,11 +132,5 @@ public class MyFragment extends Fragment {
         return mLoadingDialog;
     }
 
-    @OnClick(R.id.my_book)
-    public void onViewClicked() {
-        Intent intent = new Intent(getActivity(), book_select.class);
-        intent.putExtra("book","");
-        startActivity(intent);
 
-    }
 }

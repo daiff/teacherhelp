@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.bean.TCH_worksum;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
@@ -73,9 +74,9 @@ public class Summary_Item extends Activity {
         return mLoadingDialog;
     }
 
-    List<jiaoxue> mycourse;
+    List<TEACH> mycourse;
     List<TCH_worksum> allworksum ;
-    List<jiaoxue> nothave;
+    List<TEACH> nothave;
     List<TCH_worksum> have;
     Summary adapter;
     String resource;
@@ -111,7 +112,7 @@ public class Summary_Item extends Activity {
             getmycourse();
         }else if (resource.equals(CommenDate.max)){
             BmobQuery<TCH_worksum> worksumbmob = new BmobQuery<>();
-            worksumbmob.include("teach.book.despration ,teach.kaikeyuan,teach.ke,teach.nature,teach.schoolyear,teach.teacher");
+            worksumbmob.include(CommenDate.include_summ);
             worksumbmob.order("-createdAt");
             worksumbmob.findObjects(new FindListener<TCH_worksum>() {
                 @Override
@@ -156,14 +157,14 @@ public class Summary_Item extends Activity {
     }
 //本教师本学期的所有课程
     private void getmycourse(){
-        BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
-        jiaoxueBmobQuery.addWhereEqualTo("teacher",BmobUser.getCurrentUser());
-        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(Summary_Item.this));
+        BmobQuery<TEACH> jiaoxueBmobQuery =new BmobQuery<>();
+        jiaoxueBmobQuery.addWhereEqualTo("Teacher",BmobUser.getCurrentUser());
+        jiaoxueBmobQuery.addWhereEqualTo("Schoolyear", AccountUtils.getyear(Summary_Item.this));
         jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
-        jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
+        jiaoxueBmobQuery.findObjects(new FindListener<TEACH>() {
             @Override
-            public void done(List<jiaoxue> list, BmobException e) {
+            public void done(List<TEACH> list, BmobException e) {
                 if (e==null){
                     if (list.size() == 0){
                         getLoadingDialog().dismiss();
@@ -183,7 +184,7 @@ public class Summary_Item extends Activity {
 //工作总结表的全部内容
     private void getWorkSum() {
         BmobQuery<TCH_worksum> worksumbmob = new BmobQuery<>();
-        worksumbmob.include("teach.book.despration ,teach.kaikeyuan,teach.ke,teach.nature,teach.schoolyear,teach.teacher");
+        worksumbmob.include(CommenDate.include_summ);
         worksumbmob.order("-createdAt");
         worksumbmob.findObjects(new FindListener<TCH_worksum>() {
             @Override
@@ -271,10 +272,10 @@ public class Summary_Item extends Activity {
     }
         //    自定义适配器
         class jiaoxueAdapter extends BaseAdapter {
-            private List<jiaoxue> stuList;
+            private List<TEACH> stuList;
             private LayoutInflater inflater;
             public jiaoxueAdapter() {}
-            public jiaoxueAdapter(List<jiaoxue> stuList, Context context) {
+            public jiaoxueAdapter(List<TEACH> stuList, Context context) {
                 this.stuList = stuList;
                 this.inflater = LayoutInflater.from(context);
             }
@@ -285,7 +286,7 @@ public class Summary_Item extends Activity {
             }
 
             @Override
-            public jiaoxue getItem(int position) {
+            public TEACH getItem(int position) {
                 return stuList.get(position);
             }
 
@@ -298,10 +299,10 @@ public class Summary_Item extends Activity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 //加载布局为一个视图
                 View view = inflater.inflate(R.layout.rtu_item, null);
-                jiaoxue student = getItem(position);
+                TEACH student = getItem(position);
                 //在view视图中查找id为image_photo的控件
                 TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-                course_code.setText(student.getKe().getDespration());
+                course_code.setText(student.getCourse().getDespration());
                 return view;
             }
         }

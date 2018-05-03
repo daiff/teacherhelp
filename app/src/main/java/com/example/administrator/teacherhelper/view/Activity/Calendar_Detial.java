@@ -95,12 +95,12 @@ public class Calendar_Detial extends Activity {
 
     private void initView() {
         title.setText("教学日历");
-        course.setText(calender.getJiaoxue().getKe().getDespration() + " (" +
-                calender.getJiaoxue().getNature().getDespration() + ")");
-        yearSemester.setText(calender.getJiaoxue().getSchoolyear().getDespration());
+        course.setText(calender.getCourse().getCourse().getDespration() + " (" +
+                calender.getCourse().getNature().getDespration() + ")");
+        yearSemester.setText(calender.getCourse().getSchoolyear().getDespration());
         failurePeoploname.setText(calender.getClasss());
-        jxrlTeacher.setText(calender.getJiaoxue().getTeacher().getDesperation());
-        jxrlTitle.setText(calender.getJiaoxue().getTeacher().getTitle());
+        jxrlTeacher.setText(calender.getCourse().getTeacher().getDesperation());
+        jxrlTitle.setText(calender.getCourse().getTeacher().getTitle());
         zzs.setText(calender.getTotal_weeks());
         qzks.setText(calender.getMid_number());
         qzZxss.setText(calender.getMid_hour());
@@ -129,7 +129,6 @@ public class Calendar_Detial extends Activity {
             case R.id.book:
                 Intent intent1 = new Intent(Calendar_Detial.this, Calendar_Book.class);
                 intent1.putExtra("calenderid", calender.getObjectId());
-                intent1.putExtra("book", calender.getJiaoxue().getBook());
                 startActivity(intent1);
                 break;
             case R.id.anpai_detial:

@@ -16,8 +16,8 @@
         android:text="时间"
         android:textSize="18dp"
         android:textColor="@color/white" />
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:background="@drawable/icon_xq"/>
+    <!--<ImageView-->
+        <!--android:layout_width="28dp"-->
+        <!--android:layout_height="28dp"-->
+        <!--android:background="@drawable/icon_xq"/>-->
 </LinearLayout>

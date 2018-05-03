@@ -61,10 +61,10 @@ public class Innovate_Student extends Activity {
 
     private void initData() {
         BmobQuery<STUDENT> student= new BmobQuery<>();
-        student.include("classs");
+        student.include("classs.major,classs.grade,classs.college,classs.classs");
         Innovate inno = new Innovate();
         inno.setObjectId(innovateid);
-        student.addWhereRelatedTo("perrson",new BmobPointer(inno));
+        student.addWhereRelatedTo("person",new BmobPointer(inno));
         student.findObjects(new FindListener<STUDENT>() {
             @Override
             public void done(List<STUDENT> list, BmobException e) {

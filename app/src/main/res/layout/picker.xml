@@ -70,28 +70,6 @@
             android:text=""/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/value_two"
-        android:visibility="gone"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_marginRight="12dp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="学分:"/>
-
-        <EditText
-            android:id="@+id/value_num"
-            style="@style/my_add_rightEdittext"
-            android:text=""/>
-    </LinearLayout>
-
 
 
 

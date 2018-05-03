@@ -124,10 +124,11 @@
     </style>
     <style name="jxrl_textview">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:textSize">13dp</item>
         <item name="android:paddingTop">7dp</item>
         <item name="android:paddingBottom">7dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="jxrl_edittext">

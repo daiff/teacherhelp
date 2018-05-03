@@ -11,15 +11,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.bean.TCH_program;
-import com.example.administrator.teacherhelper.bean.jiaoxue;
-import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.bean.TCH_program;
+import com.example.administrator.teacherhelper.bean.TEACH;
+import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
@@ -63,17 +64,19 @@ public class Program_item extends Activity {
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
 
-    List<jiaoxue> mycourse;
+    List<TEACH> mycourse;
     List<TCH_program> allworksum;
-    List<jiaoxue> nothave;
+    List<TEACH> nothave;
     List<TCH_program> have;
     String resource;
 
     protected FlippingLoadingDialog mLoadingDialog;
+
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
             mLoadingDialog = new FlippingLoadingDialog(this);
-        return mLoadingDialog;}
+        return mLoadingDialog;
+    }
 
     com.example.administrator.teacherhelper.view.Adapter.Program_item adapter;
 
@@ -94,20 +97,19 @@ public class Program_item extends Activity {
         nothave = new ArrayList<>();
         have = new ArrayList<>();
         getLoadingDialog().show();
-        if (resource.equals(CommenDate.main)){
+        if (resource.equals(CommenDate.main)) {
             data();
-        }else if (resource.equals(CommenDate.max)){
+        } else if (resource.equals(CommenDate.max)) {
             allworksum = new ArrayList<>();
             BmobQuery<TCH_program> bmobQuery = new BmobQuery<>();
-            bmobQuery.include("jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature," +
-                    "jiaoxue.schoolyear,jiaoxue.teacher,");
+            bmobQuery.include(CommenDate.include_commen);
             bmobQuery.order("-createdAt");
             bmobQuery.findObjects(new FindListener<TCH_program>() {
                 @Override
                 public void done(final List<TCH_program> list, BmobException e) {
                     getLoadingDialog().dismiss();
-                    if (e==null){
-                        if (list.size()!=0){
+                    if (e == null) {
+                        if (list.size() != 0) {
                             adapter = new com.example.administrator.teacherhelper.view.Adapter.Program_item(list, Program_item.this);
                             listt.setAdapter(adapter);
                             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -121,7 +123,7 @@ public class Program_item extends Activity {
                                 }
                             });
                         }
-                    }else {
+                    } else {
                         Toast.makeText(Program_item.this, "获取失败", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -138,24 +140,24 @@ public class Program_item extends Activity {
         add.setVisibility(View.VISIBLE);
     }
 
-    private  void data(){
-        BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
-        jiaoxueBmobQuery.addWhereEqualTo("teacher", BmobUser.getCurrentUser());
-        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(Program_item.this));
+    private void data() {
+        BmobQuery<TEACH> jiaoxueBmobQuery = new BmobQuery<>();
+        jiaoxueBmobQuery.addWhereEqualTo("Teacher", BmobUser.getCurrentUser());
+        jiaoxueBmobQuery.addWhereEqualTo("Schoolyear", AccountUtils.getyear(Program_item.this));
         jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
-        jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
+        jiaoxueBmobQuery.findObjects(new FindListener<TEACH>() {
             @Override
-            public void done(List<jiaoxue> list, BmobException e) {
-                if (e==null){
-                    if (list.size() == 0){
+            public void done(List<TEACH> list, BmobException e) {
+                if (e == null) {
+                    if (list.size() == 0) {
                         getLoadingDialog().dismiss();
                         Toast.makeText(Program_item.this, "本学期您没有课程", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         mycourse = list;
                         getWorkSum();
                     }
-                }else {
+                } else {
                     getLoadingDialog().dismiss();
                     Toast.makeText(Program_item.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -163,18 +165,17 @@ public class Program_item extends Activity {
         });
     }
 
-    private void getWorkSum(){
+    private void getWorkSum() {
         BmobQuery<TCH_program> bmobQuery = new BmobQuery<>();
-        bmobQuery.include("jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature," +
-                "jiaoxue.schoolyear,jiaoxue.teacher,");
+        bmobQuery.include(CommenDate.include_commen);
         bmobQuery.order("-createdAt");
         bmobQuery.findObjects(new FindListener<TCH_program>() {
             @Override
             public void done(final List<TCH_program> list, BmobException e) {
-                if (e==null){
+                if (e == null) {
                     allworksum = list;
                     gethave();
-                }else {
+                } else {
                     getLoadingDialog().dismiss();
                     Toast.makeText(Program_item.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -185,7 +186,7 @@ public class Program_item extends Activity {
     private void gethave() {
         for (int i = 0; i < mycourse.size(); i++) {
             for (int j = 0; j < allworksum.size(); j++) {
-                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId())) {
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getCourse().getObjectId())) {
                     have.add(allworksum.get(j));
                 }
             }
@@ -194,11 +195,11 @@ public class Program_item extends Activity {
         showData();
     }
 
-    private void getnohave(){
+    private void getnohave() {
         int i = 0, j = 0;
-        for ( i = 0; i < mycourse.size(); ++i) {
-            for ( j = 0; j < allworksum.size(); ++j)
-                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId()) )
+        for (i = 0; i < mycourse.size(); ++i) {
+            for (j = 0; j < allworksum.size(); ++j)
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getCourse().getObjectId()))
                     break;
             if (j == allworksum.size())
                 nothave.add(mycourse.get(i));
@@ -208,9 +209,9 @@ public class Program_item extends Activity {
     //    显示已填写的工作总结
     private void showData() {
         getLoadingDialog().dismiss();
-        if (have.size()==0){
+        if (have.size() == 0) {
             Toast.makeText(this, "没有任何已填写的教学大纲", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             adapter = new com.example.administrator.teacherhelper.view.Adapter.Program_item(have, Program_item.this);
             listt.setAdapter(adapter);
             listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -233,14 +234,15 @@ public class Program_item extends Activity {
                 finish();
                 break;
             case R.id.right_button:
-                if (nothave.size()==0){
+                if (nothave.size() == 0) {
                     Toast.makeText(this, "本学期的教学大纲已全部填写", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     ShowDialog();
                 }
                 break;
         }
     }
+
 
     public void ShowDialog() {
         Context context = Program_item.this;
@@ -254,7 +256,7 @@ public class Program_item extends Activity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int positon, long id) {
                 Intent intent = new Intent(Program_item.this, Program_add.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("ke",nothave.get(positon) );
+                bundle.putSerializable("ke", nothave.get(positon));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 alertDialog.dismiss();
@@ -265,12 +267,16 @@ public class Program_item extends Activity {
         alertDialog = builder.create();
         alertDialog.show();
     }
+
     //    自定义适配器
     class jiaoxueAdapter extends BaseAdapter {
-        private List<jiaoxue> stuList;
+        private List<TEACH> stuList;
         private LayoutInflater inflater;
-        public jiaoxueAdapter() {}
-        public jiaoxueAdapter(List<jiaoxue> stuList, Context context) {
+
+        public jiaoxueAdapter() {
+        }
+
+        public jiaoxueAdapter(List<TEACH> stuList, Context context) {
             this.stuList = stuList;
             this.inflater = LayoutInflater.from(context);
         }
@@ -281,7 +287,7 @@ public class Program_item extends Activity {
         }
 
         @Override
-        public jiaoxue getItem(int position) {
+        public TEACH getItem(int position) {
             return stuList.get(position);
         }
 
@@ -294,10 +300,10 @@ public class Program_item extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             //加载布局为一个视图
             View view = inflater.inflate(R.layout.rtu_item, null);
-            jiaoxue student = getItem(position);
+            TEACH student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-            course_code.setText(student.getKe().getDespration());
+            course_code.setText(student.getCourse().getDespration());
             return view;
         }
     }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.administrator.teacherhelper.bean.TPR_schedule;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.view.Adapter.Program_Content;
+import com.example.administrator.teacherhelper.view.Adapter.Program_TimeAdapter;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by Administrator on 2018/3/24 0024.
+ *
  */
 
 public class Program_Time extends Activity {
@@ -47,7 +49,7 @@ public class Program_Time extends Activity {
     @Bind(R.id.listt)
     ListView listt;
     String programid;
-    com.example.administrator.teacherhelper.view.Adapter.Program_Time adapter;
+    Program_TimeAdapter adapter;
     Program_Content adapter1;
     String source;
     String resource;
@@ -72,7 +74,7 @@ public class Program_Time extends Activity {
                 if (e==null){
                     if (list.size()!=0){
                         if (source.equals("time")) {
-                            adapter = new com.example.administrator.teacherhelper.view.Adapter.Program_Time(list, Program_Time.this);
+                            adapter = new Program_TimeAdapter(list, Program_Time.this);
                             listt.setAdapter(adapter);
                         }else {
                             adapter1 = new Program_Content(list, Program_Time.this);

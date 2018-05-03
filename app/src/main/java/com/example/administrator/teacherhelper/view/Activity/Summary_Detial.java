@@ -102,9 +102,9 @@ public class Summary_Detial extends Activity {
         gzzjTeacher.setText(worksum.getTeach().getTeacher().getDesperation());
         gzzjTitle.setText(worksum.getTeach().getTeacher().getTitle());
         gzzjMajor.setText(worksum.getTeach().getTeacher().getXi().getDespration());
-        gzzjPersonnum.setText(worksum.getTotalperson());
+        gzzjPersonnum.setText(worksum.getTeach().getTeam().getTotal_person());
         gzzjHour.setText(worksum.getLilun_hour());
-        gzzjBook.setText(worksum.getTeach().getBook().getDespration());
+//        gzzjBook.setText(worksum.getTeach().getBook().getDespration());
         gzzjKaizhan.setText(worksum.getWork_kaizhan());
         gzzjWanch.setText(worksum.getWork_wanch());
         gzzjPigai.setText(worksum.getPigai());

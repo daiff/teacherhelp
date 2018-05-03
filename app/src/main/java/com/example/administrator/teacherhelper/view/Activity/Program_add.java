@@ -13,13 +13,13 @@ import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.TCH_program;
-import com.example.administrator.teacherhelper.bean.jiaoxue;
+import com.example.administrator.teacherhelper.bean.TEACH;
+import com.example.administrator.teacherhelper.view.Adapter.Program_TimeAdapter;
 import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -73,7 +73,7 @@ public class Program_add extends Activity {
     @Bind(R.id.book)
     LinearLayout book;
 
-    jiaoxue teach = new jiaoxue();
+    TEACH teach = new TEACH();
     String programid;
     int control=0;
 
@@ -96,13 +96,13 @@ public class Program_add extends Activity {
     private void initView() {
         title.setText("新增教学大纲");
         save.setVisibility(View.VISIBLE);
-        jxjdCourse.setText(teach.getKe().getDespration() + "    " +  teach.getNature().getDespration());
+        jxjdCourse.setText(teach.getCourse().getDespration() + "    " +  teach.getNature().getDespration());
         jxjdYear.setText(teach.getSchoolyear().getDespration());
-        jxdgCredit.setText(teach.getKe().getCredit());
+        jxdgCredit.setText(teach.getCredit());
     }
 
     private void first() {
-        teach = (jiaoxue) getIntent().getSerializableExtra("ke");
+        teach = (TEACH) getIntent().getSerializableExtra("ke");
     }
 
     @OnClick({R.id.back1, R.id.right_button, R.id.object, R.id.xueshianpai, R.id.jxnryyq, R.id.ability, R.id.contact, R.id.check, R.id.book})
@@ -198,8 +198,8 @@ public class Program_add extends Activity {
             program.setEnglishname(englishname.getText().toString());
             program.setMajor(major.getText().toString());
             program.setObject_oriented(ObjectOriented.getText().toString());
-        program.setHours(Hours.getText().toString());
-            program.setJiaoxue(teach);
+            program.setHours(Hours.getText().toString());
+            program.setCourse(teach);
             program.save(new SaveListener<String>() {
                 @Override
                 public void done(String s, BmobException e) {

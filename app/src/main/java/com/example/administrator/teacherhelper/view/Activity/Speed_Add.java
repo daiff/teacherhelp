@@ -1,9 +1,12 @@
 package com.example.administrator.teacherhelper.view.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -13,9 +16,11 @@ import android.widget.Toast;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.TCH_Progress;
 import com.example.administrator.teacherhelper.bean.TCH_pro;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.classs;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.view.Adapter.SpeedContent;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import java.util.List;
 
@@ -27,6 +32,7 @@ import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by Administrator on 2018/3/25 0025.
@@ -35,7 +41,7 @@ import cn.bmob.v3.listener.SaveListener;
 public class Speed_Add extends Activity {
 
 
-    jiaoxue jiao;
+    TEACH jiao;
     StringBuilder str = new StringBuilder();
     String newproid = "";
     SpeedContent adapter;
@@ -65,6 +71,12 @@ public class Speed_Add extends Activity {
     TextView major;
     @Bind(R.id.listt)
     ListView listt;
+    protected FlippingLoadingDialog mLoadingDialog;
+    private FlippingLoadingDialog getLoadingDialog() {
+        if (mLoadingDialog == null)
+            mLoadingDialog = new FlippingLoadingDialog(this);
+        return mLoadingDialog;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,21 +85,58 @@ public class Speed_Add extends Activity {
         ButterKnife.bind(this);
         first();
         initView();
-        initData();
         find();
     }
-
+//根据传过来的pro找到对应的详情
     private void find() {
         BmobQuery<TCH_Progress> bjiaoxue = new BmobQuery<>();
-        bjiaoxue.addWhereEqualTo("tch_pro", newproid);
+        bjiaoxue.addWhereEqualTo("TCH_pro", newproid);
         bjiaoxue.order("+weekly");
         bjiaoxue.findObjects(new FindListener<TCH_Progress>() {
             @Override
-            public void done(List<TCH_Progress> list, BmobException e) {
+            public void done(final List<TCH_Progress> list, BmobException e) {
                 if (e == null) {
                     if (list.size() != 0) {
                         adapter = new SpeedContent(list, Speed_Add.this);
                         listt.setAdapter(adapter);
+                        listt.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                            @Override
+                            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                                new AlertDialog.Builder(Speed_Add.this)
+                                        .setTitle("提示")
+                                        .setMessage("确认删除？")
+                                        .setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        })
+                                        .setNegativeButton(
+                                                "确认",
+                                                new DialogInterface.OnClickListener() {
+
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        TCH_Progress pro=new TCH_Progress();
+                                                        pro.setObjectId(list.get(position).getObjectId());
+                                                        pro.delete(new UpdateListener() {
+                                                            @Override
+                                                            public void done(BmobException e) {
+                                                                if (e==null){
+                                                                    Toast.makeText(Speed_Add.this, "删除成功", Toast.LENGTH_SHORT).show();
+                                                                    onRestart();
+                                                                }else {
+                                                                    Toast.makeText(Speed_Add.this, "删除失败", Toast.LENGTH_SHORT).show();
+                                                                }
+
+                                                            }
+                                                        });
+                                                    }
+                                                })
+                                        .show();
+                                return true;
+                            }
+                        });
                     }
 
                 } else {
@@ -98,36 +147,18 @@ public class Speed_Add extends Activity {
         });
     }
 
-    private void initData() {
-        BmobQuery<classs> bjiaoxue = new BmobQuery<>();
-        bjiaoxue.include("classs,college,grade,major");
-        jiaoxue analysis = new jiaoxue();
-        analysis.setObjectId(jiao.getObjectId());
-        bjiaoxue.addWhereRelatedTo("Team", new BmobPointer(analysis));
-        bjiaoxue.findObjects(new FindListener<classs>() {
-            @Override
-            public void done(List<classs> list, BmobException e) {
-                if (e == null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        str.append(list.get(i).getCollege().getDespration() + list.get(i).getGrade().getDespration() + list.get(i).getMajor().getDespration() + list.get(i).getClasss().getDespration() + "班  ");
-                    }
-                    major.setText(str);
-                }
-
-            }
-        });
-    }
 
     private void initView() {
         title.setText("新增教学进度");
         add.setVisibility(View.VISIBLE);
-        course.setText(jiao.getKe().getDespration());
+        course.setText(jiao.getCourse().getDespration());
         yearSemester.setText(jiao.getSchoolyear().getDespration());
         jxjdFzr.setText(jiao.getTeacher().getDesperation());
+        major.setText(jiao.getTeam().getGrade().getDespration()+jiao.getTeam().getMajor().getDespration()+jiao.getTeam().getClasss().getDespration()+"班");
     }
 
     private void first() {
-        jiao = (jiaoxue) getIntent().getSerializableExtra("ke");
+        jiao = (TEACH) getIntent().getSerializableExtra("ke");
     }
 
     @OnClick({R.id.back1, R.id.right_button})
@@ -137,6 +168,7 @@ public class Speed_Add extends Activity {
                 finish();
                 break;
             case R.id.right_button:
+                getLoadingDialog().show();
                 if (newproid == "") {
                     save();
                 } else {
@@ -150,11 +182,11 @@ public class Speed_Add extends Activity {
 
     private void save() {
         TCH_pro pro = new TCH_pro();
-        pro.setClasss(major.getText().toString());
-        pro.setJiaoxue(jiao);
+        pro.setCourse(jiao);
         pro.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
+                getLoadingDialog().dismiss();
                 if (e == null) {
                     newproid = s;
                     Intent intent = new Intent(Speed_Add.this, Speed_AddItem.class);

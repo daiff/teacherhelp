@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.bean.TCH_analysis;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.classs;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
@@ -75,7 +76,7 @@ public class PaperAnalysis_Add extends Activity {
     EditText lowFen;
     @Bind(R.id.prop_analysis)
     EditText propAnalysis;
-    jiaoxue course1;
+    TEACH course1;
     @Bind(R.id.bl_9)
     EditText bl9;
     @Bind(R.id.bl_8)
@@ -102,41 +103,19 @@ public class PaperAnalysis_Add extends Activity {
         ButterKnife.bind(this);
         first();
         init();
-        getclass();
-    }
-
-    private void getclass() {
-        BmobQuery<classs> bjiaoxue = new BmobQuery<>();
-        bjiaoxue.include("classs,college,grade,major");
-
-        jiaoxue analysis = new jiaoxue();
-        analysis.setObjectId(course1.getObjectId());
-        bjiaoxue.addWhereRelatedTo("Team",new BmobPointer(analysis));
-        bjiaoxue.findObjects(new FindListener<classs>() {
-            @Override
-            public void done(List<classs> list, BmobException e) {
-                if (e==null){
-                    for (int i =0;i<list.size();i++){
-                        str.append(list.get(i).getCollege().getDespration()+list.get(i).getGrade().getDespration()+list.get(i).getMajor().getDespration()+list.get(i).getClasss().getDespration()+ "班  ");
-                    }
-                    shjfxClasss.setText(str);
-                }
-
-            }
-        });
     }
 
     private void first() {
-        course1 = (jiaoxue) getIntent().getSerializableExtra("ke");
+        course1 = (TEACH) getIntent().getSerializableExtra("ke");
     }
 
     private void init() {
         title.setText("新增试卷分析表");
         save.setVisibility(View.VISIBLE);
-        course.setText(course1.getKe().getCourse_code() + " " + course1.getKe().getDespration() + " " + course1.getNature().getDespration());
+        course.setText(course1.getCourse().getCourse_code() + " " + course1.getCourse().getDespration() + " " + course1.getNature().getDespration());
         yearSemester.setText(course1.getSchoolyear().getDespration());
-        kaikeyuan.setText("开课院：" + course1.getKaikeyuan().getDespration());
-//        shjfxClasss.setText(course1.getClasss().getGrade().getDespration() + "级 " + course1.getClasss().getMajor().getDespration() + " " + course1.getClasss().getClasss().getDespration() + "班");
+        kaikeyuan.setText("开课院：" + course1.getCollege().getDespration());
+        shjfxClasss.setText(course1.getTeam().getGrade().getDespration() + "级 " + course1.getTeam().getMajor().getDespration() + " " + course1.getTeam().getClasss().getDespration() + "班");
     }
 
     @OnClick({R.id.back1, R.id.save})
@@ -163,7 +142,7 @@ public class PaperAnalysis_Add extends Activity {
                 tch_analysis.setClasss(shjfxClasss.getText().toString());
                 tch_analysis.setJshqianmin("");
                 tch_analysis.setJshdata("");
-                tch_analysis.setJiaoxue(course1);
+                tch_analysis.setCourse(course1);
                 tch_analysis.setHighest_score(highFen.getText().toString());
                 tch_analysis.setEight_num(fsh8.getText().toString());
                 tch_analysis.setEight_prop(bl8.getText().toString());

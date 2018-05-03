@@ -97,6 +97,19 @@
             android:layout_height="30dp"
             android:src="@drawable/green_select"/>
     </LinearLayout>
+
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="学        分:"/>
+        <EditText
+            android:id="@+id/course_fen"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+    </LinearLayout>
     <LinearLayout
         style="@style/my_add_Linerlayout">
         <TextView
@@ -116,26 +129,6 @@
             android:src="@drawable/green_select"/>
     </LinearLayout>
 
-
-
-    <LinearLayout
-        style="@style/my_add_Linerlayout">
-        <TextView
-            style="@style/my_add_leftTextView"
-            android:text="教         材:"/>
-        <TextView
-            android:id="@+id/course_book"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            style="@style/my_add_rightEdittext"
-            android:text=""/>
-        <ImageView
-            android:id="@+id/select_course_book"
-            android:padding="5dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/green_select"/>
-    </LinearLayout>
 
     <TextView
         android:layout_marginLeft="12dp"

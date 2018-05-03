@@ -8,7 +8,6 @@ import cn.bmob.v3.BmobObject;
 
 public class FIELD extends BmobObject {
     private String course_code;
-    private String credit;
     private String despration;
 
     public String getValue() {
@@ -25,14 +24,6 @@ public class FIELD extends BmobObject {
 
     public void setDespration(String despration) {
         this.despration = despration;
-    }
-
-    public String getCredit() {
-        return credit;
-    }
-
-    public void setCredit(String credit) {
-        this.credit = credit;
     }
 
     public String getCourse_code() {

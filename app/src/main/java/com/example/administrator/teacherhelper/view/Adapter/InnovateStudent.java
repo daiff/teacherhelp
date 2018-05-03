@@ -50,9 +50,8 @@ public class InnovateStudent extends BaseAdapter {
         TextView course_code = (TextView) view.findViewById(R.id.course_code);
         TextView schedule = (TextView) view.findViewById(R.id.ban);
         TextView num = (TextView) view.findViewById(R.id.schedule);
-
         course_code.setText(student.getNumber());
-        schedule.setText(student.getClasss().getGrade().getDespration() + "级" + student.getClasss().getMajor().getDespration() + student.getClasss().getClasss().getDespration());
+        schedule.setText(student.getClasss().getGrade().getDespration() + "级" + student.getClasss().getMajor().getDespration() + student.getClasss().getClasss().getDespration()+"班");
         num.setText(student.getDespration());
         return view;
     }

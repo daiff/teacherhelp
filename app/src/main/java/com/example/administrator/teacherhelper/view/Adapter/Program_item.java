@@ -48,7 +48,7 @@ public class Program_item extends BaseAdapter {
         TCH_program student = getItem(position);
         //在view视图中查找id为image_photo的控件
         TextView course_code = (TextView) view.findViewById(R.id.course_code);
-        course_code.setText(student.getJiaoxue().getKe().getDespration());
+        course_code.setText(student.getCourse().getCourse().getDespration());
         return view;
     }
 }

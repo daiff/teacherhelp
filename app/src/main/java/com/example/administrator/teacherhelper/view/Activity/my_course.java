@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.bean.person;
 import com.example.administrator.teacherhelper.commen.CommenDate;
@@ -81,23 +82,23 @@ public class my_course extends Activity {
 
 
     private void getData() {
-        BmobQuery<jiaoxue> b = new BmobQuery<>();
+        BmobQuery<TEACH> b = new BmobQuery<>();
         if (source.equals(CommenDate.main_mycourse)) {
             BmobUser user = BmobUser.getCurrentUser();
-            b.addWhereEqualTo("teacher", user);
-            b.addWhereEqualTo("schoolyear", AccountUtils.getyear(my_course.this));
+            b.addWhereEqualTo("Teacher", user);
+            b.addWhereEqualTo("Schoolyear", AccountUtils.getyear(my_course.this));
         }else if (source.equals(CommenDate.maxschedule_jiaoxue)){//添加课程表   根据教师的id找他的课程
-            b.addWhereEqualTo("teacher", teacherid);
-            b.addWhereEqualTo("schoolyear", AccountUtils.getyear(my_course.this));
+            b.addWhereEqualTo("Teacher", teacherid);
+            b.addWhereEqualTo("Schoolyear", AccountUtils.getyear(my_course.this));
         }
-        b.include(CommenDate.include_jiaoxue);
+        b.include(CommenDate.include_teach);
         b.order("-createdAt");
-        b.findObjects(new FindListener<jiaoxue>() {
+        b.findObjects(new FindListener<TEACH>() {
             @Override
-            public void done(final List<jiaoxue> list, BmobException e) {
+            public void done(final List<TEACH> list, BmobException e) {
                 if (e == null) {
                     if (list.size() == 0) {
-                        Toast.makeText(my_course.this, "本学期您还没有课程", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(my_course.this, "本学期没有课程", Toast.LENGTH_SHORT).show();
                     } else {
                         adapter = new my_courseAdapter(list, my_course.this);
                         listt.setAdapter(adapter);
@@ -106,8 +107,9 @@ public class my_course extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     Intent intent = new Intent();
-                                    intent.putExtra("course",list.get(position).getKe().getDespration());
+                                    intent.putExtra("course",list.get(position).getCourse().getDespration());
                                     intent.putExtra("courseid",list.get(position).getObjectId());
+                                    intent.putExtra("classs",list.get(position).getTeam().getGrade().getDespration() + "级" + list.get(position).getTeam().getMajor().getDespration()+ list.get(position).getTeam().getClasss().getDespration()+"班");
                                     setResult(CommenDate.select_course,intent);
                                     finish();
                                 }

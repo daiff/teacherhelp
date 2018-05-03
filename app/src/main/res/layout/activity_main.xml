@@ -14,12 +14,12 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bar_footer"/>
 
-        <RelativeLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:id="@+id/bar_footer">
             <include layout="@layout/bar_footer" />
-        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

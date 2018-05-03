@@ -17,7 +17,7 @@ import com.example.administrator.teacherhelper.bean.NOTICE;
 import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.view.Activity.Calendar_Item;
 import com.example.administrator.teacherhelper.view.Activity.Innovate_Item;
-import com.example.administrator.teacherhelper.view.Activity.Ordinary;
+import com.example.administrator.teacherhelper.view.Activity.Mark_List;
 import com.example.administrator.teacherhelper.view.Activity.PaperAnalysis_List;
 import com.example.administrator.teacherhelper.view.Activity.Program_item;
 import com.example.administrator.teacherhelper.view.Activity.Speed_Item;
@@ -123,14 +123,17 @@ public class ManageFragment extends Fragment {
             case R.id.home_gzzj:
                 Intent intent3 = new Intent(getActivity(), Summary_Item.class);
                 intent3.putExtra("resource", CommenDate.main);
+
                 startActivity(intent3);
                 break;
             case R.id.home_pscj:
-                Intent intent4 = new Intent(getActivity(), Ordinary.class);
+                Intent intent4 = new Intent(getActivity(), Mark_List.class);
+                intent4.putExtra("resource", CommenDate.main);
                 startActivity(intent4);
                 break;
             case R.id.home_zcj:
                 Intent intent5 = new Intent(getActivity(), zcj_Activity.class);
+                intent5.putExtra("resource", CommenDate.main);
                 startActivity(intent5);
                 break;
             case R.id.home_sjfx:

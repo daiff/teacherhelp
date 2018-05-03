@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <TextView
+                android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text=""
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/year_semester"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text=""
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/classs"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text=""
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/xibie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="授课教师"
+                        android:textColor="@color/white"
+                        android:textSize="11dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/failure_peoploname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/zhuanye"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学分"
+                        android:textColor="@color/white"
+                        android:textSize="11dp"/>
+                    <TextView
+                        android:id="@+id/major"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/banji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开课学院"
+                        android:textColor="@color/white"
+                        android:textSize="11dp"/>
+                    <TextView
+                        android:id="@+id/grade_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout></LinearLayout>
+
+    <TextView
+        android:id="@+id/download"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:text="  查看成绩"
+        android:drawableLeft="@drawable/my_book"/>
+
+
+    <View
+        android:id="@+id/viewzcj"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/background"/>
+
+
+</LinearLayout>

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.TCH_calender;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.classs;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.commen.CommenDate;
@@ -34,7 +35,7 @@ import cn.bmob.v3.listener.SaveListener;
  */
 
 public class Calender_Add extends Activity {
-    jiaoxue jiao = new jiaoxue();
+    TEACH jiao = new TEACH();
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -104,38 +105,18 @@ public class Calender_Add extends Activity {
         ButterKnife.bind(this);
         first();
         initView();
-
-        getclass();
-    }
-
-    private void getclass() {
-        BmobQuery<classs> bjiaoxue = new BmobQuery<>();
-        bjiaoxue.include(CommenDate.include_classs);
-        jiaoxue analysis = new jiaoxue();
-        analysis.setObjectId(jiao.getObjectId());
-        bjiaoxue.addWhereRelatedTo("Team",new BmobPointer(analysis));
-        bjiaoxue.findObjects(new FindListener<classs>() {
-            @Override
-            public void done(List<classs> list, BmobException e) {
-                if (e==null){
-                    for (int i =0;i<list.size();i++){
-                        str.append(list.get(i).getCollege().getDespration()+list.get(i).getGrade().getDespration()+list.get(i).getMajor().getDespration()+list.get(i).getClasss().getDespration()+ "班  ");
-                    }
-                    failurePeoploname.setText(str);
-                }
-
-            }
-        });
-
     }
 
     private void initView() {
         title.setText("新增教学日历");
         save.setVisibility(View.VISIBLE);
+        course.setText(jiao.getCourse().getDespration() + "("+jiao.getNature().getDespration()+")");
+        yearSemester.setText(jiao.getSchoolyear().getDespration());
+        failurePeoploname.setText(jiao.getTeam().getGrade().getDespration() + "级"+ jiao.getTeam().getMajor().getDespration() + jiao.getTeam().getClasss().getDespration()+"班");
     }
 
     private void first() {
-        jiao = (jiaoxue) getIntent().getSerializableExtra("ke");
+        jiao = (TEACH) getIntent().getSerializableExtra("ke");
     }
 
     @OnClick({R.id.back1, R.id.right_button,R.id.mudi, R.id.book, R.id.anpai_detial, R.id.jxrl_xiang, R.id.jxrl_check})
@@ -160,7 +141,7 @@ public class Calender_Add extends Activity {
                     calender.setMid_hour(qzZxss.getText().toString());
                     calender.setEnd_hour(qmksXs.getText().toString());
                     calender.setEnd_number(qmks.getText().toString());
-                    calender.setJiaoxue(jiao);
+                    calender.setCourse(jiao);
                     calender.save(new SaveListener<String>() {
                         @Override
                         public void done(String s, BmobException e) {
@@ -191,9 +172,8 @@ public class Calender_Add extends Activity {
                 if (calenderid.equals(null)){
                     Toast.makeText(this, "请将此页面填写完整并保存", Toast.LENGTH_SHORT).show();
                 }else {
-                    Intent intent1 = new Intent(Calender_Add.this, Calendar_Book.class);
+                    Intent intent1 = new Intent(Calender_Add.this, Calendar_AddBook.class);
                     intent1.putExtra("calenderid", calenderid);
-                    intent1.putExtra("book", jiao.getBook());
                     startActivity(intent1);
                 }
                 break;

@@ -2,15 +2,15 @@ package com.example.administrator.teacherhelper.view.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.teacherhelper.bean.book;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.bean.TCH_calender;
+import com.example.administrator.teacherhelper.bean.book;
 import com.example.administrator.teacherhelper.view.Adapter.book_adapter;
 
 import java.util.List;
@@ -19,6 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -29,6 +30,9 @@ import cn.bmob.v3.listener.FindListener;
 public class Calendar_Book extends Activity {
 
 
+    String calenderid;
+    book boo;
+    book_adapter adapter;
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -47,20 +51,6 @@ public class Calendar_Book extends Activity {
     RelativeLayout rightButton;
     @Bind(R.id.listt)
     ListView listt;
-    @Bind(R.id.book_title)
-    EditText bookTitle;
-    @Bind(R.id.book_auther)
-    EditText bookAuther;
-    @Bind(R.id.book_chuban)
-    EditText bookChuban;
-    @Bind(R.id.book_riqi)
-    EditText bookRiqi;
-    @Bind(R.id.book_zi)
-    EditText bookZi;
-
-    String calenderid;
-    book boo;
-    book_adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,17 +63,21 @@ public class Calendar_Book extends Activity {
     }
 
     private void initData() {
-        BmobQuery<book>  bbook = new BmobQuery<>();
-        bbook.addWhereEqualTo("tch_calender",calenderid);
+
+        BmobQuery<book> bbook = new BmobQuery<>();
+        TCH_calender calender = new TCH_calender();
+        calender.setObjectId(calenderid);
+
+        bbook.addWhereRelatedTo("Book", new BmobPointer(calender));
         bbook.findObjects(new FindListener<book>() {
             @Override
             public void done(List<book> list, BmobException e) {
-                if (e==null){
-                    if (list.size()!=0){
-                        adapter = new book_adapter(list,Calendar_Book.this);
+                if (e == null) {
+                    if (list.size() != 0) {
+                        adapter = new book_adapter(list, Calendar_Book.this);
                         listt.setAdapter(adapter);
                     }
-                }else {
+                } else {
                     Toast.makeText(Calendar_Book.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -92,16 +86,10 @@ public class Calendar_Book extends Activity {
 
     private void first() {
         calenderid = getIntent().getStringExtra("calenderid");
-        boo = (book)getIntent().getSerializableExtra("book");
     }
 
     private void initView() {
         title.setText("教材信息");
-        bookTitle.setText(boo.getDespration());
-        bookAuther.setText(boo.getEd());
-        bookChuban.setText(boo.getPress());
-        bookRiqi.setText(boo.getPublishing_time());
-        bookZi.setText(boo.getNumberOfWords());
     }
 
 
@@ -109,4 +97,5 @@ public class Calendar_Book extends Activity {
     public void onViewClicked() {
         finish();
     }
+
 }

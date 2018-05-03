@@ -10,22 +10,28 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.FIELD;
-import com.example.administrator.teacherhelper.bean.book;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.classs;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.bean.person;
 import com.example.administrator.teacherhelper.commen.CommenDate;
-import com.example.administrator.teacherhelper.R;
-import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
-import com.example.administrator.teacherhelper.view.Activity.select_Activity.book_select;
 import com.example.administrator.teacherhelper.view.Activity.select_Activity.value_select;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobBatch;
+import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.datatype.BatchResult;
 import cn.bmob.v3.datatype.BmobRelation;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -85,10 +91,6 @@ public class max_courseadd extends Activity {
     TextView courseKai;
     @Bind(R.id.select_course_kai)
     ImageView selectCourseKai;
-    @Bind(R.id.course_book)
-    TextView courseBook;
-    @Bind(R.id.select_course_book)
-    ImageView selectCourseBook;
     @Bind(R.id.course_class1)
     TextView courseClass1;
     @Bind(R.id.select_course1_sc)
@@ -109,6 +111,8 @@ public class max_courseadd extends Activity {
     TextView courseClass5;
     @Bind(R.id.select_course5_sc)
     ImageView selectCourse5Sc;
+    @Bind(R.id.course_fen)
+    TextView courseFen;
 
     private FlippingLoadingDialog getLoadingDialog() {
         if (mLoadingDialog == null)
@@ -116,7 +120,6 @@ public class max_courseadd extends Activity {
         return mLoadingDialog;
     }
 
-    String jiaoxueid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +135,9 @@ public class max_courseadd extends Activity {
     }
 
     private void saveall() {
-        final jiaoxue jiaoxue = new jiaoxue();
+        List<BmobObject> teach = new ArrayList<>();
+
+        TEACH jiaoxue = new TEACH();
 
         FIELD schoolyear = new FIELD();
         schoolyear.setObjectId(schoolyearid);
@@ -144,7 +149,7 @@ public class max_courseadd extends Activity {
 
         FIELD course = new FIELD();
         course.setObjectId(courseid);
-        jiaoxue.setKe(course);
+        jiaoxue.setCourse(course);
 
         FIELD nature = new FIELD();
         nature.setObjectId(natureid);
@@ -152,64 +157,84 @@ public class max_courseadd extends Activity {
 
         FIELD kaike = new FIELD();
         kaike.setObjectId(kaikeid);
-        jiaoxue.setKaikeyuan(kaike);
+        jiaoxue.setCollege(kaike);
 
+        jiaoxue.setCredit(courseFen.getText().toString());
 
-        book b = new book();
-        b.setObjectId(bookid);
-        jiaoxue.setBook(b);
+        classs c = new classs();
+        c.setObjectId(classid);
+        jiaoxue.setTeam(c);
+        teach.add(jiaoxue);
+        if (classid1!=null){
+            TEACH jiaoxue1 = new TEACH();
 
-        jiaoxue.save(new SaveListener<String>() {
+            jiaoxue1.setSchoolyear(schoolyear);
+            jiaoxue1.setTeacher(teacher);
+            jiaoxue1.setCourse(course);
+            jiaoxue1.setNature(nature);
+            jiaoxue1.setCollege(kaike);
+            jiaoxue1.setCredit(courseFen.getText().toString());
+            classs c1 = new classs();
+            c1.setObjectId(classid1);
+            jiaoxue1.setTeam(c1);
+            teach.add(jiaoxue1);
+        }
+        if (classid2!=null){
+            TEACH jiaoxue2 = new TEACH();
+
+            jiaoxue2.setSchoolyear(schoolyear);
+            jiaoxue2.setTeacher(teacher);
+            jiaoxue2.setCourse(course);
+            jiaoxue2.setNature(nature);
+            jiaoxue2.setCollege(kaike);
+            jiaoxue2.setCredit(courseFen.getText().toString());
+            classs c2= new classs();
+            c2.setObjectId(classid2);
+            jiaoxue2.setTeam(c2);
+            teach.add(jiaoxue2);
+        }
+
+        if (classid3!=null){
+            TEACH jiaoxue3 = new TEACH();
+
+            jiaoxue3.setSchoolyear(schoolyear);
+            jiaoxue3.setTeacher(teacher);
+            jiaoxue3.setCourse(course);
+            jiaoxue3.setNature(nature);
+            jiaoxue3.setCollege(kaike);
+            jiaoxue3.setCredit(courseFen.getText().toString());
+            classs c3= new classs();
+            c3.setObjectId(classid3);
+            jiaoxue3.setTeam(c3);
+            teach.add(jiaoxue3);
+        }
+
+        if (classid4!=null){
+            TEACH jiaoxue4 = new TEACH();
+
+            jiaoxue4.setSchoolyear(schoolyear);
+            jiaoxue4.setTeacher(teacher);
+            jiaoxue4.setCourse(course);
+            jiaoxue4.setNature(nature);
+            jiaoxue4.setCollege(kaike);
+            jiaoxue4.setCredit(courseFen.getText().toString());
+            classs c4= new classs();
+            c4.setObjectId(classid4);
+            jiaoxue4.setTeam(c4);
+            teach.add(jiaoxue4);
+        }
+        new BmobBatch().insertBatch(teach).doBatch(new QueryListListener<BatchResult>() {
             @Override
-            public void done(String s, BmobException e) {
+            public void done(List<BatchResult> list, BmobException e) {
                 getLoadingDialog().dismiss();
                 if (e == null) {
-                    jiaoxueid = s;
-                    save_class();
                     Toast.makeText(max_courseadd.this, "保存成功", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(max_courseadd.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(max_courseadd.this, "保存失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-    }
-
-    private void save_class() {
-        classs class1 = new classs();
-        class1.setObjectId(classid);
-
-        classs class2 = new classs();
-        class2.setObjectId(classid1);
-
-        classs class3 = new classs();
-        class3.setObjectId(classid2);
-
-        classs class4 = new classs();
-        class4.setObjectId(classid3);
-
-        classs class5 = new classs();
-        class5.setObjectId(classid4);
-
-        jiaoxue jiao = new jiaoxue();
-        jiao.setObjectId(jiaoxueid);
-        BmobRelation relation = new BmobRelation();
-        relation.add(class1);
-        relation.add(class2);
-        relation.add(class3);
-        relation.add(class4);
-        relation.add(class5);
-        jiao.setTeam(relation);
-        jiao.update(new UpdateListener() {
-            @Override
-            public void done(BmobException e) {
-                if (e==null){
-                    Toast.makeText(max_courseadd.this, "保存成功", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(max_courseadd.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
     @Override
@@ -236,10 +261,6 @@ public class max_courseadd extends Activity {
                 teacherid = data.getStringExtra("majorid");
                 String majordesc = data.getStringExtra("majordesc");
                 courseTea.setText(majordesc);
-            } else if (requestCode == CommenDate.select_book) {
-                bookid = data.getStringExtra("bookid");
-                String majordesc = data.getStringExtra("bookname");
-                courseBook.setText(majordesc);
             } else if (requestCode == CommenDate.select_class) {
                 classid = data.getStringExtra("majorid");
                 String majordesc = data.getStringExtra("majordesc");
@@ -252,11 +273,11 @@ public class max_courseadd extends Activity {
                 classid2 = data.getStringExtra("majorid");
                 String majordesc = data.getStringExtra("majordesc");
                 courseClass3.setText(majordesc);
-            }else if (requestCode == CommenDate.select_class3) {
+            } else if (requestCode == CommenDate.select_class3) {
                 classid3 = data.getStringExtra("majorid");
                 String majordesc = data.getStringExtra("majordesc");
                 courseClass4.setText(majordesc);
-            }else if (requestCode == CommenDate.select_class4) {
+            } else if (requestCode == CommenDate.select_class4) {
                 classid4 = data.getStringExtra("majorid");
                 String majordesc = data.getStringExtra("majordesc");
                 courseClass5.setText(majordesc);
@@ -265,7 +286,7 @@ public class max_courseadd extends Activity {
 
     }
 
-    @OnClick({R.id.back1, R.id.right_button, R.id.select_course_sc, R.id.select_course_tea, R.id.select_course_cour, R.id.select_course_na, R.id.select_course_kai,  R.id.select_course_book,R.id.select_course1_sc, R.id.select_course2_sc, R.id.select_course3_sc, R.id.select_course4_sc, R.id.select_course5_sc})
+    @OnClick({R.id.back1, R.id.right_button, R.id.select_course_sc, R.id.select_course_tea, R.id.select_course_cour, R.id.select_course_na, R.id.select_course_kai, R.id.select_course1_sc, R.id.select_course2_sc, R.id.select_course3_sc, R.id.select_course4_sc, R.id.select_course5_sc})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back1:
@@ -299,11 +320,6 @@ public class max_courseadd extends Activity {
                 Intent intent3 = new Intent(max_courseadd.this, value_select.class);
                 intent3.putExtra("value", CommenDate.value_college);
                 startActivityForResult(intent3, CommenDate.select_college);
-                break;
-            case R.id.select_course_book:
-                Intent intent9 = new Intent(max_courseadd.this, book_select.class);
-                intent9.putExtra("book", CommenDate.maxcour_book);
-                startActivityForResult(intent9, CommenDate.select_book);
                 break;
             case R.id.select_course1_sc:
                 Intent intent10 = new Intent(max_courseadd.this, max_class.class);

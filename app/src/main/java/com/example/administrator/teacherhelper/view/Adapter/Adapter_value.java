@@ -49,7 +49,7 @@ public class Adapter_value extends BaseAdapter {
         FIELD student = getItem(position);
         TextView course_code = (TextView) view.findViewById(R.id.value);
         if (student.getValue().equals(CommenDate.value_schele)){
-            course_code.setText(student.getDespration() + "   编码：" + student.getCourse_code() + "    学分：" + student.getCredit());
+            course_code.setText(student.getDespration() + "   编码：" + student.getCourse_code());
         }else {
             course_code.setText(student.getDespration());
         }

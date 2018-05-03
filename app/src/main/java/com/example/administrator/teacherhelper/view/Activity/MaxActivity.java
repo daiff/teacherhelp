@@ -158,8 +158,14 @@ public class MaxActivity extends Activity {
                 startActivity(intent10);
                 break;
             case R.id.ps:
+                Intent intent14 = new Intent(MaxActivity.this, Mark_List.class);
+                intent14.putExtra("resource", CommenDate.max);
+                startActivity(intent14);
                 break;
             case R.id.z:
+                Intent intent13 = new Intent(MaxActivity.this, zcj_Activity.class);
+                intent13.putExtra("resource", CommenDate.max);
+                startActivity(intent13);
                 break;
             case R.id.analysis:
                 Intent intent11 = new Intent(MaxActivity.this,PaperAnalysis_List.class);
@@ -212,6 +218,4 @@ public class MaxActivity extends Activity {
         }
 
     }
-
-
 }

@@ -16,14 +16,14 @@ import java.util.List;
  * Created by Administrator on 2018/3/24 0024.
  */
 
-public class Program_Time extends BaseAdapter {
+public class Program_TimeAdapter extends BaseAdapter {
     private List<TPR_schedule> stuList;
     private LayoutInflater inflater;
 
-    public Program_Time() {
+    public Program_TimeAdapter() {
     }
 
-    public Program_Time(List<TPR_schedule> stuList, Context context) {
+    public Program_TimeAdapter(List<TPR_schedule> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
     }

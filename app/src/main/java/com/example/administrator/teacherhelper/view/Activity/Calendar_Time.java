@@ -117,7 +117,6 @@ public class Calendar_Time extends Activity {
         if (source.equals("detial")){
             initData();
         }else if (source.equals("add")){
-
             savNewData();
             initData();
         }

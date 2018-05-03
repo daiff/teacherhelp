@@ -49,7 +49,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
         FragmentTransaction fTransaction = fManager.beginTransaction();
         hideAllFragment(fTransaction);
         switch (v.getId()) {

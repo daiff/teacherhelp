@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.bean.TCH_worksum;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.classs;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
@@ -35,7 +36,7 @@ public class Summary_Add extends Activity {
 
     protected FlippingLoadingDialog mLoadingDialog;
 
-    jiaoxue teach = new jiaoxue();
+    TEACH teach = new TEACH();
     @Bind(R.id.back)
     ImageButton back;
     @Bind(R.id.back1)
@@ -114,43 +115,22 @@ public class Summary_Add extends Activity {
         Bmob.initialize(this, "ab8ec6ed95c785a2a470225606acee3e");
         first();
         initView();
-        initData();
     }
 
     private void first() {
-        teach = (jiaoxue) getIntent().getSerializableExtra("ke");
+        teach = (TEACH) getIntent().getSerializableExtra("ke");
     }
 
-
-    private void initData() {
-        BmobQuery<classs> bjiaoxue = new BmobQuery<>();
-        bjiaoxue.include("classs,college,grade,major");
-
-        jiaoxue analysis = new jiaoxue();
-        analysis.setObjectId(teach.getObjectId());
-        bjiaoxue.addWhereRelatedTo("Team",new BmobPointer(analysis));
-        bjiaoxue.findObjects(new FindListener<classs>() {
-            @Override
-            public void done(List<classs> list, BmobException e) {
-                if (e==null){
-                    for (int i =0;i<list.size();i++){
-                        str.append(list.get(i).getCollege().getDespration()+list.get(i).getGrade().getDespration()+list.get(i).getMajor().getDespration()+list.get(i).getClasss().getDespration()+ "班  ");
-                    }
-                    gzzjClass.setText(str);
-                }
-
-            }
-        });
-    }
 
     private void initView() {
+        gzzjClass.setText(teach.getTeam().getGrade().getDespration()+teach.getTeam().getMajor().getDespration()+teach.getTeam().getClasss().getDespration()+"班");
         title.setText("新增工作总结表");
         save.setVisibility(View.VISIBLE);
         gzzjSemester.setText(teach.getSchoolyear().getDespration());
         gzzjTeacher.setText(teach.getTeacher().getDesperation());
         gzzjTitle.setText(teach.getTeacher().getTitle());
         gzzjMajor.setText(teach.getTeacher().getXi().getDespration());
-        gzzjBook.setText(teach.getBook().getDespration());
+//        gzzjBook.setText(teach.getBook().getDespration());
     }
 
     @OnClick({R.id.back1, R.id.right_button})

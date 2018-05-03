@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/bar_title"/>
-    <include layout="@layout/jxrl_itemmbook"/>
     <ListView
         android:id="@+id/listt"
         android:layout_width="match_parent"

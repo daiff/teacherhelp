@@ -31,19 +31,19 @@
         <TextView
             android:id="@+id/innovate_title"
             style="@style/jxdg_textview"
-            android:text="" />
+            android:hint="大创标题" />
     </LinearLayout>
     <TextView
         android:id="@+id/content"
         android:layout_marginTop="1dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/main_footer"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_bg"
         android:paddingRight="12dp"
         android:paddingLeft="12dp"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
-        android:text="wwwd"
+        android:hint="大创详细情况"
         >
 
     </TextView>

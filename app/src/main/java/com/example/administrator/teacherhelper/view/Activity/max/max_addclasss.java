@@ -85,7 +85,7 @@ public class max_addclasss extends Activity {
     }
 
     private void initView() {
-        title.setText("录入学生信息");
+        title.setText("录入班级信息");
         save.setVisibility(View.VISIBLE);
     }
 

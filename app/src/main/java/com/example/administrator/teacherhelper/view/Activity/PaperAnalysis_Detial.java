@@ -91,11 +91,11 @@ public class PaperAnalysis_Detial extends Activity {
     private void init() {
         title.setText("试卷分析表");
         tishi.setVisibility(View.VISIBLE);
-        course.setText(tch_analysis.getJiaoxue().getKe().getCourse_code() + " "
-                + tch_analysis.getJiaoxue().getKe().getDespration() + " (" +
-                tch_analysis.getJiaoxue().getNature().getDespration() + ")");
-        yearSemester.setText(tch_analysis.getJiaoxue().getSchoolyear().getDespration());
-        kaikeyuan.setText("开课院：" + tch_analysis.getJiaoxue().getKaikeyuan().getDespration());
+        course.setText(tch_analysis.getCourse().getCourse().getCourse_code() + " "
+                + tch_analysis.getCourse().getCourse().getDespration() + " (" +
+                tch_analysis.getCourse().getNature().getDespration() + ")");
+        yearSemester.setText(tch_analysis.getCourse().getSchoolyear().getDespration());
+        kaikeyuan.setText("开课院：" + tch_analysis.getCourse().getCollege().getDespration());
         shjfxClasss.setText(tch_analysis.getClasss());
         fsh9.setText(tch_analysis.getNine_num() + "人");
         bl9.setText(tch_analysis.getNine_prop() + "%");

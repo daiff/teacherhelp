@@ -10,7 +10,17 @@ public class TCH_Progress extends BmobObject {
     private String chapter  ;
     private String  content ;
     private String  hour ;
-    private TCH_pro  tch_pro ;
+
+
+    public com.example.administrator.teacherhelper.bean.TCH_pro getTCH_pro() {
+        return TCH_pro;
+    }
+
+    public void setTCH_pro(com.example.administrator.teacherhelper.bean.TCH_pro TCH_pro) {
+        this.TCH_pro = TCH_pro;
+    }
+
+    private TCH_pro  TCH_pro ;
     private String  objective ;
     private String  Remarks ;
     private String  task_hour ;
@@ -80,15 +90,5 @@ public class TCH_Progress extends BmobObject {
 
     public void setTeaching_methods(String teaching_methods) {
         Teaching_methods = teaching_methods;
-    }
-
-
-
-    public TCH_pro getTch_pro() {
-        return tch_pro;
-    }
-
-    public void setTch_pro(TCH_pro tch_pro) {
-        this.tch_pro = tch_pro;
     }
 }

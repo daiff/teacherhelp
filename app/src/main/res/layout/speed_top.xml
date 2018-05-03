@@ -14,14 +14,14 @@
             android:id="@+id/course"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="数据结构  开课院"
+            android:text=""
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/year_semester"
             android:layout_marginTop="1dp"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="2017―2081学年度第一学期"
+            android:text=""
             android:textColor="@color/white"/>
 
         <LinearLayout
@@ -48,7 +48,7 @@
                         android:id="@+id/jxjd_fzr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="留"
+                        android:text=""
                         android:textColor="@color/white"/>
 
                 </LinearLayout>
@@ -68,7 +68,7 @@
                     android:id="@+id/major"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="网络工程"
+                    android:text=""
                     android:textColor="@color/white"/>
             </LinearLayout>
 

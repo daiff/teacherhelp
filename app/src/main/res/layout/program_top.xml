@@ -15,13 +15,13 @@
             android:id="@+id/jxjd_course"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="数据结构（专业必修课）"
+            android:text=""
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/jxjd_year"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:text="学年"
+            android:text=""
             android:textColor="@color/white"/>
     </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.administrator.teacherhelper.bean;
 
 import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.datatype.BmobRelation;
 
 /**
  * Created by Administrator on 2018/3/19 0019.
@@ -81,13 +82,7 @@ public class TCH_calender extends BmobObject {
         this.havedone = havedone;
     }
 
-    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
-        return jiaoxue;
-    }
 
-    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
-        this.jiaoxue = jiaoxue;
-    }
 
 
 
@@ -108,6 +103,25 @@ public class TCH_calender extends BmobObject {
     private String  havedone ;
     private String  total_weeks ;
     private String  classs ;
-    private jiaoxue  jiaoxue ;
+
+    public TEACH getCourse() {
+        return Course;
+    }
+
+    public void setCourse(TEACH course) {
+        Course = course;
+    }
+
+    private TEACH  Course ;
+
+    public BmobRelation getBook() {
+        return Book;
+    }
+
+    public void setBook(BmobRelation book) {
+        Book = book;
+    }
+
+    private BmobRelation Book;
 
 }

@@ -12,16 +12,15 @@ public class TCH_analysis extends BmobObject {
     private String zero_prop ;
     private String  zero_num;
 
-
-    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
-        return jiaoxue;
+    public TEACH getCourse() {
+        return Course;
     }
 
-    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
-        this.jiaoxue = jiaoxue;
+    public void setCourse(TEACH course) {
+        Course = course;
     }
 
-    private jiaoxue jiaoxue ;
+    private TEACH Course ;
     private String  tatalpeoplenum;
     private String six_prop ;
     private String six_num ;

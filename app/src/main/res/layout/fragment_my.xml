@@ -58,7 +58,7 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:textSize="17dp"
-            android:text="  资料下载"
+            android:text="  教材"
             android:drawableLeft="@drawable/ziliao"/>
         <View
             android:layout_marginTop="6dp"
@@ -100,18 +100,6 @@
         android:background="@color/white"
         android:text="  退出登录"
         android:drawableLeft="@drawable/exit"/>
-
-
-    <TextView
-        android:id="@+id/my_book"
-        android:gravity="center_vertical"
-        android:paddingLeft="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/white"
-        android:text="  本学期所使用教材"
-        android:drawableLeft="@drawable/my_book"/>
 
 
 

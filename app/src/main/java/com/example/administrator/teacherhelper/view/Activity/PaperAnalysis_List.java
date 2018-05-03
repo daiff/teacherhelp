@@ -18,12 +18,15 @@ import android.widget.Toast;
 
 
 import com.example.administrator.teacherhelper.bean.TCH_analysis;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.until.AccountUtils;
 import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 import com.example.administrator.teacherhelper.view.Adapter.PaperAnalysis;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +39,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.QueryListener;
 
 /**
  * Created by Administrator on 2018/3/16 0016.
@@ -61,10 +65,10 @@ public class PaperAnalysis_List extends Activity {
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
 
-    List<jiaoxue> mycourse= new ArrayList<>();
-    List<TCH_analysis> allworksum= new ArrayList<>();
-    List<jiaoxue> nothave= new ArrayList<>();
-    List<TCH_analysis> have= new ArrayList<>();
+    List<TEACH> mycourse;
+    List<TCH_analysis> allworksum;
+    List<TEACH> nothave;
+    List<TCH_analysis> have;
     String resource;
 
     protected FlippingLoadingDialog mLoadingDialog;
@@ -83,7 +87,6 @@ public class PaperAnalysis_List extends Activity {
         first();
         init();
         InitData();
-        data();
     }
 
     private void InitData() {
@@ -96,7 +99,7 @@ public class PaperAnalysis_List extends Activity {
             data();
         }else if (resource.equals(CommenDate.max)){
             BmobQuery<TCH_analysis> bmobQuery = new BmobQuery<>();
-            bmobQuery.include(CommenDate.IncludePaperAnalysis);
+            bmobQuery.include(CommenDate.include_commen);
             bmobQuery.order("-createdAt");
             bmobQuery.findObjects(new FindListener<TCH_analysis>() {
                 @Override
@@ -134,14 +137,14 @@ public class PaperAnalysis_List extends Activity {
     }
 
     private  void data(){
-        BmobQuery<jiaoxue> jiaoxueBmobQuery =new BmobQuery<>();
-        jiaoxueBmobQuery.addWhereEqualTo("teacher",BmobUser.getCurrentUser());
-        jiaoxueBmobQuery.addWhereEqualTo("schoolyear", AccountUtils.getyear(PaperAnalysis_List.this));
+        BmobQuery<TEACH> jiaoxueBmobQuery =new BmobQuery<>();
+        jiaoxueBmobQuery.addWhereEqualTo("Teacher",BmobUser.getCurrentUser());
+        jiaoxueBmobQuery.addWhereEqualTo("Schoolyear", AccountUtils.getyear(PaperAnalysis_List.this));
         jiaoxueBmobQuery.include(CommenDate.include_jiaoxue);
         jiaoxueBmobQuery.order("-createdAt");
-        jiaoxueBmobQuery.findObjects(new FindListener<jiaoxue>() {
+        jiaoxueBmobQuery.findObjects(new FindListener<TEACH>() {
             @Override
-            public void done(List<jiaoxue> list, BmobException e) {
+            public void done(List<TEACH> list, BmobException e) {
                 if (e==null){
                     if (list.size() == 0){
                         getLoadingDialog().dismiss();
@@ -159,7 +162,7 @@ public class PaperAnalysis_List extends Activity {
     }
     private void getWorkSum(){
         BmobQuery<TCH_analysis> bmobQuery = new BmobQuery<>();
-        bmobQuery.include(CommenDate.IncludePaperAnalysis);
+        bmobQuery.include(CommenDate.include_commen);
         bmobQuery.order("-createdAt");
         bmobQuery.findObjects(new FindListener<TCH_analysis>() {
             @Override
@@ -178,7 +181,7 @@ public class PaperAnalysis_List extends Activity {
     private void gethave() {
         for (int i = 0; i < mycourse.size(); i++) {
             for (int j = 0; j < allworksum.size(); j++) {
-                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId())) {
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getCourse().getObjectId())) {
                     have.add(allworksum.get(j));
                 }
             }
@@ -190,7 +193,7 @@ public class PaperAnalysis_List extends Activity {
         int i = 0, j = 0;
         for ( i = 0; i < mycourse.size(); ++i) {
             for ( j = 0; j < allworksum.size(); ++j)
-                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getJiaoxue().getObjectId()) )
+                if (mycourse.get(i).getObjectId().equals(allworksum.get(j).getCourse().getObjectId()) )
                     break;
             if (j == allworksum.size())
                 nothave.add(mycourse.get(i));
@@ -258,10 +261,10 @@ public class PaperAnalysis_List extends Activity {
     }
     //    自定义适配器
     class jiaoxueAdapter extends BaseAdapter {
-        private List<jiaoxue> stuList;
+        private List<TEACH> stuList;
         private LayoutInflater inflater;
         public jiaoxueAdapter() {}
-        public jiaoxueAdapter(List<jiaoxue> stuList, Context context) {
+        public jiaoxueAdapter(List<TEACH> stuList, Context context) {
             this.stuList = stuList;
             this.inflater = LayoutInflater.from(context);
         }
@@ -272,7 +275,7 @@ public class PaperAnalysis_List extends Activity {
         }
 
         @Override
-        public jiaoxue getItem(int position) {
+        public TEACH getItem(int position) {
             return stuList.get(position);
         }
 
@@ -285,10 +288,10 @@ public class PaperAnalysis_List extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             //加载布局为一个视图
             View view = inflater.inflate(R.layout.rtu_item, null);
-            jiaoxue student = getItem(position);
+            TEACH student = getItem(position);
             //在view视图中查找id为image_photo的控件
             TextView course_code = (TextView) view.findViewById(R.id.tv_name);
-            course_code.setText(student.getKe().getDespration());
+            course_code.setText(student.getCourse().getDespration());
             return view;
         }
     }
@@ -296,7 +299,7 @@ public class PaperAnalysis_List extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        data();
+        InitData();
     }
 
 

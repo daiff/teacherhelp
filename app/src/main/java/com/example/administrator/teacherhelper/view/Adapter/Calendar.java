@@ -50,7 +50,7 @@ public class Calendar extends BaseAdapter {
         TextView course_code = (TextView) view.findViewById(R.id.course_code);
         TextView schedule = (TextView) view.findViewById(R.id.ban);
 
-        course_code.setText(student.getJiaoxue().getKe().getDespration());
+        course_code.setText(student.getCourse().getCourse().getDespration());
         schedule.setText(student.getClasss());
         return view;
     }

@@ -8,6 +8,9 @@ public class CommenDate {
 
     public static final int select_major = 1; //专业选择
     public static final int select_book = 2; //教材选择
+    public static final int select_book1 = 21; //教材选择
+    public static final int select_book2 = 22; //教材选择
+    public static final int select_book3 = 23; //教材选择
     public static final int max_year = 3; //max选择年
     public static final int select_schoolyear = 4; //max选择年
     public static final int select_course = 5; //max选择年
@@ -53,11 +56,20 @@ public class CommenDate {
 
 
 
-    public static final String include_jiaoxue = "book,kaikeyuan,ke,nature,schoolyear,teacher.xi"; //专业选择
+    public static final String include_jiaoxue = "College,Course,Nature,Schoolyear,Team.grade,Team.major,Team.classs,,Team.college,Teacher.xi"; //专业选择--
+    public static final String achieve_jiaoxue = "Course.Course,Course.Nature,Course.Team.grade,Course.Team.major,Course.Team.classs"; //专业选择
+
+
+    public static final String include_teach = "College,Course,Nature,Schoolyear,Teacher,Team.classs,Team.college,Team.grade,Team.major"; //所有课程
     public static final String include_classs = "classs,college,grade,major"; //班级选择
     public static final String IncludePaperAnalysis = "jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher"; //试卷分析包括教学的内容
-    public static final String IncludeCalender = "jiaoxue.book,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher"; //试卷分析包括教学的内容
-    public static final String achieve_jiaoxue = "jiaoxue.classs.classs,jiaoxue.kaikeyuan,jiaoxue.ke,jiaoxue.nature,jiaoxue.schoolyear,jiaoxue.teacher.xi,jiaooxue.classs.college,jiaoxue.classs.grade,jiaoxue.classs.major"; //专业选择
+    public static final String IncludeCalender = "Course.College,Course.Course,Course.Nature,Course.Schoolyear,Course.Teacher,Course.Team"; //试卷分析包括教学的内容--
+
+//    public static final String mark_jiaoxue = "Course.classs.classs,Course.kaikeyuan,jiaoxue.ke,Course.nature,Course.schoolyear,Course.teacher.xi,Course.classs.college,Course.classs.grade,Course.classs.major"; //专业选择
+    public static final String mark_student = "Course.classs.classs,Course.kaikeyuan,jiaoxue.ke,Course.nature,Course.schoolyear,Course.teacher.xi,Course.classs.college,Course.classs.grade,Course.classs.major,Studentid.classs,Studentid.despration,Studentid.number"; //专业选择
+    public static final String include_commen = "Course.Team,Course.Team.classs,Course.Team.college,Course.Team.grade,Course.Team.major,Course.Teacher,Course.Teacher.xi,Course.Schoolyear,Course.Nature,Course.Nature,Course.Course,Course.College"; //专业选择---
+    public static final String include_summ = "teach.Team,teach.Team.classs,teach.Team.college,teach.Team.grade,teach.Team.major,teach.Teacher,teach.Teacher.xi,teach.Schoolyear,teach.Nature,teach.Nature,teach.Course,teach.College"; //专业选择---
+    public static final String include_MARK = "Teach.Team,Teach.Team.classs,Teach.Team.college,Teach.Team.grade,Teach.Team.major,Teach.Teacher,Teach.Teacher.xi,Teach.Schoolyear,Teach.Nature,Teach.Nature,Teach.Course,Teach.College"; //专业选择---
 
     public static final String main ="main"; //由添加课程的选择框进班级列表页面
     public static final String max ="max"; //由添加课程的选择框进班级列表页面

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.administrator.teacherhelper.bean.book;
 import com.example.administrator.teacherhelper.commen.CommenDate;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.view.Activity.book_course;
 import com.example.administrator.teacherhelper.view.Activity.max.Max_bookadd;
 import com.example.administrator.teacherhelper.view.Adapter.book_adapter;
 
@@ -89,6 +90,17 @@ public class book_select extends Activity {
                                     finish();
                                 }
                             });
+                        }else if (select.equals("wode")){
+                            listt.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                                @Override
+                                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent(book_select.this,book_course.class);
+                                    intent.putExtra("book",list.get(position));
+                                    startActivity(intent);
+                                    return true;
+                                }
+                            });
+
                         }
                     }
                 }else {

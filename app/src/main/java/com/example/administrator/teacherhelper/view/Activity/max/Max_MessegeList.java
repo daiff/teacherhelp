@@ -66,6 +66,7 @@ public class Max_MessegeList extends Activity {
             public void done(final List<NOTICE> list, BmobException e) {
                 if (e==null){
                     if (list.size()!=0){
+                        //适配器
                         adapter = new Messege(list,Max_MessegeList.this);
                         listt.setAdapter(adapter);
                         listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {

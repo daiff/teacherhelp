@@ -5,19 +5,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.TCH_pro;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.util.TextUtils;
+
+import static android.R.id.list;
 
 /**
  * Created by Administrator on 2018/3/25 0025.
  */
 
-public class Speed extends BaseAdapter {
-    private List<TCH_pro> stuList;
+public class Speed extends BaseAdapter{
+    private List<TCH_pro> stuList=new ArrayList<>();
     private LayoutInflater inflater;
 
     public Speed() {
@@ -50,8 +57,9 @@ public class Speed extends BaseAdapter {
         TextView course_code = (TextView) view.findViewById(R.id.gzzj_course);
         TextView title = (TextView) view.findViewById(R.id.gzzj_class);
 
-        course_code.setText(student.getJiaoxue().getKe().getDespration());
-        title.setText(student.getClasss());
+        course_code.setText(student.getCourse().getCourse().getDespration());
+        title.setText(student.getCourse().getTeam().getCollege().getDespration()+student.getCourse().getTeam().getGrade().getDespration()+"级"+student.getCourse().getTeam().getMajor().getDespration()+student.getCourse().getTeam().getClasss().getDespration()+"班");
         return view;
     }
+
 }

@@ -12,11 +12,11 @@ import android.widget.Toast;
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.TCH_Progress;
 import com.example.administrator.teacherhelper.bean.TCH_pro;
+import com.example.administrator.teacherhelper.view.enclosure.FlippingLoadingDialog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -59,6 +59,14 @@ public class Speed_AddItem extends Activity {
     EditText Remarks;
     String proid;
 
+    protected FlippingLoadingDialog mLoadingDialog;
+
+    private FlippingLoadingDialog getLoadingDialog() {
+        if (mLoadingDialog == null)
+            mLoadingDialog = new FlippingLoadingDialog(this);
+        return mLoadingDialog;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +77,7 @@ public class Speed_AddItem extends Activity {
     }
 
     private void initView() {
-        title.setText("新增一条字数据");
+        title.setText("新增一条子数据");
         save.setVisibility(View.VISIBLE);
     }
 
@@ -84,10 +92,11 @@ public class Speed_AddItem extends Activity {
                 finish();
                 break;
             case R.id.right_button:
+                getLoadingDialog().show();
                 TCH_Progress progress = new TCH_Progress();
                 TCH_pro bpro = new TCH_pro();
                 bpro.setObjectId(proid);
-                progress.setTch_pro(bpro);
+                progress.setTCH_pro(bpro);
                 progress.setChapter(chapter.getText().toString());
                 progress.setContent(content.getText().toString());
                 progress.setHour(hour.getText().toString());
@@ -99,8 +108,10 @@ public class Speed_AddItem extends Activity {
                 progress.save(new SaveListener<String>() {
                     @Override
                     public void done(String s, BmobException e) {
+                        getLoadingDialog().dismiss();
                         if (e==null){
                             Toast.makeText(Speed_AddItem.this, "保存成功", Toast.LENGTH_SHORT).show();
+                            finish();
                         }else {
                             Toast.makeText(Speed_AddItem.this, "保存失败", Toast.LENGTH_SHORT).show();
                         }

@@ -68,7 +68,6 @@ public class LoginActivity extends Activity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (mUser.getText().length() == 0) {
                     mUser.setError(getString(R.string.login_error_empty_user));
                     mUser.requestFocus();
@@ -80,7 +79,6 @@ public class LoginActivity extends Activity {
                 }
             }
         });
-
     }
 
 
@@ -95,7 +93,6 @@ public class LoginActivity extends Activity {
      * 登陆*
      */
     private void login() {
-
         getLoadingDialog().setMessage("正在登录...").show();
         final String user_num = mUser.getText().toString();
         final String user_password = mPassword.getText().toString().trim();
@@ -131,7 +128,6 @@ public class LoginActivity extends Activity {
 
                         }
                     });
-
                     AccountUtils.setUserid(LoginActivity.this,user_num);
                     AccountUtils.setUserPassword(LoginActivity.this,user_password);
                     Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();

@@ -50,7 +50,7 @@ public class Summary extends BaseAdapter {
         TextView course_code = (TextView) view.findViewById(R.id.gzzj_course);
         TextView classs = (TextView) view.findViewById(R.id.gzzj_class);
 
-        course_code.setText(worksum.getTeach().getKe().getDespration());
+        course_code.setText(worksum.getTeach().getCourse().getDespration());
         classs.setText(worksum.getClasss());
         return view;
     }

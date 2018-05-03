@@ -51,12 +51,8 @@ public class max_valueadd extends Activity {
     EditText valueDespration;
     @Bind(R.id.value_code)
     EditText valueCode;
-    @Bind(R.id.value_num)
-    EditText valueNum;
     @Bind(R.id.value_one)
     LinearLayout valueOne;
-    @Bind(R.id.value_two)
-    LinearLayout valueTwo;
     private String valuee = "major";
 
     protected FlippingLoadingDialog mLoadingDialog;
@@ -89,23 +85,18 @@ public class max_valueadd extends Activity {
             public void onSelect(String text) {
                 if (text.equals("课程")) {
                     valueOne.setVisibility(View.VISIBLE);
-                    valueTwo.setVisibility(View.VISIBLE);
                     valuee = "schedule";
                 } else if (text.equals("专业")) {
                     valueOne.setVisibility(View.GONE);
-                    valueTwo.setVisibility(View.GONE);
                     valuee = "major";
                 } else if (text.equals("学院")) {
                     valueOne.setVisibility(View.GONE);
-                    valueTwo.setVisibility(View.GONE);
                     valuee = "college";
                 } else if (text.equals("年级")) {
                     valueOne.setVisibility(View.GONE);
-                    valueTwo.setVisibility(View.GONE);
                     valuee = "grade";
                 } else if (text.equals("学年")) {
                     valueOne.setVisibility(View.GONE);
-                    valueTwo.setVisibility(View.GONE);
                     valuee = "schoolyear";
                 }
             }
@@ -124,7 +115,6 @@ public class max_valueadd extends Activity {
                 field.setValue(valuee);
                 field.setDespration(valueDespration.getText().toString());
                 field.setCourse_code(valueCode.getText().toString());
-                field.setCredit(valueNum.getText().toString());
                 field.save(new SaveListener<String>() {
                     @Override
                     public void done(String s, BmobException e) {

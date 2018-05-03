@@ -64,13 +64,6 @@
             android:layout_weight="1"
             style="@style/my_add_rightEdittext"
             android:text=""/>
-
-        <ImageView
-            android:id="@+id/select_scclass"
-            android:padding="5dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/green_select"/>
     </LinearLayout>
 
     <LinearLayout

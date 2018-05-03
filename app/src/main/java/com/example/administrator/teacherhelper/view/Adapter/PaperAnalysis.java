@@ -52,10 +52,10 @@ public class PaperAnalysis extends BaseAdapter {
         TextView nature = (TextView) view.findViewById(R.id.nature);
         TextView kaikeyuan = (TextView) view.findViewById(R.id.ban);
 
-        course_code.setText(student.getJiaoxue().getKe().getDespration());
-        schedule.setText(student.getJiaoxue().getKe().getCourse_code());
-        nature.setText(student.getJiaoxue().getNature().getDespration());
-        kaikeyuan.setText(student.getJiaoxue().getKaikeyuan().getDespration());
+        course_code.setText(student.getCourse().getCourse().getDespration());
+        schedule.setText(student.getCourse().getCourse().getCourse_code());
+        nature.setText(student.getCourse().getNature().getDespration());
+        kaikeyuan.setText(student.getCourse().getCollege().getDespration());
 
         return view;
     }

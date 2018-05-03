@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.administrator.teacherhelper.bean.MARK;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.jiaoxue;
 import com.example.administrator.teacherhelper.R;
 
@@ -17,13 +19,13 @@ import java.util.List;
  */
 
 public class jcourseAdapter extends BaseAdapter {
-    private List<jiaoxue> stuList;
+    private List<MARK> stuList;
     private LayoutInflater inflater;
 
     public jcourseAdapter() {
     }
 
-    public jcourseAdapter(List<jiaoxue> stuList, Context context) {
+    public jcourseAdapter(List<MARK> stuList, Context context) {
         this.stuList = stuList;
         this.inflater = LayoutInflater.from(context);
     }
@@ -33,7 +35,7 @@ public class jcourseAdapter extends BaseAdapter {
     }
 
     @Override
-    public jiaoxue getItem(int position) {
+    public MARK getItem(int position) {
         return stuList.get(position);
     }
 
@@ -45,11 +47,15 @@ public class jcourseAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = inflater.inflate(R.layout.innovate_item, null);
-        jiaoxue student = getItem(position);
+        MARK student = getItem(position);
         //在view视图中查找id为image_photo的控件
         TextView course_code = (TextView) view.findViewById(R.id.gzzj_course);
 
-        course_code.setText(student.getKe().getDespration());
+        course_code.setText(student.getTeach().getTeam().getGrade().getDespration()+"级"
+                +student.getTeach().getTeam().getMajor().getDespration()
+                +student.getTeach().getTeam().getClasss().getDespration()+"班"
+                +student.getTeach().getCourse().getDespration()+"     "
+                +student.getFile().getFilename());
         return view;
     }
 }

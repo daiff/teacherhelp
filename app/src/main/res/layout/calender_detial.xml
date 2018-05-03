@@ -3,6 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 <include layout="@layout/calender_top"/>
     <LinearLayout
         android:background="@color/white"
@@ -290,4 +297,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="填写日历说明 "/>
+</LinearLayout>
+    </ScrollView>
 </LinearLayout>

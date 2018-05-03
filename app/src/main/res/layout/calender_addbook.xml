@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="主   教   材:"/>
+        <TextView
+            android:id="@+id/course_sc"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course_sc"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="辅助教材1:"/>
+        <TextView
+            android:id="@+id/course_tea"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course_tea"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="辅助教材2:" />
+
+        <TextView
+            android:id="@+id/course_cour"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+
+        <ImageView
+            android:id="@+id/select_course_cour"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/my_add_Linerlayout">
+        <TextView
+            style="@style/my_add_leftTextView"
+            android:text="辅助教材3"/>
+        <TextView
+            android:id="@+id/course_kai"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/my_add_rightEdittext"
+            android:text=""/>
+        <ImageView
+            android:id="@+id/select_course_kai"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/green_select"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

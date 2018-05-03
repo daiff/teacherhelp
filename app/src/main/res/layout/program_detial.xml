@@ -13,12 +13,14 @@
         <LinearLayout
             style="@style/list_failure_tab">
             <TextView
-                style="@style/list_failure_tab_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="学分："/>
             <TextView
+                android:layout_width="match_parent"
                 android:id="@+id/jxdg_credit"
                 style="@style/list_failure_tab_right"
-                android:text="64"/>
+                android:text=""/>
         </LinearLayout>
 
         <View
@@ -29,13 +31,15 @@
         <LinearLayout
             style="@style/list_failure_tab">
             <TextView
-                style="@style/list_failure_tab_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="学时: "/>
             <EditText
+                android:layout_width="match_parent"
                 android:background="@null"
                 android:id="@+id/Hours"
                 style="@style/list_failure_tab_right"
-                android:text="1"/>
+                android:text=""/>
         </LinearLayout>
     </LinearLayout>
     <View
@@ -58,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:background="@null"
                 style="@style/list_failure_tab_right"
-                android:text="网络工程专业本科一年级"/>
+                android:text=""/>
         </LinearLayout>
         </LinearLayout>
     <View
@@ -80,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:background="@null"
                 style="@style/list_failure_tab_right"
-                android:text="网络工程专业"/>
+                android:text=""/>
         </LinearLayout>
         </LinearLayout>
 
@@ -103,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:background="@null"
                 style="@style/list_failure_tab_right"
-                android:text="Object-Oriented Programming"/>
+                android:text=""/>
         </LinearLayout>
     </LinearLayout>
 

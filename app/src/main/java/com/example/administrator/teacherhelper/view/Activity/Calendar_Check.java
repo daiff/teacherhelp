@@ -105,20 +105,20 @@ public class Calendar_Check extends Activity {
                 }
             });
         }
-        BmobQuery<TCH_calender> calender = new BmobQuery<>();
-        calender.getObject(source, new QueryListener<TCH_calender>() {
-            @Override
-            public void done(TCH_calender tch_calender, BmobException e) {
-                if (e==null){
-                    if (!(tch_calender.equals(""))){
-                        zxqk.setText(tch_calender.getHavedone());
-                        zldj.setText(tch_calender.getRank());
-                    }
-                }else {
-                    Toast.makeText(Calendar_Check.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        BmobQuery<TCH_calender> calender = new BmobQuery<>();
+//        calender.getObject(source, new QueryListener<TCH_calender>() {
+//            @Override
+//            public void done(TCH_calender tch_calender, BmobException e) {
+//                if (e==null){
+//                    if (!(tch_calender.equals(""))){
+//                        zxqk.setText(tch_calender.getHavedone());
+//                        zldj.setText(tch_calender.getRank());
+//                    }
+//                }else {
+//                    Toast.makeText(Calendar_Check.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
     private void saveall(){
         TCH_calender ca = new TCH_calender();

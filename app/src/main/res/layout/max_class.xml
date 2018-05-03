@@ -9,6 +9,7 @@
     android:paddingBottom="8dp">
 
     <RelativeLayout
+        android:layout_centerVertical="true"
         android:id="@+id/jxrl_image"
         android:paddingRight="12dp"
         android:paddingLeft="12dp"
@@ -26,18 +27,19 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/jxrl_image">
         <TextView
+            android:layout_toLeftOf="@+id/class_total"
             android:id="@+id/class_detial"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_deep"
-            android:hint="信息工程学院网络工程一班"/>
+            android:hint=""/>
         <TextView
             android:layout_alignParentEnd="true"
             android:id="@+id/class_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_deep"
-            android:hint="33人"/>
+            android:hint=""/>
 
     </RelativeLayout>
 </RelativeLayout>

@@ -3,26 +3,17 @@ package com.example.administrator.teacherhelper.bean;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by Administrator on 2018/3/25 0025.
+ * Created by Administrator on 2018/4/26 0026.
  */
 
 public class TCH_pro extends BmobObject {
-    public com.example.administrator.teacherhelper.bean.jiaoxue getJiaoxue() {
-        return jiaoxue;
+    public TEACH getCourse() {
+        return Course;
     }
 
-    public void setJiaoxue(com.example.administrator.teacherhelper.bean.jiaoxue jiaoxue) {
-        this.jiaoxue = jiaoxue;
+    public void setCourse(TEACH course) {
+        Course = course;
     }
 
-    public String getClasss() {
-        return classs;
-    }
-
-    public void setClasss(String classs) {
-        this.classs = classs;
-    }
-
-    private jiaoxue jiaoxue;
-    private String classs;
+    private TEACH Course;
 }

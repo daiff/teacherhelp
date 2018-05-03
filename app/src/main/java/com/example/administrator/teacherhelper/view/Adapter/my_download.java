@@ -73,7 +73,6 @@ public class my_download extends Activity {
                     if (list.size()!=0){
                     adapter=new materialAdapter(list,my_download.this);
                     listt.setAdapter(adapter);
-
                     listt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {

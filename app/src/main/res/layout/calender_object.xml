@@ -7,8 +7,10 @@
     <EditText
         android:padding="12dp"
         android:id="@+id/jxmd_detial"
-        android:background="@null"
+        android:background="@drawable/item_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:hint="请输入内容"/>
 
 </LinearLayout>

@@ -79,9 +79,9 @@ public class Program_Detial extends Activity {
 
     private void initView() {
         title.setText("教学大纲");
-        jxjdCourse.setText(program.getJiaoxue().getKe().getDespration() + "(" + program.getJiaoxue().getNature().getDespration() + ")");
-        jxjdYear.setText(program.getJiaoxue().getSchoolyear().getDespration());
-        jxdgCredit.setText(program.getJiaoxue().getKe().getCredit());
+        jxjdCourse.setText(program.getCourse().getCourse().getDespration() + "(" + program.getCourse().getNature().getDespration() + ")");
+        jxjdYear.setText(program.getCourse().getSchoolyear().getDespration());
+//        jxdgCredit.setText(program.getJiaoxue().getKe().getCredit());
         Hours.setText(program.getHours());
         ObjectOriented.setText(program.getObject_oriented());
         major.setText(program.getMajor());
