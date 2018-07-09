@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.administrator.teacherhelper.bean.TCH_program;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.bean.TCH_program;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -97,53 +98,57 @@ public class Program_Detial extends Activity {
         finish();
     }
 
-    @OnClick({R.id.xueshianpai, R.id.jxnryyq, R.id.ability, R.id.contact, R.id.check, R.id.book,R.id.object})
+    @OnClick({R.id.xueshianpai, R.id.jxnryyq, R.id.ability, R.id.contact, R.id.check, R.id.book, R.id.object})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.xueshianpai:
-                Intent intent1 = new Intent(Program_Detial.this,Program_Time.class);
-                intent1.putExtra("programid",program.getObjectId());
-                intent1.putExtra("souce","time");
-                intent1.putExtra("resource","detial");
+                Intent intent1 = new Intent(Program_Detial.this, Program_Time.class);
+                intent1.putExtra("programid", program.getObjectId());
+                intent1.putExtra("souce", "time");
+                intent1.putExtra("resource", "detial");
                 startActivity(intent1);
                 break;
             case R.id.jxnryyq:
-                Intent intent2 = new Intent(Program_Detial.this,Program_Time.class);
-                intent2.putExtra("programid",program.getObjectId());
-                intent2.putExtra("souce","");
-                intent2.putExtra("resource","detial");
+                Intent intent2 = new Intent(Program_Detial.this, Program_Time.class);
+                intent2.putExtra("programid", program.getObjectId());
+                intent2.putExtra("souce", "");
+                intent2.putExtra("resource", "detial");
                 startActivity(intent2);
                 break;
             case R.id.ability:
-                Intent intent3 = new Intent(Program_Detial.this,Program_Object.class);
-                intent3.putExtra("object",program.getAbility());
-                intent3.putExtra("key","对学生能力培养的要求");
-                intent3.putExtra("programid","");
+                Intent intent3 = new Intent(Program_Detial.this, Program_Object.class);
+                intent3.putExtra("object", program.getAbility());
+                intent3.putExtra("key", "对学生能力培养的要求");
+                intent3.putExtra("programid", "");
                 startActivity(intent3);
                 break;
             case R.id.contact:
-                Intent intent4 = new Intent(Program_Detial.this,Program_Object.class);
-                intent4.putExtra("object",program.getContact());
-                intent4.putExtra("key","各课程的联系");
-                intent4.putExtra("programid","");
+                Intent intent4 = new Intent(Program_Detial.this, Program_Object.class);
+                intent4.putExtra("object", program.getContact());
+                intent4.putExtra("key", "各课程的联系");
+                intent4.putExtra("programid", "");
                 startActivity(intent4);
                 break;
             case R.id.check:
-                Intent intent5 = new Intent(Program_Detial.this,Program_Object.class);
-                intent5.putExtra("object",program.getCheck());
-                intent5.putExtra("key","考核方式");
-                intent5.putExtra("programid","");
+                Intent intent5 = new Intent(Program_Detial.this, Program_Object.class);
+                intent5.putExtra("object", program.getCheck());
+                intent5.putExtra("key", "考核方式");
+                intent5.putExtra("programid", "");
                 startActivity(intent5);
                 break;
             case R.id.book:
+                Intent intent6 = new Intent(Program_Detial.this, Calendar_Book.class);
+                intent6.putExtra("calenderid", program.getCourse().getObjectId());
+                startActivity(intent6);
                 break;
             case R.id.object:
-                Intent intent = new Intent(Program_Detial.this,Program_Object.class);
-                intent.putExtra("object",program.getObject());
-                intent.putExtra("key","课程的任务和目的");
-                intent.putExtra("programid","");
+                Intent intent = new Intent(Program_Detial.this, Program_Object.class);
+                intent.putExtra("object", program.getObject());
+                intent.putExtra("key", "课程的任务和目的");
+                intent.putExtra("programid", "");
                 startActivity(intent);
                 break;
         }
     }
+
 }

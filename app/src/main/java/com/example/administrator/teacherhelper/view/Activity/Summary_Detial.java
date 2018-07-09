@@ -8,11 +8,19 @@ import android.widget.TextView;
 
 import com.example.administrator.teacherhelper.bean.TCH_worksum;
 import com.example.administrator.teacherhelper.R;
+import com.example.administrator.teacherhelper.bean.TEACH;
+import com.example.administrator.teacherhelper.bean.book;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobPointer;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by Administrator on 2018/3/19 0019.
@@ -104,7 +112,6 @@ public class Summary_Detial extends Activity {
         gzzjMajor.setText(worksum.getTeach().getTeacher().getXi().getDespration());
         gzzjPersonnum.setText(worksum.getTeach().getTeam().getTotal_person());
         gzzjHour.setText(worksum.getLilun_hour());
-//        gzzjBook.setText(worksum.getTeach().getBook().getDespration());
         gzzjKaizhan.setText(worksum.getWork_kaizhan());
         gzzjWanch.setText(worksum.getWork_wanch());
         gzzjPigai.setText(worksum.getPigai());
@@ -119,11 +126,33 @@ public class Summary_Detial extends Activity {
         gzzjBlbjg.setText(worksum.getBjglv());
         gzzjShifen.setText(worksum.getShifen());
         gzzjProblem.setText(worksum.getProblem());
+        BmobQuery<book> query = new BmobQuery<book>();
+        TEACH post = new TEACH();
+        post.setObjectId(worksum.getTeach().getObjectId());
+//likes是Post表中的字段，用来存储所有喜欢该帖子的用户
+        query.addWhereRelatedTo("Book", new BmobPointer(post));
+        query.findObjects(new FindListener<book>() {
 
+            @Override
+            public void done(List<book> object, BmobException e) {
+                if(e==null){
+                    if (object.size()!=0){
+                        gzzjBook.setText(object.get(0).getDespration());
+                    }else {
+                        gzzjBook.setText("");
+                    }
+                }else{
+                    gzzjBook.setText("");
+                }
+            }
+
+        });
     }
 
     private void first() {
         worksum = (TCH_worksum) getIntent().getSerializableExtra("tch_worksum");
+        // 查询喜欢这个帖子的所有用户，因此查询的是用户表
+
     }
 
     @OnClick(R.id.back1)

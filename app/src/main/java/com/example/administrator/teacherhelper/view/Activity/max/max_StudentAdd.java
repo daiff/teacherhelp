@@ -162,6 +162,7 @@ public class max_StudentAdd extends Activity {
                 info.save(new SaveListener<String>() {
                     @Override
                     public void done(String s, BmobException e) {
+                        getLoadingDialog().dismiss();
                         if (e==null){
                             Toast.makeText(max_StudentAdd.this, "成功", Toast.LENGTH_SHORT).show();
                         }else {

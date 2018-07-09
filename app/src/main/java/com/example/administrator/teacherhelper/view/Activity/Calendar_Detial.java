@@ -128,7 +128,7 @@ public class Calendar_Detial extends Activity {
                 break;
             case R.id.book:
                 Intent intent1 = new Intent(Calendar_Detial.this, Calendar_Book.class);
-                intent1.putExtra("calenderid", calender.getObjectId());
+                intent1.putExtra("calenderid", calender.getCourse().getObjectId());
                 startActivity(intent1);
                 break;
             case R.id.anpai_detial:

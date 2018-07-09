@@ -79,6 +79,7 @@ public class Max_StudentDetial extends Activity {
         if (!(classid.equals(""))) {
             student.addWhereEqualTo("classs", classid);
         }
+        student.setLimit(50);
         student.findObjects(new FindListener<STUDENT>() {
             @Override
             public void done(final List<STUDENT> list, BmobException e) {

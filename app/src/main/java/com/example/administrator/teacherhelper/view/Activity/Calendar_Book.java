@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.administrator.teacherhelper.R;
 import com.example.administrator.teacherhelper.bean.TCH_calender;
+import com.example.administrator.teacherhelper.bean.TEACH;
 import com.example.administrator.teacherhelper.bean.book;
 import com.example.administrator.teacherhelper.view.Adapter.book_adapter;
 
@@ -65,7 +66,7 @@ public class Calendar_Book extends Activity {
     private void initData() {
 
         BmobQuery<book> bbook = new BmobQuery<>();
-        TCH_calender calender = new TCH_calender();
+        TEACH calender = new TEACH();
         calender.setObjectId(calenderid);
 
         bbook.addWhereRelatedTo("Book", new BmobPointer(calender));
